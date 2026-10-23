@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDAH — Tratamentos | Dr. Guido Boabaid May</title>
+  <link rel="canonical" href="https://guidoboabaid.com.br/tratamentos-tdah.html">
+  <meta name="description" content="O TDAH é um transtorno do neurodesenvolvimento que pode afetar a atenção, a organização, o controle de impulsos e, em alguns casos, a regulação da atividade motora.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="TDAH — Tratamentos | Dr. Guido Boabaid May">
+  <meta property="og:description" content="O TDAH é um transtorno do neurodesenvolvimento que pode afetar a atenção, a organização, o controle de impulsos e, em alguns casos, a regulação da atividade motora.">
+  <meta property="og:image" content="https://guidoboabaid.com.br/tdah-hero.png">
+  <meta property="og:image:alt" content="TDAH — Tratamentos | Dr. Guido Boabaid May">
+  <meta property="og:url" content="https://guidoboabaid.com.br/tratamentos-tdah.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TDAH — Tratamentos | Dr. Guido Boabaid May">
+  <meta name="twitter:description" content="O TDAH é um transtorno do neurodesenvolvimento que pode afetar a atenção, a organização, o controle de impulsos e, em alguns casos, a regulação da atividade motora.">
+  <meta name="twitter:image" content="https://guidoboabaid.com.br/tdah-hero.png">
+  <link rel="icon" type="image/png" href="favicon-guido-rounded.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy: #18385f; --navy-mid: #24486f; --navy-light: #edf2f6; --teal: #1a7f8a; --green: #25d366; --green-dark: #1aab52; --white: #ffffff; --off-white: #f6f8fa; --text-light: #203858; --text-muted: #5a6f93; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; } html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--navy); }
+    img { max-width: 100%; height: auto; }
+    .audio-player-bar { position: fixed !important; top: 0; left: 0; right: 0; z-index: 2147483647 !important; height: 42px; min-height: 42px; background: var(--off-white); display: flex; align-items: center; justify-content: center; padding: 5px 5%; border-bottom: 1px solid rgba(24,56,95,.10); box-shadow: 0 3px 14px rgba(24,56,95,.08); }
+    .audio-player-inner { width: min(100%, 720px); display: flex; align-items: center; gap: 12px; color: var(--navy); }
+    .audio-toggle { width: 30px; height: 30px; border: 0; border-radius: 50%; background: var(--navy); color: var(--white); display: grid; place-items: center; cursor: pointer; box-shadow: 0 5px 16px rgba(24,56,95,.18); flex: 0 0 30px; }
+    .audio-toggle svg { width: 14px; height: 14px; fill: currentColor; }
+    .audio-meta { min-width: 120px; } .audio-player-title { display: block; color: var(--navy); font-size: 12px; font-weight: 700; }
+    .audio-status { display: block; color: rgba(24,56,95,.72); font-size: 10px; margin-top: 1px; }
+    .audio-progress { position: relative; flex: 1; height: 6px; border-radius: 999px; background: rgba(24,56,95,.18); overflow: hidden; }
+    .audio-progress span { position: absolute; inset: 0 auto 0 0; width: 0%; border-radius: inherit; background: var(--navy); }
+    .audio-time { color: rgba(24,56,95,.82); font-size: 11px; min-width: 78px; text-align: right; }
+    header { position: fixed; top: 42px; left: 0; right: 0; z-index: 2000; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(24,56,95,.12); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; box-shadow: 0 4px 22px rgba(24,56,95,.08); }
+    .logo-wrap { display: flex; align-items: center; text-decoration: none; } .logo-wrap img { filter: invert(1) brightness(.45) sepia(1) saturate(1.5) hue-rotate(173deg); height: 42px; width: auto; }
+    nav { display: flex; align-items: center; gap: 40px; }
+    nav a { color: var(--navy); text-decoration: none; font-size: 15px; font-weight: 500; transition: color .2s; }
+    nav a:hover { color: var(--teal); }
+    .nav-dropdown { position: relative; }
+    .dropdown-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--navy); font-size: 15px; font-weight: 500; }
+    .dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(12px); border: 1px solid rgba(24,56,95,.12); border-radius: 12px; min-width: 280px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all .3s; z-index: 1000; box-shadow: 0 4px 22px rgba(24,56,95,.12); }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-menu a { display: block; padding: 12px 20px; color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; border-bottom: 1px solid rgba(24,56,95,.08); transition: background .2s; }
+    .dropdown-menu a:last-child { border-bottom: none; }
+    .dropdown-menu a:hover { background: rgba(24,56,95,.05); color: var(--teal); }
+    .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: var(--white); padding: 9px 20px; border-radius: 30px; font-size: 13.5px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .btn-cta:hover { background: var(--green-dark); }
+    #hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    #hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+    #hero { min-height: 80vh; background: linear-gradient(135deg, var(--off-white) 0%, rgba(26,127,138,.06) 100%); padding: calc(42px + 68px + 60px) 5% 60px; display: flex; align-items: center; justify-content: center; }
+    .hero-container { max-width: 1280px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero-content { display: flex; flex-direction: column; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(26,127,138,.12); color: var(--teal); padding: 10px 18px; border-radius: 30px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; width: fit-content; margin-bottom: 24px; }
+    .hero-title { font-size: clamp(2.8rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; color: var(--navy); margin-bottom: 20px; }
+    .hero-title-underline { width: 80px; height: 5px; background: var(--teal); border-radius: 3px; margin-bottom: 32px; }
+    .hero-text { font-size: 1.05rem; line-height: 1.8; color: var(--text-light); margin-bottom: 32px; max-width: 450px; }
+    .hero-image-container { width: 100%; max-width: 450px; height: 600px; background: linear-gradient(135deg, rgba(237,242,246,.8), rgba(26,127,138,.1)); border-radius: 40px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-image-container img { width: 100%; height: 100%; object-fit: cover; border-radius: 40px; }
+    @media (max-width: 1024px) { .hero-container { grid-template-columns: 1fr; gap: 40px; } .hero-image-container { width: 100%; max-width: 450px; height: 600px; background: linear-gradient(135deg, rgba(237,242,246,.8), rgba(26,127,138,.1)); border-radius: 40px; display: flex; align-items: center; justify-content: center; overflow: hidden; } }
+    @media (max-width: 768px) { .hero-container { gap: 24px; } .hero-title { font-size: clamp(2rem, 4vw, 2.8rem); } .hero-image-container { width: 100%; max-width: 450px; height: 600px; background: linear-gradient(135deg, rgba(237,242,246,.8), rgba(26,127,138,.1)); border-radius: 40px; display: flex; align-items: center; justify-content: center; overflow: hidden; } }
+    section { padding: 90px 5%; } .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--navy); margin-bottom: 48px; }
+    .treatment-card { max-width: 1180px; margin: 0 auto 48px; }
+    .treatment-section { margin-bottom: 24px; }
+    .treatment-section-title { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .treatment-text { font-size: 1rem; line-height: 1.75; color: var(--text-light); margin-bottom: 12px; }
+    .medicina-section { background: var(--off-white); }
+    .medicina-text { font-size: 1rem; line-height: 1.75; color: var(--text-light); }
+    footer { background: var(--navy); padding: 48px 5% 26px; color: var(--white); }
+    .footer-inner { max-width: 1280px; margin: 0 auto 34px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; align-items: start; }
+    .footer-logo { height: 34px; width: auto; display: block; margin-bottom: 18px; }
+    .footer-brand p { max-width: 360px; font-size: 14px; line-height: 1.55; margin: 0 0 68px; color: rgba(255,255,255,.92); }
+    .footer-crm { font-size: 13px; color: rgba(255,255,255,.86); }
+    footer h4 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .footer-contact a, .footer-contact span { color: rgba(255,255,255,.94); text-decoration: none; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; }
+    .footer-contact svg { width: 16px; height: 16px; fill: currentColor; }
+    .footer-socials { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px; }
+    .footer-socials a { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.12); color: var(--white); display: inline-grid; place-items: center; text-decoration: none; }
+    .footer-socials a:hover { background: rgba(255,255,255,.2); }
+    .footer-socials svg { width: 18px; height: 18px; fill: currentColor; }
+    .footer-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 260px; background: var(--green); color: var(--white); padding: 14px 28px; border-radius: 30px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background .2s; }
+    .footer-btn:hover { background: var(--green-dark); }
+    .footer-action { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 54px; }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.16); padding-top: 20px; text-align: center; font-size: 12.5px; color: rgba(255,255,255,.72); }
+    @media (max-width: 768px) { #hamburger { display: flex; } #main-nav { display: none; position: fixed; top: 110px; bottom: 0; left: 0; right: 0; overflow-y: auto; overscroll-behavior: contain; background: rgba(255,255,255,.98); flex-direction: column; padding: 20px 5%; z-index: 999; } #main-nav.open { display: flex; } .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; background: rgba(24,56,95,.05); border: none; box-shadow: none; margin-top: 8px; } }
+  </style>
+</head>
+<body>
+<div class="audio-player-bar">
+  <div class="audio-player-inner">
+    <button class="audio-toggle" id="audio-toggle"><svg class="audio-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <div class="audio-meta"><span class="audio-player-title">Tímida</span><span class="audio-status" id="audio-status">Música de fundo</span></div>
+    <div class="audio-progress"><span id="audio-progress-fill"></span></div>
+    <span class="audio-time" id="audio-time">0:00 / 0:00</span>
+    <audio id="timida-audio" preload="auto" loop playsinline><source src="timida.mp3" type="audio/mpeg"></audio>
+  </div>
+</div>
+
+<header>
+  <a class="logo-wrap" href="index.html"><img src="logo.png" alt="Dr. Guido Boabaid" decoding="async"></a>
+  <nav id="main-nav">
+    <a href="index.html#hero" onclick="closeMenu()">Home</a>
+    <div class="nav-dropdown">
+      <div class="dropdown-toggle">Tratamentos</div>
+      <div class="dropdown-menu">
+        <a href="tratamentos-ansiedade.html" onclick="closeMenu()">Ansiedade</a>
+        <a href="tratamentos-depressao.html" onclick="closeMenu()">Depressão</a>
+        <a href="tratamentos-tdah.html" onclick="closeMenu()">TDAH</a>
+        <a href="tratamentos-insonia.html" onclick="closeMenu()">Distúrbios do Sono e Insônia</a>
+        <a href="tratamentos-bipolar.html" onclick="closeMenu()">Transtorno Bipolar</a>
+        <a href="tratamentos-esquizofrenia.html" onclick="closeMenu()">Esquizofrenia</a>
+        <a href="tratamentos-burnout.html" onclick="closeMenu()">Burnout</a>
+        <a href="tratamentos-alimentares.html" onclick="closeMenu()">Transtornos Alimentares</a>
+      </div>
+    </div>
+    <a href="index.html#farmacogenetica" onclick="closeMenu()">Farmacogenética</a>
+    <a href="medicina-personalizada.html" onclick="closeMenu()">Medicina Personalizada</a>
+    <a href="palestras.html" onclick="closeMenu()">Palestras</a>
+    <a href="livro.html" onclick="closeMenu()">Livro</a>
+    <a href="index.html#blog" onclick="closeMenu()">Imprensa</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a class="btn-cta" href="https://wa.me/5548998510053" target="_blank"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Agende sua consulta</a>
+    <button id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">Tratamento Personalizado</div>
+      <h1 class="hero-title">TDAH</h1>
+      <div class="hero-title-underline"></div>
+      <p class="hero-text">O TDAH é um transtorno do neurodesenvolvimento que pode afetar a atenção, a organização, o controle de impulsos e, em alguns casos, a regulação da atividade motora. Sua fisiopatologia envolve alterações em circuitos cerebrais relacionados às funções executivas, especialmente aqueles mediados por neurotransmissores como dopamina e noradrenalina.</p>
+    </div>
+    <div class="hero-image-container">
+      <img src="tdah-hero.png" alt="TDAH" decoding="async" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div style="max-width: 1180px; margin: 0 auto;">
+    <div class="treatment-card">
+      <div class="treatment-section">
+        <h3 class="treatment-section-title">Sintomas</h3>
+        <p class="treatment-text">Os principais sintomas incluem desatenção, dificuldade de manter o foco, procrastinação, desorganização, esquecimentos frequentes, impulsividade, inquietação e dificuldade de concluir tarefas. Para caracterizar o transtorno, os sintomas costumam estar presentes desde a infância, persistir por pelo menos seis meses e causar prejuízo em mais de um contexto, como estudos, trabalho, vida familiar ou relações sociais.</p>
+      </div>
+      <div class="treatment-section">
+        <h3 class="treatment-section-title">Forma de Diagnóstico</h3>
+        <p class="treatment-text">O diagnóstico é realizado por meio de avaliação clínica detalhada, considerando a história de vida, os sintomas atuais, o funcionamento em diferentes ambientes e a presença de prejuízo funcional. Escalas e entrevistas estruturadas podem auxiliar na avaliação, mas o diagnóstico é essencialmente clínico.</p>
+      </div>
+      <div class="treatment-section">
+        <h3 class="treatment-section-title">Forma de Tratamento</h3>
+        <p class="treatment-text">O tratamento é individualizado e pode incluir orientação psicoeducativa, estratégias comportamentais, organização da rotina, psicoterapia e, quando indicado, medicações que auxiliam no foco, no controle da impulsividade e no desempenho nas atividades do dia a dia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="medicina-section">
+  <div style="max-width: 1180px; margin: 0 auto;">
+    <h2 class="section-title">Medicina Personalizada</h2>
+    <p class="medicina-text">A Clínica Dr. Guido Boabaid é referência em Psiquiatria de Precisão, integrando ciência, tecnologia e atenção personalizada no cuidado à saúde mental. Nossa metodologia, desenvolvida pelo Dr. Guido ao longo de mais de 32 anos de prática clínica, tem como base a medicina clássica, psicoterapia e a Farmacogenética — recursos que permitem compreender as necessidades de cada pessoa, tornando os tratamentos mais seguros, assertivos e individualizados. Aqui, cada paciente é único. Os planos terapêuticos são construídos de forma personalizada, considerando aspectos biológicos, emocionais e contextuais.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img class="footer-logo" src="logo.png" alt="Dr. Guido Boabaid" decoding="async">
+      <p>Mais de 30 anos como psiquiatra e psicoterapeuta.<br>Médico do Corpo Clínico do Hospital Israelita Albert Einstein.</p>
+      <div class="footer-crm">CRM/SC 5432 &nbsp;//&nbsp; CRM/SP 196454</div>
+    </div>
+    <div class="footer-contact">
+      <h4>Entre em Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5548998510053" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> (48) 99851-0053</a></li>
+        <li><a href="tel:+554832243887"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.05 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg> (48) 3224-3887</a></li>
+        <li><a href="mailto:contato@guidoboabaid.com.br"><svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>contato@guidoboabaid.com.br</a></li>
+        <li><span><svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor; margin-right: 8px; display: inline-block; vertical-align: middle;"><path d="M17 2H7c-1.1 0-1.99.9-1.99 2v16c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 18c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-3H7V4h10v13z"/></svg>Palestras:<br>(48) 99632-1262</span></li>
+      </ul>
+    </div>
+    <div class="footer-action">
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/drguidoboabaid/" target="_blank"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
+        <a href="https://www.linkedin.com/in/guido-boabaid-may-86896a93/" target="_blank"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.25 0h3.83v1.5h.05c.53-.95 1.84-1.95 3.78-1.95 4.04 0 4.79 2.66 4.79 6.12v5.33h-4v-4.72c0-1.13-.02-2.58-1.57-2.58-1.57 0-1.81 1.23-1.81 2.5v4.8h-4.07v-11z"/></svg></a>
+        <a href="https://www.facebook.com/guido.boabaidmay" target="_blank"><svg viewBox="0 0 24 24"><path d="M14 8.5V6.75c0-.84.19-1.25 1.35-1.25H17V2.15C16.2 2.05 15.42 2 14.64 2 11.57 2 10 3.86 10 7.27V8.5H7v3.75h3V22h4v-9.75h2.95l.55-3.75H14z"/></svg></a>
+        <a href="https://youtube.com/@drguidoboabaid" target="_blank"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.58 12 3.58 12 3.58s-7.5 0-9.38.5A3 3 0 0 0 .5 6.2A31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3 3 0 0 0 2.12-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+      </div>
+      <a class="footer-btn" href="https://wa.me/5548998510053" target="_blank"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Fale Conosco</a>
+    </div>
+  </div>
+  <div class="footer-bottom">Guido Boabaid May © 2026</div>
+</footer>
+
+<script>
+  const timidaAudio = document.getElementById('timida-audio');
+  const audioToggle = document.getElementById('audio-toggle');
+  const audioStatus = document.getElementById('audio-status');
+  const audioProgressFill = document.getElementById('audio-progress-fill');
+  const audioTime = document.getElementById('audio-time');
+  if (timidaAudio) {
+    timidaAudio.volume = 0.16;
+    timidaAudio.addEventListener('play', () => audioStatus.textContent = 'Tocando');
+    timidaAudio.addEventListener('pause', () => audioStatus.textContent = 'Pausado');
+    timidaAudio.addEventListener('timeupdate', () => {
+      const c = timidaAudio.currentTime, d = timidaAudio.duration;
+      if (audioProgressFill) audioProgressFill.style.width = d ? `${(c/d)*100}%` : '0%';
+      if (audioTime) audioTime.textContent = `${Math.floor(c/60)}:${String(Math.floor(c%60)).padStart(2,'0')} / ${Math.floor(d/60)}:${String(Math.floor(d%60)).padStart(2,'0')}`;
+    });
+    audioToggle.addEventListener('click', () => timidaAudio.paused ? timidaAudio.play() : timidaAudio.pause());
+    timidaAudio.play().catch(() => audioStatus.textContent = 'Autoplay bloqueado');
+  }
+  function toggleMenu() {
+    document.getElementById('main-nav').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('main-nav').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+</script>
+</body>
+</html>

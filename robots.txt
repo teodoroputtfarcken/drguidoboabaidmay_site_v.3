@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://guidoboabaid.com.br/sitemap.xml

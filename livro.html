@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May</title>
+  <link rel="canonical" href="https://guidoboabaid.com.br/livro.html">
+  <meta name="description" content="Onde Foi Parar Minha Alegria? — Um livro sobre depressão, esperança e o reencontro com si mesmo. Pela banda Dr. BM e Buzz Editora.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May">
+  <meta property="og:description" content="Onde Foi Parar Minha Alegria? — Um livro sobre depressão, esperança e o reencontro com si mesmo. Pela banda Dr. BM e Buzz Editora.">
+  <meta property="og:image" content="https://guidoboabaid.com.br/livro-capa.png">
+  <meta property="og:image:alt" content="Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May">
+  <meta property="og:url" content="https://guidoboabaid.com.br/livro.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May">
+  <meta name="twitter:description" content="Onde Foi Parar Minha Alegria? — Um livro sobre depressão, esperança e o reencontro com si mesmo. Pela banda Dr. BM e Buzz Editora.">
+  <meta name="twitter:image" content="https://guidoboabaid.com.br/livro-capa.png">
+  <link rel="icon" type="image/png" href="favicon-guido-rounded.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:       #18385f;
+      --navy-mid:   #24486f;
+      --navy-light: #edf2f6;
+      --teal:       #1a7f8a;
+      --green:      #25d366;
+      --green-dark: #1aab52;
+      --accent:     #18385f;
+      --white:      #ffffff;
+      --off-white:  #f6f8fa;
+      --text-light: #203858;
+      --text-muted: #5a6f93;
+      --radius:     14px;
+      --shadow:     0 8px 40px rgba(0,0,0,.25);
+      --shadow-sm:  0 4px 16px rgba(0,0,0,.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--navy); }
+    img { max-width: 100%; height: auto; }
+
+    .audio-player-bar {
+      position: fixed !important; top: 0; left: 0; right: 0; z-index: 2147483647 !important;
+      height: 42px;
+      min-height: 42px;
+      background: var(--off-white);
+      display: flex; align-items: center; justify-content: center;
+      padding: 5px 5%;
+      border-bottom: 1px solid rgba(24,56,95,.10);
+      box-shadow: 0 3px 14px rgba(24,56,95,.08);
+    }
+    .audio-player-inner { width: min(100%, 720px); display: flex; align-items: center; gap: 12px; color: var(--navy); }
+    .audio-toggle { width: 30px; height: 30px; border: 0; border-radius: 50%; background: var(--navy); color: var(--white); display: grid; place-items: center; cursor: pointer; box-shadow: 0 5px 16px rgba(24,56,95,.18); flex: 0 0 30px; }
+    .audio-toggle svg { width: 14px; height: 14px; fill: currentColor; }
+    .audio-meta { min-width: 120px; }
+    .audio-player-title { display: block; color: var(--navy); font-size: 12px; font-weight: 700; line-height: 1.15; }
+    .audio-status { display: block; color: rgba(24,56,95,.72); font-size: 10px; margin-top: 1px; }
+    .audio-progress { position: relative; flex: 1; height: 6px; border-radius: 999px; background: rgba(24,56,95,.18); overflow: hidden; }
+    .audio-progress span { position: absolute; inset: 0 auto 0 0; width: 0%; border-radius: inherit; background: var(--navy); }
+    .audio-time { color: rgba(24,56,95,.82); font-size: 11px; font-variant-numeric: tabular-nums; min-width: 78px; text-align: right; }
+    .audio-player-bar audio { display: none; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 42px; left: 0; right: 0; z-index: 2000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(24,56,95,.12);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      box-shadow: 0 4px 22px rgba(24,56,95,.08);
+    }
+
+    .logo-wrap { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+    .logo-wrap img { filter: invert(1) brightness(.45) sepia(1) saturate(1.5) hue-rotate(173deg); height: 42px; width: auto; }
+    .logo-text { font-size: 13px; font-weight: 600; letter-spacing: .5px; color: var(--navy); text-transform: uppercase; }
+
+    nav { display: flex; align-items: center; gap: 40px; }
+    nav a { color: var(--navy); text-decoration: none; font-size: 15px; font-weight: 500; transition: color .2s; }
+    nav a:hover { color: var(--teal); }
+  .nav-dropdown { position: relative; }
+  .dropdown-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--navy); font-size: 15px; font-weight: 500; }
+  .dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(12px); border: 1px solid rgba(24,56,95,.12); border-radius: 12px; min-width: 280px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all .3s; z-index: 1000; box-shadow: 0 4px 22px rgba(24,56,95,.12); }
+  .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .dropdown-menu a { display: block; padding: 12px 20px; color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; border-bottom: 1px solid rgba(24,56,95,.08); transition: background .2s; }
+  .dropdown-menu a:last-child { border-bottom: none; }
+  .dropdown-menu a:hover { background: rgba(24,56,95,.05); color: var(--teal); }
+
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--white);
+      padding: 9px 20px; border-radius: 30px;
+      font-size: 13.5px; font-weight: 600; text-decoration: none;
+      transition: background .2s, transform .15s; white-space: nowrap;
+    }
+    .btn-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+    #hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    #hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform .3s, opacity .3s; }
+    #hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #hamburger.open span:nth-child(2) { opacity: 0; }
+    #hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--off-white) 0%, rgba(26,127,138,.06) 100%);
+      padding: calc(42px + 68px + 80px) 5% 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+      align-items: center;
+      gap: 60px;
+      position: relative; overflow: hidden;
+    }
+
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 72% 52%, rgba(26,127,138,.08) 0%, transparent 58%);
+      pointer-events: none;
+    }
+
+    .hero-left { position: relative; z-index: 2; }
+    .book-cover-hero {
+      width: 100%;
+      max-width: 650px;
+      border-radius: 20px;
+      box-shadow: 0 28px 60px rgba(24,56,95,.18);
+      overflow: hidden;
+      border: 1px solid rgba(24,56,95,.08);
+    }
+    .book-cover-hero img { width: 100%; height: auto; display: block; }
+
+    .hero-right { position: relative; z-index: 2; max-width: 680px; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(26,127,138,.12); border: 1px solid rgba(26,127,138,.24);
+      color: var(--teal); font-size: 11.5px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 6px 16px; border-radius: 30px; margin-bottom: 20px;
+    }
+    .hero-title { font-size: clamp(2.2rem, 4.2vw, 3.2rem); font-weight: 800; line-height: 1.1; color: var(--navy); margin-bottom: 16px; }
+    .hero-subtitle {
+      font-size: 1.15rem; color: var(--teal); font-weight: 600; line-height: 1.4;
+      margin-bottom: 24px; letter-spacing: .3px;
+    }
+    .hero-excerpt {
+      font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 400; line-height: 1.8;
+      color: var(--text-light); margin-bottom: 32px; font-style: italic;
+      background: var(--white); padding: 20px 24px; border-left: 4px solid var(--teal);
+      border-radius: 0 var(--radius) var(--radius) 0; box-shadow: var(--shadow-sm);
+    }
+    .hero-meta {
+      display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px;
+      font-size: 14px; color: var(--text-muted);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 8px; }
+    .hero-meta strong { color: var(--navy); font-weight: 600; }
+
+    .hero-ctas {
+      display: flex; flex-wrap: wrap; gap: 14px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--white);
+      padding: 14px 28px; border-radius: 30px; font-size: 15px; font-weight: 600; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(37,211,102,.35); transition: all .2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .btn-primary.amazon {
+      background: #FF9900; box-shadow: 0 6px 24px rgba(255,153,0,.35);
+    }
+    .btn-primary.amazon:hover { background: #E68800; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--navy);
+      padding: 14px 28px; border-radius: 30px; font-size: 15px; font-weight: 600; text-decoration: none;
+      border: 2px solid var(--navy); transition: all .2s; cursor: pointer;
+    }
+    .btn-secondary:hover { background: var(--navy); color: var(--white); }
+    .btn-secondary.audiomack {
+      background: #FFA500; color: var(--white); border-color: #FFA500;
+      box-shadow: 0 6px 24px rgba(255,165,0,.35);
+    }
+    .btn-secondary.audiomack:hover { background: #E69500; border-color: #E69500; }
+    .btn-secondary.spotify-outline {
+      background: #1DB954; color: var(--white); border: 2px solid #1DB954;
+      box-shadow: 0 6px 24px rgba(29,185,84,.35); padding: 14px 28px; border-radius: 30px; display: inline-flex; align-items: center; gap: 8px;
+      transition: all .2s;
+    }
+    .btn-secondary.spotify-outline:hover { background: #1DB954; border-color: #1DB954; transform: translateY(-2px); }
+
+    /* SECTIONS */
+    section { padding: 90px 5%; }
+    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.2; color: var(--navy); margin-bottom: 12px; }
+    .section-sub { font-size: 16px; color: var(--text-muted); max-width: 100%; margin: 0 auto; }
+
+    /* TRILHA SONORA */
+    #trilha { background: var(--navy); color: var(--white); position: relative; overflow: hidden; }
+    #trilha::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.08) 0%, transparent 58%);
+      pointer-events: none;
+    }
+    .trilha-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 2; }
+    .trilha-header { text-align: center; margin-bottom: 50px; }
+    #trilha .section-title { color: var(--white); }
+    #trilha .section-sub { color: rgba(255,255,255,.82); max-width: 680px; margin: 0 auto; }
+
+    .trilha-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .trilha-left { }
+    .trilha-left p { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,.92); margin-bottom: 24px; }
+    .trilha-left strong { color: var(--white); }
+
+    .trilha-player {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px; padding: 28px; backdrop-filter: blur(10px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.2);
+    }
+    .player-title { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 16px; display: block; }
+    .iframe-wrapper {
+      position: relative; width: 100%; padding-bottom: 100%; height: 0;
+      overflow: hidden; border-radius: 14px; background: rgba(0,0,0,.4);
+    }
+    .iframe-wrapper iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+    }
+
+    .trilha-right { }
+    .tracklist { display: flex; flex-direction: column; gap: 16px; }
+    .track-item {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px; padding: 18px 22px; display: flex; align-items: center;
+      gap: 16px; transition: all .2s;
+    }
+    .track-item:hover { background: rgba(255,255,255,.1); transform: translateX(4px); }
+    .track-num {
+      width: 40px; height: 40px; border-radius: 50%; background: rgba(37,211,102,.2);
+      display: grid; place-items: center; color: var(--green); font-size: 14px; font-weight: 700;
+      flex: 0 0 40px;
+    }
+    .track-info h4 { font-size: 14.5px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .track-info p { font-size: 12px; color: rgba(255,255,255,.66); }
+
+    /* SINOPSE */
+    #sinopse { background: var(--off-white); }
+    .sinopse-inner { max-width: 900px; margin: 0 auto; }
+    .sinopse-header { text-align: center; margin-bottom: 50px; }
+    .sinopse-body {
+      font-family: 'Lora', serif; font-size: 1.1rem; line-height: 1.95;
+      color: var(--text-light); margin-bottom: 40px;
+    }
+    .sinopse-body p { margin-bottom: 20px; }
+    .sinopse-body p strong { color: var(--navy); font-weight: 600; }
+    .sinopse-highlight {
+      background: linear-gradient(120deg, rgba(26,127,138,.1), rgba(37,211,102,.1));
+      border-left: 4px solid var(--teal); padding: 24px; border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 28px 0;
+    }
+    .sinopse-quote {
+      font-family: 'Lora', serif; font-size: 1.3rem; line-height: 1.6; font-style: italic;
+      color: var(--navy); text-align: center; margin: 40px 0;
+    }
+
+    /* EVENTO */
+    #evento { background: var(--navy); color: var(--white); }
+    .evento-inner { max-width: 1180px; margin: 0 auto; }
+    .evento-header { text-align: center; margin-bottom: 50px; }
+    #evento .section-title { color: var(--white); }
+    #evento .section-sub { color: rgba(255,255,255,.82); max-width: 680px; margin: 0 auto; }
+
+    .evento-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .evento-info h3 { font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+    .evento-info p { font-size: 15px; line-height: 1.75; color: rgba(255,255,255,.92); margin-bottom: 24px; }
+    .evento-details {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px; padding: 24px; margin-bottom: 28px;
+    }
+    .detail-row {
+      display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px;
+    }
+    .detail-row:last-child { margin-bottom: 0; }
+    .detail-icon { flex: 0 0 24px; color: var(--green); font-size: 18px; margin-top: 2px; }
+    .detail-text { flex: 1; }
+    .detail-text .label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.66); display: block; margin-bottom: 4px; }
+    .detail-text .value { font-size: 15px; color: var(--white); font-weight: 500; }
+
+    .evento-gallery {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .gallery-item {
+      aspect-ratio: 1; border-radius: 12px; overflow: hidden;
+      background: rgba(0,0,0,.2); box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* DEPOIMENTOS */
+    #depoimentos { background: var(--off-white); }
+    .depo-header { text-align: center; margin-bottom: 50px; }
+    .depo-carousel { position: relative; max-width: 1180px; margin: 0 auto; }
+    .depo-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding: 0 0 12px; }
+    .depo-track::-webkit-scrollbar { display: none; }
+    .depo-card { flex: 0 0 calc((100% - 24px) / 2); background: var(--white); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-sm); scroll-snap-align: start; display: flex; flex-direction: column; gap: 20px; }
+    .depo-text { font-size: 15px; line-height: 1.7; color: var(--text-light); flex: 1; font-style: italic; }
+    .depo-author strong { display: block; font-size: 15px; color: var(--navy); margin-bottom: 3px; font-weight: 600; }
+    .depo-author span { font-size: 13px; color: var(--text-muted); }
+    .depo-source { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--teal); }
+
+    .depo-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: none; border-radius: 50%; background: var(--white); color: var(--navy); box-shadow: var(--shadow-sm); font-size: 2.1rem; line-height: 1; display: grid; place-items: center; cursor: pointer; z-index: 2; }
+    .depo-prev { left: -64px; }
+    .depo-next { right: -64px; }
+
+    /* SOBRE O AUTOR */
+    #autor { background: var(--navy-mid); color: var(--white); }
+    .autor-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: start; }
+    .autor-photo { }
+    .autor-photo img { width: 100%; border-radius: 16px; box-shadow: 0 16px 40px rgba(0,0,0,.2); }
+    .autor-content h3 { font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .autor-content p { font-size: 15px; line-height: 1.75; color: rgba(255,255,255,.92); margin-bottom: 20px; }
+    .autor-credentials {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px; padding: 20px; margin: 28px 0;
+    }
+    .autor-credentials .label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.66); display: block; margin-bottom: 8px; }
+    .autor-credentials .value { font-size: 14px; color: var(--white); }
+    .autor-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--white);
+      padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: all .2s;
+    }
+    .autor-link:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+    /* CTA FINAL */
+    #cta-final { background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+    #cta-final::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.08) 0%, transparent 58%); }
+    #cta-final > * { position: relative; z-index: 2; }
+    .cta-title { font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 700; line-height: 1.15; margin-bottom: 16px; }
+    .cta-sub { font-size: 1.1rem; line-height: 1.6; color: rgba(255,255,255,.92); max-width: 680px; margin: 0 auto 48px; }
+    .cta-buttons { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .btn-buy {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--white);
+      padding: 16px 32px; border-radius: 30px; font-size: 15px; font-weight: 600;
+      text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,.35);
+      transition: all .2s; border: none; cursor: pointer;
+    }
+    .btn-buy:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .btn-buy.amazon {
+      background: #FF9900; box-shadow: 0 6px 24px rgba(255,153,0,.35);
+    }
+    .btn-buy.amazon:hover { background: #E68800; }
+    .btn-buy.spotify {
+      background: #1DB954; box-shadow: 0 6px 24px rgba(29,185,84,.35);
+    }
+    .btn-buy.spotify:hover { background: #17a349; }
+    .btn-buy.buzz {
+      background: #24486f; box-shadow: 0 6px 24px rgba(36,72,111,.35);
+    }
+    .btn-buy.buzz:hover { background: #18385f; }
+    .btn-buy.audiomack {
+      background: #FFA500; box-shadow: 0 6px 24px rgba(255,165,0,.35);
+    }
+    .btn-buy.audiomack:hover { background: #E69500; }
+    .btn-buy.secondary {
+      background: transparent; border: 2px solid var(--white); color: var(--white);
+      box-shadow: none;
+    }
+    .btn-buy.secondary:hover { background: rgba(255,255,255,.1); }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 48px 5% 26px; color: var(--white); }
+    .footer-inner { max-width: 1280px; margin: 0 auto 34px; display: grid; grid-template-columns: 1.25fr 1fr .9fr; gap: 64px; align-items: start; }
+    .footer-logo { height: 34px; width: auto; display: block; margin-bottom: 18px; filter: brightness(0) invert(1); }
+    .footer-brand p { max-width: 360px; font-size: 14px; line-height: 1.55; margin: 0 0 68px; color: rgba(255,255,255,.92); }
+    .footer-crm { font-size: 13px; color: rgba(255,255,255,.86); }
+    footer h4 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .footer-contact a, .footer-contact span { color: rgba(255,255,255,.94); text-decoration: none; font-size: 15px; line-height: 1.35; display: inline-flex; align-items: flex-start; gap: 12px; }
+    .footer-contact a:hover { color: var(--white); }
+    .footer-contact svg { width: 17px; height: 17px; flex: 0 0 17px; margin-top: 2px; fill: currentColor; }
+    .footer-action { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding-top: 54px; }
+    .footer-socials { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px; }
+    .footer-socials a { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.12); color: var(--white); display: inline-grid; place-items: center; text-decoration: none; transition: background .2s, transform .2s; }
+    .footer-socials a:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
+    .footer-socials svg { width: 18px; height: 18px; fill: currentColor; }
+    .footer-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 260px; background: var(--green); color: var(--white); padding: 14px 28px; border-radius: 30px; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,.35); transition: all .2s; }
+    .footer-btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .footer-btn svg { width: 20px; height: 20px; fill: currentColor; }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.16); padding-top: 20px; text-align: center; font-size: 12.5px; color: rgba(255,255,255,.72); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; gap: 40px; padding: 100px 5% 60px; }
+      .hero-left { order: 2; }
+      .hero-right { order: 1; }
+      .trilha-content { grid-template-columns: 1fr; gap: 40px; }
+      .evento-content { grid-template-columns: 1fr; gap: 40px; }
+      .evento-gallery { grid-template-columns: 1fr; }
+      .autor-inner { grid-template-columns: 1fr; gap: 40px; }
+      .autor-photo { max-width: 300px; margin: 0 auto; }
+      section { padding: 70px 5%; }
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 0 4%; height: 60px; }
+      #hamburger { display: flex; }
+      #main-nav { display: none; position: fixed; top: 102px; bottom: 0; left: 0; right: 0; overflow-y: auto; overscroll-behavior: contain; background: rgba(255,255,255,.98); backdrop-filter: blur(12px); flex-direction: column; align-items: stretch; padding: 20px 5%; gap: 0; z-index: 999; border-bottom: 1px solid rgba(24,56,95,.12); }
+      #main-nav.open { display: flex; }
+      #main-nav a { padding: 14px 0; border-bottom: 1px solid rgba(24,56,95,.08); }
+      header .btn-cta { display: none; }
+      .hero-title { font-size: 2rem; }
+      .hero-excerpt { font-size: .95rem; }
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .depo-card { flex-basis: 90%; }
+      .depo-nav { display: none; }
+      .tracklist { gap: 12px; }
+      .track-item { padding: 16px; }
+      .cta-buttons { flex-direction: column; }
+      .btn-buy { width: 100%; }
+    }
+
+    @media (max-width: 1024px) {
+      .footer-inner { grid-template-columns: 1.1fr 1fr; gap: 40px; }
+      .footer-action { grid-column: 1 / -1; justify-content: flex-start; padding-top: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .footer-logo { margin-left: auto; margin-right: auto; }
+      .footer-brand p { margin-left: auto; margin-right: auto; margin-bottom: 24px; }
+      .footer-contact a, .footer-contact span { justify-content: center; }
+      .footer-action { justify-content: center; padding-top: 0; }
+      .footer-btn { width: min(100%, 320px); }
+      .footer-bottom { font-size: 11px; }
+      .trilha-content { grid-template-columns: 1fr; gap: 40px; }
+      .trilha-left p { font-size: .95rem; }
+      .evento-content { grid-template-columns: 1fr; gap: 40px; }
+      .evento-gallery { grid-template-columns: 1fr; }
+      .autor-inner { grid-template-columns: 1fr; gap: 40px; padding: 0 20px; }
+      .autor-photo { max-width: 250px; margin: 0 auto; }
+      section { padding: 60px 5%; }
+      .section-title { font-size: 1.6rem; }
+      .section-sub { font-size: 14px; }
+      .cta-title { font-size: 1.5rem; }
+      .hero-title { font-size: 1.6rem; }
+      .depo-card { flex-basis: 100%; }
+      .evento-details { padding: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .audio-player-inner { gap: 9px; }
+      .audio-meta { min-width: 74px; }
+      .audio-player-title { font-size: 12px; }
+      .audio-status { font-size: 10px; }
+      .audio-time { display: none; }
+      header { padding: 0 4%; }
+      #hero { padding: calc(48px + 60px + 50px) 5% 50px; gap: 30px; }
+      .hero-title { font-size: 1.5rem; }
+      .hero-subtitle { font-size: .95rem; }
+      .hero-excerpt { font-size: .9rem; padding: 12px 14px; }
+      .hero-meta { font-size: 12px; }
+      .hero-tag { font-size: 9px; padding: 4px 12px; }
+      .hero-photo-wrap { width: min(100%, 18rem); margin: 0 auto; }
+      section { padding: 50px 5%; }
+      .section-title { font-size: 1.4rem; }
+      .section-sub { font-size: 12.5px; }
+      .trilha-header { margin-bottom: 28px; }
+      .trilha-left p { font-size: .9rem; }
+      .trilha-player { padding: 16px; }
+      .player-title { font-size: 11px; }
+      .track-item { padding: 12px; gap: 10px; }
+      .track-num { width: 30px; height: 30px; font-size: 11px; }
+      .track-info h4 { font-size: 12px; }
+      .track-info p { font-size: 10px; }
+      .sinopse-header { margin-bottom: 24px; }
+      .sinopse-body { font-size: .95rem; line-height: 1.7; }
+      .sinopse-quote { font-size: 1rem; }
+      .evento-header { margin-bottom: 24px; }
+      .evento-info h3 { font-size: 1.1rem; }
+      .evento-info p { font-size: 13px; }
+      .evento-details { padding: 12px; margin-bottom: 16px; }
+      .detail-text .label { font-size: 10px; }
+      .detail-text .value { font-size: 12px; }
+      .depo-header { margin-bottom: 24px; }
+      .depo-card { flex-basis: 100%; min-height: 170px; padding: 14px; }
+      .depo-text { font-size: 12px; line-height: 1.5; }
+      .depo-author strong { font-size: 12px; }
+      .depo-author span { font-size: 10px; }
+      .autor-content h3 { font-size: 1.15rem; }
+      .autor-content p { font-size: 12.5px; }
+      .autor-credentials { padding: 11px; margin: 12px 0; }
+      .autor-credentials .label { font-size: 9px; }
+      .autor-credentials .value { font-size: 11px; }
+      .cta-title { font-size: 1.3rem; }
+      .cta-sub { font-size: .9rem; margin-bottom: 26px; max-width: 250px; }
+      .btn-buy { padding: 10px 16px; font-size: 12px; }
+      .btn-buy img { height: 14px; width: 14px; }
+      .footer-brand p { max-width: 250px; font-size: 12px; }
+      .footer-crm { font-size: 11px; }
+      .footer-contact a, .footer-contact span { font-size: 12.5px; }
+      footer h4 { font-size: .9rem; margin-bottom: 14px; }
+      .footer-socials { gap: 8px; margin-bottom: 12px; }
+      .footer-socials a { width: 32px; height: 32px; }
+      .footer-socials svg { width: 14px; height: 14px; }
+      .footer-btn { font-size: 12px; padding: 10px 18px; min-width: 200px; }
+      .footer-btn svg { width: 15px; height: 15px; }
+      .footer-bottom { font-size: 10px; padding-top: 12px; }
+      nav { gap: 16px; }
+      nav a { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="audio-player-bar" style="position:fixed!important;top:0;left:0;right:0;z-index:2147483647!important;display:flex!important;min-height:42px;background:#f6f8fa;color:#18385f;align-items:center;justify-content:center;">
+  <div class="audio-player-inner">
+    <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Tocar áudio">
+      <svg class="audio-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <div class="audio-meta">
+      <span class="audio-player-title">Tímida</span>
+      <span class="audio-status" id="audio-status">Carregando áudio</span>
+    </div>
+    <div class="audio-progress" aria-hidden="true"><span id="audio-progress-fill"></span></div>
+    <span class="audio-time" id="audio-time">0:00 / 0:00</span>
+    <audio id="timida-audio" preload="auto" autoplay loop playsinline>
+      <source src="timida.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio.
+    </audio>
+  </div>
+</div>
+
+<header>
+  <a class="logo-wrap" href="index.html">
+    <img src="logo.png" alt="Dr. Guido Boabaid" style="height:42px;width:auto;" decoding="async">
+  </a>
+  <nav id="main-nav">
+    <a href="index.html#hero" onclick="closeMenu()">Home</a>
+    <div class="nav-dropdown">
+      <div class="dropdown-toggle">Tratamentos</div>
+      <div class="dropdown-menu">
+        <a href="tratamentos-ansiedade.html" onclick="closeMenu()">Ansiedade</a>
+        <a href="tratamentos-depressao.html" onclick="closeMenu()">Depressão</a>
+        <a href="tratamentos-tdah.html" onclick="closeMenu()">TDAH</a>
+        <a href="tratamentos-insonia.html" onclick="closeMenu()">Distúrbios do Sono e Insônia</a>
+        <a href="tratamentos-bipolar.html" onclick="closeMenu()">Transtorno Bipolar</a>
+        <a href="tratamentos-esquizofrenia.html" onclick="closeMenu()">Esquizofrenia</a>
+        <a href="tratamentos-burnout.html" onclick="closeMenu()">Burnout</a>
+        <a href="tratamentos-alimentares.html" onclick="closeMenu()">Transtornos Alimentares</a>
+      </div>
+    </div>
+    <a href="farmacogenetica.html" onclick="closeMenu()">Farmacogenética</a>
+    <a href="medicina-personalizada.html" onclick="closeMenu()">Medicina Personalizada</a>
+    <a href="palestras.html" onclick="closeMenu()">Palestras</a>
+    <a href="livro.html" onclick="closeMenu()">Livro</a>
+    <a href="blog.html" onclick="closeMenu()">Blog</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a class="btn-cta" href="https://wa.me/5548998510053" target="_blank">
+      <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>Agende sua consulta</span>
+    </a>
+    <button id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="hero-left">
+    <img src="livro-capa.png" alt="Onde foi parar minha alegria?" class="book-cover-hero" decoding="async" fetchpriority="high">
+  </div>
+  <div class="hero-right">
+    <span class="hero-tag">Lançado em Nov/2025</span>
+    <h1 class="hero-title">Onde foi parar minha alegria?</h1>
+    <p class="hero-subtitle">Uma história sobre reencontrar a si mesmo</p>
+    <div class="hero-excerpt">
+      Existe algo mais poderoso e inspirador do que reencontrar a sua própria essência?
+    </div>
+    <div class="hero-meta">
+      <span><strong>Autor:</strong> Dr. Guido Boabaid May</span>
+      <span><strong>Editora:</strong> Buzz Editora</span>
+      <span><strong>Trilha:</strong> Banda Dr. BM</span>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn-primary amazon" href="https://www.amazon.com.br/Onde-foi-parar-minha-alegria/dp/6553935114/" target="_blank">
+        <img src="icon-amazon.png" alt="Amazon" style="height:18px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Disponível na Amazon
+      </a>
+      <a class="btn-secondary spotify-outline" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank">
+        <img src="icon-spotify.png" alt="Spotify" style="height:18px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Ouça agora!
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="trilha">
+  <div class="trilha-inner">
+    <div class="trilha-header">
+      <span class="section-tag">Trilha Sonora Original</span>
+      <h2 class="section-title">Ouça no Spotify</h2>
+      <p class="section-sub">Cada capítulo tem sua própria canção. A trilha transforma a leitura em uma experiência sensorial única.</p>
+    </div>
+
+    <div class="trilha-content">
+      <div class="trilha-left">
+        <a href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank" style="display: block; margin-bottom: 24px;">
+          <img src="capa_album.png" alt="Onde foi parar minha alegria - Álbum" style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,.2); transition: transform .2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" decoding="async" loading="lazy">
+        </a>
+        <p><strong>Uma jornada musical única.</strong></p>
+        <p>Composta pelo Dr. Guido Boabaid May em parceria com Kiko Zambianchi, Ida Fretta e Luciano Bilu, a trilha de "Onde foi parar minha alegria?" foi criada para tocar o leitor em lugares onde as palavras sozinhas não chegam.</p>
+        <p>A música tem um papel terapêutico poderoso. Quando se conecta à história, eleva a narrativa a um novo patamar emocional.</p>
+        <p style="margin-top: 24px;">
+          <a class="btn-secondary spotify-outline" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank">
+            <img src="icon-spotify.png" alt="Spotify" style="height:18px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Ouça agora!
+          </a>
+        </p>
+      </div>
+
+      <div class="trilha-right">
+        <h4 style="font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 16px; display: block;">Tracklist</h4>
+        <div class="tracklist">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/5Ngo7JE1F8jUFYuPzdz5Wg" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">1</div>
+            <div class="track-info">
+              <h4>Tímida</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/0Yv5P3effiG9DShlbD6R1Y" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">2</div>
+            <div class="track-info">
+              <h4>Marcelinho Carreira das Neves</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/0dWEIyVwZwm8cO9XHiiV9N" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">3</div>
+            <div class="track-info">
+              <h4>Herói</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/2fU7TP8QFn2gHr3r24CO72" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">4</div>
+            <div class="track-info">
+              <h4>Difícil Falar</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/5t3wLSL7UulcODy9bm3mCO" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">5</div>
+            <div class="track-info">
+              <h4>Enganos</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/1k1hRC3bQPmC7Km1wzpluZ" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">6</div>
+            <div class="track-info">
+              <h4>Mudanças</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/4u3i1gP4qw6Te1FkyV2qUg" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">7</div>
+            <div class="track-info">
+              <h4>Fica comigo</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/7gUTotby4eGmSFxFAR6t2T" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">8</div>
+            <div class="track-info">
+              <h4>Quisera</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/1gQW1MyTaQdtJmsUTCJr14" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="track-num">9</div>
+            <div class="track-info">
+              <h4>Ana Maria Está Feliz</h4>
+              <p>Dr. BM</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sinopse">
+  <div class="sinopse-inner">
+    <div class="sinopse-header">
+      <span class="section-tag">A História</span>
+      <h2 class="section-title">Conheça Ana Maria</h2>
+    </div>
+
+    <div class="sinopse-body">
+      <p>
+        <strong>Existe algo mais poderoso e inspirador do que reencontrar a sua própria essência?</strong>
+      </p>
+      <p>
+        Conheça a história de <strong>Ana Maria</strong>, uma linda jovem de Florianópolis que inicia uma intensa jornada para reencontrar a si mesma — trajetória impulsionada pelo tratamento contra a depressão que realizou no auge da sua juventude.
+      </p>
+
+      <div class="sinopse-highlight">
+        <p>Entre medos e descobertas, ela aprende que não precisa negar a si própria, às suas emoções ou à sua realidade para ser feliz.</p>
+      </div>
+
+      <p>
+        Esta é uma história realista e mágica ao mesmo tempo, em que <strong>a felicidade é construída gradativamente, de dentro para fora, de forma legítima e sustentável.</strong>
+      </p>
+
+      <p>
+        Onde Foi Parar Minha Alegria? é uma história fascinante sobre a maravilha de estarmos vivos. Esta edição inclui QR Codes que levam direto à trilha sonora do livro — ouça a história ganhar vida!
+      </p>
+    </div>
+
+    <div class="sinopse-quote">
+      A verdadeira felicidade é construída de dentro para fora.
+    </div>
+
+    <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 32px;">
+      — Dr. Guido Boabaid May, em declaração à Revista Projeto Autoestima
+    </p>
+  </div>
+</section>
+
+<section id="evento">
+  <div class="evento-inner">
+    <div class="evento-header">
+      <span class="section-tag">Evento de Lançamento</span>
+      <h2 class="section-title">Pocket Show — Casa Hurbana</h2>
+      <p class="section-sub">Celebre o lançamento ao vivo com Dr. Guido e a Banda Dr. BM</p>
+    </div>
+
+    <div class="evento-content">
+      <div class="evento-info">
+        <h3>Um momento único</h3>
+        <p>O lançamento de "Onde foi parar minha alegria?" foi celebrado em grande estilo na Casa Hurbana, em Florianópolis, com a apresentação ao vivo da Banda Dr. BM.</p>
+        <p>Um encontro entre a palavra escrita e a experiência sensorial da música — tudo criado para tocá-lo e transformar-lhe a vida.</p>
+
+        <div class="evento-details">
+          <div class="detail-row">
+            <div class="detail-icon">📅</div>
+            <div class="detail-text">
+              <span class="label">Data</span>
+              <span class="value">13 de Novembro de 2025</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">📍</div>
+            <div class="detail-text">
+              <span class="label">Local</span>
+              <span class="value">Casa Hurbana — Rua Bocaiúva, 2013 | Florianópolis, SC</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">🎵</div>
+            <div class="detail-text">
+              <span class="label">Apresentação</span>
+              <span class="value">Banda Dr. BM | Trilha Sonora Original</span>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">👥</div>
+            <div class="detail-text">
+              <span class="label">Com</span>
+              <span class="value">Kiko Zambianchi, Ida Fretta, Luciano Bilu</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evento-gallery">
+        <div class="gallery-item">
+          <img src="evento-1.jpg" alt="Pocket show — Casa Hurbana" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="evento-2.jpg" alt="Banda Dr. BM apresentando" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="evento-3.jpg" alt="Público no evento" decoding="async" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="evento-4.jpg" alt="Momento do lançamento" decoding="async" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="depoimentos">
+  <div class="depo-header">
+    <span class="section-tag">O que Dizem Sobre o Livro</span>
+    <h2 class="section-title">Depoimentos</h2>
+    <p class="section-sub">Leitores e imprensa compartilham suas impressões sobre a história de Ana Maria</p>
+  </div>
+
+  <div class="depo-carousel">
+    <button class="depo-nav depo-prev" type="button" aria-label="Depoimento anterior">‹</button>
+    <div class="depo-track" id="depo-track">
+      <div class="depo-card">
+        <div class="depo-source">Leitor</div>
+        <p class="depo-text">"Li o livro de uma vez. A história de Ana Maria é tão próxima, tão real, que senti como se estivesse vivendo cada capítulo com ela. E a trilha sonora... mudou tudo. Cada música no momento certo."</p>
+        <div class="depo-author">
+          <strong>Carolina S.</strong>
+          <span>Leitor | Florianópolis</span>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="depo-source">Imprensa</div>
+        <p class="depo-text">"Uma narrativa que combina a delicadeza da prosa com a profundidade da reflexão. Dr. Guido prova que um médico não apenas cura — ele também inspira e toca corações através da literatura."</p>
+        <div class="depo-author">
+          <strong>Revista Projeto Autoestima</strong>
+          <span>Crítica | 2025</span>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="depo-source">Leitor</div>
+        <p class="depo-text">"Não esperava chorar tão profundamente. Mas foram lágrimas de cura, de esperança. A história de Ana Maria é a história de muitas pessoas — agora elas têm um espelho onde reconhecer-se."</p>
+        <div class="depo-author">
+          <strong>Marina T.</strong>
+          <span>Leitor | São Paulo</span>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="depo-source">Influenciador</div>
+        <p class="depo-text">"Como alguém que já lutou contra a depressão, encontrei em 'Onde foi parar minha alegria?' uma validação poderosa. Não é um livro de auto-ajuda fraco — é arte terapêutica pura."</p>
+        <div class="depo-author">
+          <strong>Lucas Oliveira</strong>
+          <span>Criador de Conteúdo | Saúde Mental</span>
+        </div>
+      </div>
+    </div>
+    <button class="depo-nav depo-next" type="button" aria-label="Próximo depoimento">›</button>
+  </div>
+</section>
+
+<section id="autor">
+  <div class="autor-inner">
+    <div class="autor-photo">
+      <img src="dr-guido-livro.webp" alt="Dr. Guido Boabaid May" decoding="async" loading="lazy">
+    </div>
+    <div class="autor-content">
+      <h3>Sobre o Autor</h3>
+      <p>
+        <strong>Dr. Guido Boabaid May</strong> é médico psiquiatra, psicoterapeuta e CEO da GnTech — empresa pioneira em farmacogenética no Brasil e na América Latina.
+      </p>
+      <p>
+        Com mais de 32 anos de prática clínica, o Dr. Guido combina rigor científico com sensibilidade humana, trazendo para "Onde foi parar minha alegria?" toda sua experiência no acompanhamento de pessoas que enfrentam a depressão.
+      </p>
+      <p>
+        Membro do Corpo Clínico do Hospital Israelita Albert Einstein, o Dr. Guido é também palestrante em eventos corporativos e académicos, sempre com foco em transformar vidas através do conhecimento.
+      </p>
+
+      <div class="autor-credentials">
+        <div>
+          <span class="label">Especialidade</span>
+          <span class="value">Psiquiatria de Precisão</span>
+        </div>
+      </div>
+
+      <div class="autor-credentials">
+        <div>
+          <span class="label">Registros Profissionais</span>
+          <span class="value">CRM/SC 5432 • CRM/SP 196454</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta-final">
+  <h2 class="cta-title">Pronto para essa jornada?</h2>
+  <p class="cta-sub">
+    Adquira seu exemplar e descubra a história que está tocando corações por todo o Brasil.
+  </p>
+  <div class="cta-buttons">
+    <a class="btn-buy amazon" href="https://www.amazon.com.br/Onde-foi-parar-minha-alegria/dp/6553935114/" target="_blank">
+      <img src="icon-amazon.png" alt="Amazon" style="height:20px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Disponível na Amazon
+    </a>
+    <a class="btn-buy spotify" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank">
+      <img src="icon-spotify.png" alt="Spotify" style="height:20px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Ouça agora!
+    </a>
+    <a class="btn-buy buzz" href="https://buzzeditora.com/product/onde-foi-parar-minha-alegria/" target="_blank">
+      <img src="icon-buzz.png" alt="BUZZ" style="height:20px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> BUZZ Editora
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img class="footer-logo" src="logo.png" alt="Dr. Guido Boabaid" decoding="async">
+      <p>Mais de 30 anos como psiquiatra e psicoterapeuta.<br>Médico do Corpo Clínico do Hospital Israelita Albert Einstein.</p>
+      <div class="footer-crm">CRM/SC 5432 &nbsp;//&nbsp; CRM/SP 196454</div>
+    </div>
+    <div class="footer-contact">
+      <h4>Entre em Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5548998510053" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>(48) 99851-0053</a></li>
+        <li><a href="tel:+554832243887"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.05 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg>(48) 3224-3887</a></li>
+        <li><a href="mailto:contato@guidoboabaid.com.br"><svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor; margin-right: 8px; display: inline-block; vertical-align: middle;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>contato@guidoboabaid.com.br</a></li>
+        <li><span><svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor; margin-right: 8px; display: inline-block; vertical-align: middle;"><path d="M17 2H7c-1.1 0-1.99.9-1.99 2v16c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 18c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-3H7V4h10v13z"/></svg>Palestras:<br>(48) 99632-1262</span></li>
+      </ul>
+    </div>
+    <div class="footer-action">
+      <div class="footer-socials" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/drguidoboabaid/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/guido-boabaid-may-86896a93/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.25 0h3.83v1.5h.05c.53-.95 1.84-1.95 3.78-1.95 4.04 0 4.79 2.66 4.79 6.12v5.33h-4v-4.72c0-1.13-.02-2.58-1.57-2.58-1.57 0-1.81 1.23-1.81 2.5v4.8h-4.07v-11z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/guido.boabaidmay" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M14 8.5V6.75c0-.84.19-1.25 1.35-1.25H17V2.15C16.2 2.05 15.42 2 14.64 2 11.57 2 10 3.86 10 7.27V8.5H7v3.75h3V22h4v-9.75h2.95l.55-3.75H14z"/></svg>
+        </a>
+        <a href="https://youtube.com/@drguidoboabaid" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.58 12 3.58 12 3.58s-7.5 0-9.38.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3 3 0 0 0 2.12-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+        </a>
+      </div>
+      <a class="footer-btn" href="https://wa.me/5548998510053" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Fale Conosco
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">Guido Boabaid May © 2026</div>
+</footer>
+
+<script>
+  const timidaAudio = document.getElementById('timida-audio');
+  const audioToggle = document.getElementById('audio-toggle');
+  const audioStatus = document.getElementById('audio-status');
+  const audioProgressFill = document.getElementById('audio-progress-fill');
+  const audioTime = document.getElementById('audio-time');
+  const playIcon = '<svg class="audio-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  const pauseIcon = '<svg class="audio-pause-icon" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>';
+
+  const formatAudioTime = seconds => {
+    if (!Number.isFinite(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${mins}:${secs}`;
+  };
+
+  const updateAudioUI = () => {
+    if (!timidaAudio) return;
+    const duration = timidaAudio.duration || 0;
+    const current = timidaAudio.currentTime || 0;
+    if (audioProgressFill) audioProgressFill.style.width = duration ? `${(current / duration) * 100}%` : '0%';
+    if (audioTime) audioTime.textContent = `${formatAudioTime(current)} / ${formatAudioTime(duration)}`;
+    if (audioToggle) audioToggle.innerHTML = timidaAudio.paused ? playIcon : pauseIcon;
+    if (audioStatus) audioStatus.textContent = timidaAudio.paused ? 'Clique para ativar' : 'Musica de fundo';
+  };
+
+  if (timidaAudio) {
+    timidaAudio.autoplay = true;
+    timidaAudio.loop = true;
+    timidaAudio.muted = false;
+    timidaAudio.defaultMuted = false;
+    timidaAudio.volume = 0.16;
+
+    ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'timeupdate', 'play', 'pause', 'ended']
+      .forEach(eventName => timidaAudio.addEventListener(eventName, updateAudioUI));
+
+    const tryPlayAudio = async () => {
+      try {
+        timidaAudio.muted = false;
+        await timidaAudio.play();
+        if (audioStatus) audioStatus.textContent = 'Música de fundo';
+        return true;
+      } catch (error) {
+        if (audioStatus) audioStatus.textContent = 'Autoplay bloqueado pelo navegador';
+        return false;
+      }
+    };
+
+    const startAudioOnLoad = () => {
+      timidaAudio.load();
+      tryPlayAudio();
+      setTimeout(tryPlayAudio, 250);
+      setTimeout(tryPlayAudio, 800);
+      setTimeout(tryPlayAudio, 1800);
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startAudioOnLoad, { once: true });
+    } else {
+      startAudioOnLoad();
+    }
+
+    window.addEventListener('load', tryPlayAudio, { once: true });
+
+    const unlockAudio = () => {
+      if (timidaAudio.paused) tryPlayAudio();
+    };
+
+    ['pointerdown', 'touchstart', 'keydown', 'wheel'].forEach(eventName => {
+      document.addEventListener(eventName, unlockAudio, { once: true, passive: true });
+    });
+  }
+
+  if (audioToggle && timidaAudio) {
+    audioToggle.addEventListener('click', () => {
+      if (timidaAudio.paused) {
+        timidaAudio.play();
+      } else {
+        timidaAudio.pause();
+      }
+    });
+  }
+
+  function toggleMenu() {
+    document.getElementById('main-nav').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('main-nav').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  const depoTrack = document.getElementById('depo-track');
+  if (depoTrack) {
+    document.querySelectorAll('.depo-nav').forEach(button => {
+      button.addEventListener('click', () => {
+        const direction = button.classList.contains('depo-next') ? 1 : -1;
+        const card = depoTrack.querySelector('.depo-card');
+        const gap = 24;
+        depoTrack.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' });
+      });
+    });
+  }
+
+  // Smooth scroll para âncoras
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Intersection Observer para animações
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.depo-card, .track-item, .gallery-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
