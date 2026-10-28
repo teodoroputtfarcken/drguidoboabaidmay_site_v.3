@@ -1,0 +1,56 @@
+/* Shared navigation: one layout and breakpoint across every page. */
+header { z-index: 3000 !important; }
+header .logo-wrap { min-width: 0; flex: 0 1 auto; }
+header .logo-wrap img { display: block; width: auto; height: 42px; max-width: min(100%, 285px); object-fit: contain; }
+#main-nav { gap: clamp(12px, 1.5vw, 26px); }
+#main-nav .dropdown-toggle { font: inherit; font-size: 15px; font-weight: 500; letter-spacing: .3px; background: none; border: 0; padding: 0; cursor: pointer; color: var(--navy); }
+#main-nav .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: none; }
+#hamburger { width: 44px; height: 44px; flex: 0 0 44px; justify-content: center; align-items: center; }
+#hamburger:focus-visible, #main-nav a:focus-visible, #main-nav button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+@media (max-width: 1100px) {
+  header { height: 68px !important; padding: 0 5% !important; gap: 12px; }
+  header .logo-wrap img { max-width: min(48vw, 265px); height: auto !important; max-height: 46px; }
+  header .btn-cta { display: none !important; }
+  #hamburger { display: flex !important; z-index: 2; }
+  #main-nav, #main-nav.open {
+    position: fixed !important; top: var(--nav-top, 110px) !important; left: 0 !important; right: 0 !important;
+    width: 100% !important; max-height: calc(100dvh - var(--nav-top, 110px)) !important; overflow-y: auto !important;
+    overscroll-behavior: contain; background: #fff !important; backdrop-filter: none !important;
+    padding: 10px max(20px, 5vw) max(26px, env(safe-area-inset-bottom)) !important; gap: 0 !important;
+    flex-direction: column !important; align-items: stretch !important;
+    border-bottom: 1px solid #d8e2e8; box-shadow: 0 18px 28px rgba(24,56,95,.16);
+  }
+  #main-nav { display: none !important; }
+  #main-nav.open { display: flex !important; }
+  #main-nav > a, #main-nav .dropdown-toggle { display: block; width: 100%; text-align: left; padding: 14px 2px !important; font-size: 16px !important; line-height: 1.35; border: 0 !important; border-bottom: 1px solid #e8edf1 !important; color: #18385f; }
+  #main-nav .nav-dropdown { width: 100%; }
+  #main-nav .dropdown-toggle::after { content: '+'; float: right; font-size: 21px; line-height: 18px; }
+  #main-nav .nav-dropdown.expanded .dropdown-toggle::after { content: '−'; }
+  #main-nav .dropdown-menu, #main-nav .nav-dropdown:hover .dropdown-menu, #main-nav .nav-dropdown:focus-within .dropdown-menu {
+    display: none !important; position: static !important; width: 100%; min-width: 0; max-height: none;
+    opacity: 1 !important; visibility: visible !important; transform: none !important;
+    margin: 0 0 8px !important; padding: 4px 0 4px 14px !important;
+    background: #f2f6f8 !important; border: 0 !important; border-radius: 8px; box-shadow: none !important;
+  }
+  #main-nav .nav-dropdown.expanded .dropdown-menu { display: block !important; }
+  #main-nav .dropdown-menu a { display: block; white-space: normal !important; font-size: 15px !important; padding: 11px 12px !important; line-height: 1.4; border-bottom: 1px solid #dce6ec !important; }
+  #main-nav .dropdown-menu a:last-child { border: 0 !important; }
+  body.menu-open { overflow: hidden !important; }
+}
+@media (max-width: 380px) {
+  header .logo-wrap img { max-width: 66vw; max-height: 39px; }
+  #main-nav > a, #main-nav .dropdown-toggle { padding: 12px 2px !important; }
+}
+@media (max-width: 600px) {
+  .audio-player-inner { min-width: 0; gap: 8px !important; }
+  .audio-meta { min-width: 0 !important; flex: 0 1 105px; }
+  .audio-progress { min-width: 32px; }
+  .audio-time { display: none !important; }
+  iframe, video { max-width: 100%; }
+  .section-title, .hero-title { overflow-wrap: break-word; }
+}
+
+@media (min-width: 1101px) { #main-nav .mobile-consult { display: none; } }
+@media (max-width: 1100px) {
+  #main-nav .mobile-consult { align-self: flex-start; width: auto; margin-top: 18px; padding: 12px 22px !important; background: #25d366; border: 0 !important; border-radius: 30px; color: #fff; font-weight: 700; text-align: center; }
+}

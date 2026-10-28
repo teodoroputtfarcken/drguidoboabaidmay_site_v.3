@@ -3,20 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May</title>
-  <link rel="canonical" href="https://guidoboabaid.com.br/livro.html">
   <meta name="description" content="Onde Foi Parar Minha Alegria? — Um livro sobre depressão, esperança e o reencontro com si mesmo. Pela banda Dr. BM e Buzz Editora.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May">
-  <meta property="og:description" content="Onde Foi Parar Minha Alegria? — Um livro sobre depressão, esperança e o reencontro com si mesmo. Pela banda Dr. BM e Buzz Editora.">
-  <meta property="og:image" content="https://guidoboabaid.com.br/livro-capa.png">
-  <meta property="og:image:alt" content="Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May">
-  <meta property="og:url" content="https://guidoboabaid.com.br/livro.html">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May">
-  <meta name="twitter:description" content="Onde Foi Parar Minha Alegria? — Um livro sobre depressão, esperança e o reencontro com si mesmo. Pela banda Dr. BM e Buzz Editora.">
-  <meta name="twitter:image" content="https://guidoboabaid.com.br/livro-capa.png">
+  <meta name="og:title" content="Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May">
+  <meta name="og:description" content="Conheça a história de Ana Maria, que descobriu a verdadeira felicidade de dentro para fora.">
+  <meta name="og:image" content="livro-capa.png">
+  <meta name="og:url" content="https://guidoboabaid.com.br/livro">
+  <title>Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May</title>
+<meta property="og:title" content="Onde Foi Parar Minha Alegria? — Dr. Guido Boabaid May">
+<meta property="og:description" content="Onde Foi Parar Minha Alegria? — Um livro sobre depressão, esperança e o reencontro com si mesmo. Pela banda Dr. BM e Buzz Editora.">
+<meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="favicon-guido-rounded.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -409,7 +404,7 @@
     @media (max-width: 768px) {
       header { padding: 0 4%; height: 60px; }
       #hamburger { display: flex; }
-      #main-nav { display: none; position: fixed; top: 102px; bottom: 0; left: 0; right: 0; overflow-y: auto; overscroll-behavior: contain; background: rgba(255,255,255,.98); backdrop-filter: blur(12px); flex-direction: column; align-items: stretch; padding: 20px 5%; gap: 0; z-index: 999; border-bottom: 1px solid rgba(24,56,95,.12); }
+      #main-nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(12px); flex-direction: column; align-items: stretch; padding: 20px 5%; gap: 0; z-index: 999; border-bottom: 1px solid rgba(24,56,95,.12); }
       #main-nav.open { display: flex; }
       #main-nav a { padding: 14px 0; border-bottom: 1px solid rgba(24,56,95,.08); }
       header .btn-cta { display: none; }
@@ -515,6 +510,7 @@
       nav a { font-size: 13px; }
     }
   </style>
+<link rel="stylesheet" href="site-nav.css">
 </head>
 <body>
 
@@ -538,16 +534,15 @@
 
 <header>
   <a class="logo-wrap" href="index.html">
-    <img src="logo.png" alt="Dr. Guido Boabaid" style="height:42px;width:auto;" decoding="async">
+    <img src="logo.png" alt="Dr. Guido Boabaid" style="height:42px;width:auto;">
   </a>
-  <nav id="main-nav">
+  <nav id="main-nav" aria-label="Navegação principal">
     <a href="index.html#hero" onclick="closeMenu()">Home</a>
     <div class="nav-dropdown">
-      <div class="dropdown-toggle">Tratamentos</div>
-      <div class="dropdown-menu">
+      <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="treatment-menu">Tratamentos</button>
+      <div class="dropdown-menu" id="treatment-menu">
         <a href="tratamentos-ansiedade.html" onclick="closeMenu()">Ansiedade</a>
         <a href="tratamentos-depressao.html" onclick="closeMenu()">Depressão</a>
-        <a href="tratamentos-tdah.html" onclick="closeMenu()">TDAH</a>
         <a href="tratamentos-insonia.html" onclick="closeMenu()">Distúrbios do Sono e Insônia</a>
         <a href="tratamentos-bipolar.html" onclick="closeMenu()">Transtorno Bipolar</a>
         <a href="tratamentos-esquizofrenia.html" onclick="closeMenu()">Esquizofrenia</a>
@@ -556,17 +551,17 @@
       </div>
     </div>
     <a href="farmacogenetica.html" onclick="closeMenu()">Farmacogenética</a>
-    <a href="medicina-personalizada.html" onclick="closeMenu()">Medicina Personalizada</a>
     <a href="palestras.html" onclick="closeMenu()">Palestras</a>
     <a href="livro.html" onclick="closeMenu()">Livro</a>
     <a href="blog.html" onclick="closeMenu()">Blog</a>
+    <a class="mobile-consult" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
   </nav>
   <div style="display:flex;align-items:center;gap:12px;">
-    <a class="btn-cta" href="https://wa.me/5548998510053" target="_blank">
+    <a class="btn-cta" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       <span>Agende sua consulta</span>
     </a>
-    <button id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <button id="hamburger" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -574,7 +569,7 @@
 
 <section id="hero">
   <div class="hero-left">
-    <img src="livro-capa.png" alt="Onde foi parar minha alegria?" class="book-cover-hero" decoding="async" fetchpriority="high">
+    <img src="livro-capa.png" alt="Onde foi parar minha alegria?" class="book-cover-hero" loading="lazy">
   </div>
   <div class="hero-right">
     <span class="hero-tag">Lançado em Nov/2025</span>
@@ -589,11 +584,11 @@
       <span><strong>Trilha:</strong> Banda Dr. BM</span>
     </div>
     <div class="hero-ctas">
-      <a class="btn-primary amazon" href="https://www.amazon.com.br/Onde-foi-parar-minha-alegria/dp/6553935114/" target="_blank">
-        <img src="icon-amazon.png" alt="Amazon" style="height:18px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Disponível na Amazon
+      <a class="btn-primary amazon" href="https://www.amazon.com.br/Onde-foi-parar-minha-alegria/dp/6553935114/" target="_blank" rel="noopener noreferrer">
+        <img src="icon-amazon.png" alt="Amazon" style="height:18px;width:auto;object-fit:contain;" loading="lazy"> Disponível na Amazon
       </a>
-      <a class="btn-secondary spotify-outline" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank">
-        <img src="icon-spotify.png" alt="Spotify" style="height:18px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Ouça agora!
+      <a class="btn-secondary spotify-outline" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank" rel="noopener noreferrer">
+        <img src="icon-spotify.png" alt="Spotify" style="height:18px;width:auto;object-fit:contain;" loading="lazy"> Ouça agora!
       </a>
     </div>
   </div>
@@ -609,15 +604,15 @@
 
     <div class="trilha-content">
       <div class="trilha-left">
-        <a href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank" style="display: block; margin-bottom: 24px;">
-          <img src="capa_album.png" alt="Onde foi parar minha alegria - Álbum" style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,.2); transition: transform .2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" decoding="async" loading="lazy">
+        <a href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank" style="display: block; margin-bottom: 24px;" rel="noopener noreferrer">
+          <img src="capa_album.png" alt="Onde foi parar minha alegria - Álbum" style="width: 100%; max-width: 280px; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,.2); transition: transform .2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
         </a>
         <p><strong>Uma jornada musical única.</strong></p>
         <p>Composta pelo Dr. Guido Boabaid May em parceria com Kiko Zambianchi, Ida Fretta e Luciano Bilu, a trilha de "Onde foi parar minha alegria?" foi criada para tocar o leitor em lugares onde as palavras sozinhas não chegam.</p>
         <p>A música tem um papel terapêutico poderoso. Quando se conecta à história, eleva a narrativa a um novo patamar emocional.</p>
         <p style="margin-top: 24px;">
-          <a class="btn-secondary spotify-outline" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank">
-            <img src="icon-spotify.png" alt="Spotify" style="height:18px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Ouça agora!
+          <a class="btn-secondary spotify-outline" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank" rel="noopener noreferrer">
+            <img src="icon-spotify.png" alt="Spotify" style="height:18px;width:auto;object-fit:contain;" loading="lazy"> Ouça agora!
           </a>
         </p>
       </div>
@@ -625,63 +620,63 @@
       <div class="trilha-right">
         <h4 style="font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.72); margin-bottom: 16px; display: block;">Tracklist</h4>
         <div class="tracklist">
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/5Ngo7JE1F8jUFYuPzdz5Wg" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/5Ngo7JE1F8jUFYuPzdz5Wg" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">1</div>
             <div class="track-info">
               <h4>Tímida</h4>
               <p>Dr. BM</p>
             </div>
           </a>
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/0Yv5P3effiG9DShlbD6R1Y" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/0Yv5P3effiG9DShlbD6R1Y" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">2</div>
             <div class="track-info">
               <h4>Marcelinho Carreira das Neves</h4>
               <p>Dr. BM</p>
             </div>
           </a>
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/0dWEIyVwZwm8cO9XHiiV9N" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/0dWEIyVwZwm8cO9XHiiV9N" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">3</div>
             <div class="track-info">
               <h4>Herói</h4>
               <p>Dr. BM</p>
             </div>
           </a>
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/2fU7TP8QFn2gHr3r24CO72" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/2fU7TP8QFn2gHr3r24CO72" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">4</div>
             <div class="track-info">
               <h4>Difícil Falar</h4>
               <p>Dr. BM</p>
             </div>
           </a>
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/5t3wLSL7UulcODy9bm3mCO" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/5t3wLSL7UulcODy9bm3mCO" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">5</div>
             <div class="track-info">
               <h4>Enganos</h4>
               <p>Dr. BM</p>
             </div>
           </a>
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/1k1hRC3bQPmC7Km1wzpluZ" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/1k1hRC3bQPmC7Km1wzpluZ" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">6</div>
             <div class="track-info">
               <h4>Mudanças</h4>
               <p>Dr. BM</p>
             </div>
           </a>
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/4u3i1gP4qw6Te1FkyV2qUg" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/4u3i1gP4qw6Te1FkyV2qUg" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">7</div>
             <div class="track-info">
               <h4>Fica comigo</h4>
               <p>Dr. BM</p>
             </div>
           </a>
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/7gUTotby4eGmSFxFAR6t2T" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/7gUTotby4eGmSFxFAR6t2T" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">8</div>
             <div class="track-info">
               <h4>Quisera</h4>
               <p>Dr. BM</p>
             </div>
           </a>
-          <a class="track-item" href="https://open.spotify.com/intl-pt/track/1gQW1MyTaQdtJmsUTCJr14" target="_blank" style="text-decoration: none; color: inherit;">
+          <a class="track-item" href="https://open.spotify.com/intl-pt/track/1gQW1MyTaQdtJmsUTCJr14" target="_blank" style="text-decoration: none; color: inherit;" rel="noopener noreferrer">
             <div class="track-num">9</div>
             <div class="track-info">
               <h4>Ana Maria Está Feliz</h4>
@@ -780,16 +775,16 @@
 
       <div class="evento-gallery">
         <div class="gallery-item">
-          <img src="evento-1.jpg" alt="Pocket show — Casa Hurbana" decoding="async" loading="lazy">
+          <img src="evento-1.jpg" alt="Pocket show — Casa Hurbana" loading="lazy">
         </div>
         <div class="gallery-item">
-          <img src="evento-2.jpg" alt="Banda Dr. BM apresentando" decoding="async" loading="lazy">
+          <img src="evento-2.jpg" alt="Banda Dr. BM apresentando" loading="lazy">
         </div>
         <div class="gallery-item">
-          <img src="evento-3.jpg" alt="Público no evento" decoding="async" loading="lazy">
+          <img src="evento-3.jpg" alt="Público no evento" loading="lazy">
         </div>
         <div class="gallery-item">
-          <img src="evento-4.jpg" alt="Momento do lançamento" decoding="async" loading="lazy">
+          <img src="evento-4.jpg" alt="Momento do lançamento" loading="lazy">
         </div>
       </div>
     </div>
@@ -849,7 +844,7 @@
 <section id="autor">
   <div class="autor-inner">
     <div class="autor-photo">
-      <img src="dr-guido-livro.webp" alt="Dr. Guido Boabaid May" decoding="async" loading="lazy">
+      <img src="dr-guido-livro.webp" alt="Dr. Guido Boabaid May" loading="lazy">
     </div>
     <div class="autor-content">
       <h3>Sobre o Autor</h3>
@@ -886,14 +881,14 @@
     Adquira seu exemplar e descubra a história que está tocando corações por todo o Brasil.
   </p>
   <div class="cta-buttons">
-    <a class="btn-buy amazon" href="https://www.amazon.com.br/Onde-foi-parar-minha-alegria/dp/6553935114/" target="_blank">
-      <img src="icon-amazon.png" alt="Amazon" style="height:20px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Disponível na Amazon
+    <a class="btn-buy amazon" href="https://www.amazon.com.br/Onde-foi-parar-minha-alegria/dp/6553935114/" target="_blank" rel="noopener noreferrer">
+      <img src="icon-amazon.png" alt="Amazon" style="height:20px;width:auto;object-fit:contain;" loading="lazy"> Disponível na Amazon
     </a>
-    <a class="btn-buy spotify" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank">
-      <img src="icon-spotify.png" alt="Spotify" style="height:20px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> Ouça agora!
+    <a class="btn-buy spotify" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank" rel="noopener noreferrer">
+      <img src="icon-spotify.png" alt="Spotify" style="height:20px;width:auto;object-fit:contain;" loading="lazy"> Ouça agora!
     </a>
-    <a class="btn-buy buzz" href="https://buzzeditora.com/product/onde-foi-parar-minha-alegria/" target="_blank">
-      <img src="icon-buzz.png" alt="BUZZ" style="height:20px;width:auto;object-fit:contain;" decoding="async" loading="lazy"> BUZZ Editora
+    <a class="btn-buy buzz" href="https://buzzeditora.com/product/onde-foi-parar-minha-alegria/" target="_blank" rel="noopener noreferrer">
+      <img src="icon-buzz.png" alt="BUZZ" style="height:20px;width:auto;object-fit:contain;" loading="lazy"> BUZZ Editora
     </a>
   </div>
 </section>
@@ -901,14 +896,14 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img class="footer-logo" src="logo.png" alt="Dr. Guido Boabaid" decoding="async">
+      <img class="footer-logo" src="logo.png" alt="Dr. Guido Boabaid" loading="lazy">
       <p>Mais de 30 anos como psiquiatra e psicoterapeuta.<br>Médico do Corpo Clínico do Hospital Israelita Albert Einstein.</p>
       <div class="footer-crm">CRM/SC 5432 &nbsp;//&nbsp; CRM/SP 196454</div>
     </div>
     <div class="footer-contact">
       <h4>Entre em Contato</h4>
       <ul>
-        <li><a href="https://wa.me/5548998510053" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>(48) 99851-0053</a></li>
+        <li><a href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>(48) 99851-0053</a></li>
         <li><a href="tel:+554832243887"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.05 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg>(48) 3224-3887</a></li>
         <li><a href="mailto:contato@guidoboabaid.com.br"><svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor; margin-right: 8px; display: inline-block; vertical-align: middle;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>contato@guidoboabaid.com.br</a></li>
         <li><span><svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor; margin-right: 8px; display: inline-block; vertical-align: middle;"><path d="M17 2H7c-1.1 0-1.99.9-1.99 2v16c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 18c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-3H7V4h10v13z"/></svg>Palestras:<br>(48) 99632-1262</span></li>
@@ -929,7 +924,7 @@
           <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.58 12 3.58 12 3.58s-7.5 0-9.38.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3 3 0 0 0 2.12-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
         </a>
       </div>
-      <a class="footer-btn" href="https://wa.me/5548998510053" target="_blank">
+      <a class="footer-btn" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Fale Conosco
       </a>
@@ -1069,5 +1064,6 @@
   });
 </script>
 
+<script src="site-nav.js"></script>
 </body>
 </html>

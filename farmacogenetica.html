@@ -4,19 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farmacogenética | Dr. Guido Boabaid May</title>
-  <link rel="canonical" href="https://guidoboabaid.com.br/farmacogenetica.html">
-  <meta name="description" content="A resposta a um medicamento varia entre indivíduos por razões clínicas conhecidas, como dose inadequada, tempo de uso insuficiente, indicação imprecisa, baixa adesão ao tratamento ou interações com outras substâncias.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="Farmacogenética | Dr. Guido Boabaid May">
-  <meta property="og:description" content="A resposta a um medicamento varia entre indivíduos por razões clínicas conhecidas, como dose inadequada, tempo de uso insuficiente, indicação imprecisa, baixa adesão ao tratamento ou interações com outras substâncias.">
-  <meta property="og:image" content="https://guidoboabaid.com.br/foto-hero.webp">
-  <meta property="og:image:alt" content="Farmacogenética | Dr. Guido Boabaid May">
-  <meta property="og:url" content="https://guidoboabaid.com.br/farmacogenetica.html">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Farmacogenética | Dr. Guido Boabaid May">
-  <meta name="twitter:description" content="A resposta a um medicamento varia entre indivíduos por razões clínicas conhecidas, como dose inadequada, tempo de uso insuficiente, indicação imprecisa, baixa adesão ao tratamento ou interações com outras substâncias.">
-  <meta name="twitter:image" content="https://guidoboabaid.com.br/foto-hero.webp">
+<meta property="og:title" content="Farmacogenética | Dr. Guido Boabaid May">
+<meta property="og:description" content="Farmacogenética — conteúdos e informações do Dr. Guido Boabaid May.">
+<meta property="og:type" content="website">
+<meta name="description" content="Farmacogenética — conteúdos e informações do Dr. Guido Boabaid May.">
   <link rel="icon" type="image/png" href="favicon-guido-rounded.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -69,8 +60,7 @@
     .video-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(24,56,95,.08); transition: transform .3s, box-shadow .3s; }
     .video-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(24,56,95,.12); }
     .video-card p { padding: 20px; font-size: 0.95rem; line-height: 1.6; color: var(--text-light); }
-    .yt-thumb { position: relative; display: block; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #050505; cursor: pointer; border: 0; padding: 0; color: inherit; font: inherit; text-align: left; }
-    .yt-thumb[role="button"]:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+    .yt-thumb { position: relative; display: block; aspect-ratio: 16/9; overflow: hidden; background: #050505; cursor: pointer; }
     .yt-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
     .yt-thumb:hover img { transform: scale(1.04); }
     .yt-thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.0) 40%, rgba(0,0,0,.2)); pointer-events: none; }
@@ -106,8 +96,9 @@
     .footer-action { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 54px; }
     .footer-bottom { max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.16); padding-top: 20px; text-align: center; font-size: 12.5px; color: rgba(255,255,255,.72); }
     @media (max-width: 1024px) { .hero-container { grid-template-columns: 1fr; gap: 40px; } }
-    @media (max-width: 768px) { #hamburger { display: flex; } #main-nav { display: none; position: fixed; top: 110px; bottom: 0; left: 0; right: 0; overflow-y: auto; overscroll-behavior: contain; background: rgba(255,255,255,.98); flex-direction: column; padding: 20px 5%; z-index: 999; } #main-nav.open { display: flex; } .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; background: rgba(24,56,95,.05); border: none; box-shadow: none; margin-top: 8px; } .stats-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { #hamburger { display: flex; } #main-nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(255,255,255,.98); flex-direction: column; padding: 20px 5%; z-index: 999; } #main-nav.open { display: flex; } .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; background: rgba(24,56,95,.05); border: none; box-shadow: none; margin-top: 8px; } .stats-grid { grid-template-columns: 1fr; } }
   </style>
+<link rel="stylesheet" href="site-nav.css">
 </head>
 <body>
 
@@ -122,15 +113,14 @@
 </div>
 
 <header>
-  <a class="logo-wrap" href="index.html"><img src="logo.png" alt="Dr. Guido Boabaid" decoding="async"></a>
-  <nav id="main-nav">
+  <a class="logo-wrap" href="index.html"><img src="logo.png" alt="Dr. Guido Boabaid"></a>
+  <nav id="main-nav" aria-label="Navegação principal">
     <a href="index.html#hero" onclick="closeMenu()">Home</a>
     <div class="nav-dropdown">
-      <div class="dropdown-toggle">Tratamentos</div>
-      <div class="dropdown-menu">
+      <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="treatment-menu">Tratamentos</button>
+      <div class="dropdown-menu" id="treatment-menu">
         <a href="tratamentos-ansiedade.html" onclick="closeMenu()">Ansiedade</a>
         <a href="tratamentos-depressao.html" onclick="closeMenu()">Depressão</a>
-        <a href="tratamentos-tdah.html" onclick="closeMenu()">TDAH</a>
         <a href="tratamentos-insonia.html" onclick="closeMenu()">Distúrbios do Sono e Insônia</a>
         <a href="tratamentos-bipolar.html" onclick="closeMenu()">Transtorno Bipolar</a>
         <a href="tratamentos-esquizofrenia.html" onclick="closeMenu()">Esquizofrenia</a>
@@ -139,14 +129,14 @@
       </div>
     </div>
     <a href="farmacogenetica.html" onclick="closeMenu()">Farmacogenética</a>
-    <a href="medicina-personalizada.html" onclick="closeMenu()">Medicina Personalizada</a>
     <a href="palestras.html" onclick="closeMenu()">Palestras</a>
     <a href="livro.html" onclick="closeMenu()">Livro</a>
-    <a href="index.html#blog" onclick="closeMenu()">Imprensa</a>
+    <a href="blog.html" onclick="closeMenu()">Blog</a>
+    <a class="mobile-consult" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
   </nav>
   <div style="display:flex;align-items:center;gap:12px;">
-    <a class="btn-cta" href="https://wa.me/5548998510053" target="_blank"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Agende sua consulta</a>
-    <button id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <a class="btn-cta" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Agende sua consulta</a>
+    <button id="hamburger" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -154,12 +144,12 @@
   <div class="hero-container">
     <div class="hero-content">
       <div class="hero-badge">Medicina Personalizada</div>
-      <h1 class="hero-title">Por que o mesmo medicamento pode funcionar de forma diferente em cada paciente?</h1>
-      <p class="hero-text">A resposta a um medicamento varia entre indivíduos por razões clínicas conhecidas, como dose inadequada, tempo de uso insuficiente, indicação imprecisa, baixa adesão ao tratamento ou interações com outras substâncias. Há, porém, um fator central que por muito tempo não foi considerado de forma sistemática: o DNA.</p>
+      <h1 class="hero-title">Farmacogenética — Por que um medicamento pode não funcionar como esperado?</h1>
+      <p class="hero-text">Normalmente medicamentos não funcionam porque estão na dose errada, ou porque o tempo de uso ainda não foi suficiente, ou porque estão sendo administrados para o diagnóstico errado, ou porque não estão sendo usados regularmente, e também porque o medicamento pode estar sofrendo alguma interferência do nosso DNA.</p>
     </div>
     <div class="hero-image-container">
-      <div class="yt-thumb" data-youtube-id="dZFfaAfW3E8" role="button" tabindex="0" aria-label="Assistir vídeo: Farmacogenética - Manhattan Connection GloboNews">
-        <img src="https://i.ytimg.com/vi/dZFfaAfW3E8/hqdefault.jpg" alt="Farmacogenética - Manhattan Connection GloboNews" decoding="async" fetchpriority="high">
+      <div class="yt-thumb" data-youtube-id="dZFfaAfW3E8">
+        <img src="https://i.ytimg.com/vi/dZFfaAfW3E8/hqdefault.jpg" alt="Farmacogenética - Manhattan Connection GloboNews" loading="lazy">
         <div class="yt-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
       </div>
     </div>
@@ -169,7 +159,7 @@
 <section>
   <div style="max-width: 1180px; margin: 0 auto;">
     <h2 class="section-title">O que você precisa saber</h2>
-    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 48px; max-width: 900px;">Estudos internacionais indicam que 99,5% das pessoas possuem pelo menos uma variação genética que pode alterar drasticamente sua resposta aos medicamentos. Determinados genes regulam enzimas e receptores envolvidos nesses processos, afetando tanto a eficácia do tratamento quanto o risco de efeitos adversos.</p>
+    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 48px; max-width: 900px;">Hoje, a ciência já sabe que grande parte da diferença de resposta aos medicamentos está no DNA. Existem genes que interferem diretamente na maneira como cada indivíduo metaboliza e responde aos remédios, assim como as chances de ter efeitos colaterais. A área da ciência que estuda essa relação é a <strong>farmacogenética</strong>.</p>
     
     <div class="stats-grid">
       <div class="stat-box">
@@ -189,10 +179,6 @@
         <div class="stat-text">Redução considerável de refratariedade e resistência ao tratamento (Skokou et al., 2024)</div>
       </div>
     </div>
-    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-light); margin: 0 auto 24px; max-width: 1000px;">Com o teste farmacogenético é possível analisar como os medicamentos se comportam em cada paciente, em relação ao seu metabolismo, toxicidade e resposta (maior, menor ou dentro do esperado). Essa ferramenta permite que o médico elabore um plano de tratamento personalizado para cada paciente, com maiores taxas de remissão e resposta, além de menores taxas de efeitos colaterais.</p>
-    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-light); margin: 0 auto 24px; max-width: 1000px;">Extensos estudos científicos evidenciam que pacientes em tratamento se beneficiam da abordagem personalizada, porque o Teste Farmacogenético reduz consideravelmente a refratariedade e a resistência ao tratamento (Skokou et al., 2024), além de aumentar as taxas de remissão em 50% e de resposta em 30% (Greden et al., 2019), e diminuir as taxas de efeitos colaterais em até 30% em relação ao tratamento tradicional (não guiado pelo teste).</p>
-    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-light); margin: 0 auto 24px; max-width: 1000px;">A análise do perfil genético para medicamentos não substitui a avaliação clínica, mas funciona como uma ferramenta complementar, especialmente em casos de resposta (ação esperada do medicamento) parcial, falha terapêutica ou baixa tolerância aos ansiolíticos e antidepressivos. Ao identificar como o organismo tende a processar determinados medicamentos, é possível tornar o tratamento mais previsível e individualizado.</p>
-    <p style="font-size: 1rem; line-height: 1.8; color: var(--text-light); margin: 0 auto; max-width: 1000px;">Isso é medicina de precisão: o teste genético vai analisar o DNA para adaptar o cuidado às características fisiológicas de cada paciente, em vez de seguir apenas protocolos tradicionais e padronizados.</p>
   </div>
 </section>
 
@@ -201,22 +187,22 @@
     <h2 class="section-title">Saiba mais sobre Farmacogenética</h2>
     <div class="videos-grid">
       <div class="video-card">
-        <div class="yt-thumb" data-youtube-id="qZDIJ8nWUjM" role="button" tabindex="0" aria-label="Assistir vídeo: A mesma dose de remédio serve para todo mundo?">
-          <img src="https://i.ytimg.com/vi/qZDIJ8nWUjM/hqdefault.jpg" alt="A mesma dose de remédio serve para todo mundo?" decoding="async" loading="lazy">
+        <div class="yt-thumb" data-youtube-id="qZDIJ8nWUjM">
+          <img src="https://i.ytimg.com/vi/qZDIJ8nWUjM/hqdefault.jpg" alt="A mesma dose de remédio serve para todo mundo?" loading="lazy">
           <div class="yt-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
         </div>
         <p><strong>A mesma dose de remédio serve para todo mundo?</strong><br>Junho, 2025</p>
       </div>
       <div class="video-card">
-        <div class="yt-thumb" data-youtube-id="aXmK58afY7g" role="button" tabindex="0" aria-label="Assistir vídeo: É possível prever doenças graves com testes genéticos?">
-          <img src="https://i.ytimg.com/vi/aXmK58afY7g/hqdefault.jpg" alt="É possível prever doenças graves com testes genéticos?" decoding="async" loading="lazy">
+        <div class="yt-thumb" data-youtube-id="aXmK58afY7g">
+          <img src="https://i.ytimg.com/vi/aXmK58afY7g/hqdefault.jpg" alt="É possível prever doenças graves com testes genéticos?" loading="lazy">
           <div class="yt-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
         </div>
         <p><strong>É possível prever doenças graves com testes genéticos?</strong><br>Junho, 2025</p>
       </div>
       <div class="video-card">
-        <div class="yt-thumb" data-youtube-id="ioXiQZet6uA" role="button" tabindex="0" aria-label="Assistir vídeo: Será que o resultado do seu teste genético pode mudar com o tempo?">
-          <img src="https://i.ytimg.com/vi/ioXiQZet6uA/hqdefault.jpg" alt="Será que o resultado do seu teste genético pode mudar com o tempo?" decoding="async" loading="lazy">
+        <div class="yt-thumb" data-youtube-id="ioXiQZet6uA">
+          <img src="https://i.ytimg.com/vi/ioXiQZet6uA/hqdefault.jpg" alt="Será que o resultado do seu teste genético pode mudar com o tempo?" loading="lazy">
           <div class="yt-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
         </div>
         <p><strong>Será que o resultado do seu teste genético pode mudar com o tempo?</strong><br>Junho, 2025</p>
@@ -227,23 +213,23 @@
 
 <section>
   <div class="cta-box">
-    <h3>Faça seu Teste Farmacogenético!</h3>
+    <h3>Quer conhecer seus genes e otimizar seu tratamento?</h3>
     <p>Os exames de farmacogenética da GnTech ajudam a personalizar medicações e aumentar sua eficácia, reduzindo efeitos colaterais e melhorando sua qualidade de vida.</p>
-    <a href="https://gntech.med.br/categoria-produto/nossos-exames/" target="_blank">Faça seu Teste Farmacogenético!</a>
+    <a href="https://gntech.med.br/categoria-produto/nossos-exames/" target="_blank" rel="noopener noreferrer">Saiba mais sobre os exames</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img class="footer-logo" src="logo.png" alt="Dr. Guido Boabaid" decoding="async">
+      <img class="footer-logo" src="logo.png" alt="Dr. Guido Boabaid" loading="lazy">
       <p>Mais de 30 anos como psiquiatra e psicoterapeuta.<br>Médico do Corpo Clínico do Hospital Israelita Albert Einstein.</p>
       <div class="footer-crm">CRM/SC 5432 &nbsp;//&nbsp; CRM/SP 196454</div>
     </div>
     <div class="footer-contact">
       <h4>Entre em Contato</h4>
       <ul>
-        <li><a href="https://wa.me/5548998510053" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> (48) 99851-0053</a></li>
+        <li><a href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> (48) 99851-0053</a></li>
         <li><a href="tel:+554832243887"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.81a2 2 0 0 1-.45 2.11L8.05 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.31 1.85.53 2.81.66A2 2 0 0 1 22 16.92z"/></svg> (48) 3224-3887</a></li>
         <li><a href="mailto:contato@guidoboabaid.com.br"><svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>contato@guidoboabaid.com.br</a></li>
         <li><span><svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor; margin-right: 8px; display: inline-block; vertical-align: middle;"><path d="M17 2H7c-1.1 0-1.99.9-1.99 2v16c0 1.1.89 2 1.99 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 18c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-3H7V4h10v13z"/></svg>Palestras:<br>(48) 99632-1262</span></li>
@@ -251,12 +237,12 @@
     </div>
     <div class="footer-action">
       <div class="footer-socials">
-        <a href="https://www.instagram.com/drguidoboabaid/" target="_blank"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
-        <a href="https://www.linkedin.com/in/guido-boabaid-may-86896a93/" target="_blank"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.25 0h3.83v1.5h.05c.53-.95 1.84-1.95 3.78-1.95 4.04 0 4.79 2.66 4.79 6.12v5.33h-4v-4.72c0-1.13-.02-2.58-1.57-2.58-1.57 0-1.81 1.23-1.81 2.5v4.8h-4.07v-11z"/></svg></a>
-        <a href="https://www.facebook.com/guido.boabaidmay" target="_blank"><svg viewBox="0 0 24 24"><path d="M14 8.5V6.75c0-.84.19-1.25 1.35-1.25H17V2.15C16.2 2.05 15.42 2 14.64 2 11.57 2 10 3.86 10 7.27V8.5H7v3.75h3V22h4v-9.75h2.95l.55-3.75H14z"/></svg></a>
-        <a href="https://youtube.com/@drguidoboabaid" target="_blank"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.58 12 3.58 12 3.58s-7.5 0-9.38.5A3 3 0 0 0 .5 6.2A31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3 3 0 0 0 2.12-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+        <a href="https://www.instagram.com/drguidoboabaid/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
+        <a href="https://www.linkedin.com/in/guido-boabaid-may-86896a93/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.25 0h3.83v1.5h.05c.53-.95 1.84-1.95 3.78-1.95 4.04 0 4.79 2.66 4.79 6.12v5.33h-4v-4.72c0-1.13-.02-2.58-1.57-2.58-1.57 0-1.81 1.23-1.81 2.5v4.8h-4.07v-11z"/></svg></a>
+        <a href="https://www.facebook.com/guido.boabaidmay" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M14 8.5V6.75c0-.84.19-1.25 1.35-1.25H17V2.15C16.2 2.05 15.42 2 14.64 2 11.57 2 10 3.86 10 7.27V8.5H7v3.75h3V22h4v-9.75h2.95l.55-3.75H14z"/></svg></a>
+        <a href="https://youtube.com/@drguidoboabaid" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.58 12 3.58 12 3.58s-7.5 0-9.38.5A3 3 0 0 0 .5 6.2A31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3 3 0 0 0 2.12-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg></a>
       </div>
-      <a class="footer-btn" href="https://wa.me/5548998510053" target="_blank"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Fale Conosco</a>
+      <a class="footer-btn" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Fale Conosco</a>
     </div>
   </div>
   <div class="footer-bottom">Guido Boabaid May © 2026</div>
@@ -281,25 +267,12 @@
     timidaAudio.play().catch(() => audioStatus.textContent = 'Autoplay bloqueado');
   }
   document.querySelectorAll('.yt-thumb[data-youtube-id]').forEach(thumb => {
-    const playVideo = () => {
-      if (thumb.classList.contains('is-playing')) return;
+    thumb.addEventListener('click', () => {
       const id = thumb.dataset.youtubeId;
-      const title = thumb.querySelector('img')?.alt || thumb.getAttribute('aria-label') || 'YouTube video player';
       const origin = window.location.origin && window.location.origin !== 'null'
         ? `&origin=${encodeURIComponent(window.location.origin)}` : '';
       thumb.classList.add('is-playing');
-      thumb.removeAttribute('role');
-      thumb.removeAttribute('aria-label');
-      thumb.setAttribute('tabindex', '-1');
-      thumb.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1${origin}" title="${title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-      thumb.querySelector('iframe')?.focus();
-    };
-    thumb.addEventListener('click', playVideo);
-    thumb.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        playVideo();
-      }
+      thumb.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1${origin}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
     });
   });
 
@@ -313,5 +286,6 @@
   }
 </script>
 
+<script src="site-nav.js"></script>
 </body>
 </html>
