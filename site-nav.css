@@ -49,6 +49,30 @@ header .logo-wrap img { display: block; width: auto; height: 42px; max-width: mi
   iframe, video { max-width: 100%; }
   .section-title, .hero-title { overflow-wrap: break-word; }
 }
+/* The footer uses the same breakpoint as the mobile navigation. */
+@media (max-width: 1100px) {
+  footer .footer-inner {
+    display: grid !important; grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px !important; max-width: 560px; margin: 0 auto 32px;
+    text-align: center;
+  }
+  footer .footer-inner > * { grid-column: 1 / -1 !important; min-width: 0; }
+  footer .footer-brand { text-align: center; }
+  footer .footer-logo { display: block; max-width: 100%; margin: 0 auto 16px !important; }
+  footer .footer-brand p { max-width: 420px; margin: 0 auto 14px !important; text-align: center !important; }
+  footer .footer-crm { margin: 0 auto; line-height: 1.5; }
+  footer .footer-contact { max-width: 430px; width: 100%; margin: 0 auto; }
+  footer .footer-contact h4 { text-align: center; }
+  footer .footer-contact ul { text-align: left; }
+  footer .footer-contact li { min-width: 0; }
+  footer .footer-contact a, footer .footer-contact span {
+    display: inline-flex; align-items: flex-start; justify-content: flex-start;
+    max-width: 100%; min-width: 0; overflow-wrap: anywhere; text-align: left;
+  }
+  footer .footer-contact svg { flex: 0 0 17px; margin-top: 2px; }
+  footer .footer-action { grid-column: 1 / -1 !important; height: auto; padding-top: 0 !important; justify-content: center !important; }
+  footer .footer-btn { min-width: 0; width: min(100%, 320px); justify-content: center; }
+}
 
 @media (min-width: 1101px) { #main-nav .mobile-consult { display: none; } }
 @media (max-width: 1100px) {
