@@ -31,6 +31,10 @@
         <a class="button" id="blog-section-link" href="/admin" aria-current="page">Blog</a>
         <a class="button" id="press-section-link" href="/admin?secao=imprensa">Imprensa</a>
       </nav>
+      <div class="top-actions">
+        <button class="button primary" id="publish-site" type="button">Atualizar site público</button>
+        <p class="notice" id="site-publish-notice" role="status"></p>
+      </div>
       <div class="dashboard">
         <aside class="posts-panel">
           <div class="panel-heading"><div><h2>Publicações</h2><p class="muted" id="list-description">Rascunhos e artigos publicados</p></div><button class="button primary" id="new-post-button" type="button">+ Novo artigo</button></div>
@@ -49,7 +53,7 @@
               <label data-press-field hidden>Link original da matéria<input name="url" type="url" maxlength="2000" disabled required placeholder="https://"></label>
               <label class="wide">Resumo<p class="hint" id="excerpt-hint">Aparece no cartão do blog e nos resultados de busca.</p><textarea name="excerpt" rows="3" maxlength="500" required placeholder="Uma apresentação curta do artigo"></textarea></label>
               <label data-blog-field>Categoria<input name="category" maxlength="80" placeholder="Saúde mental"></label>
-              <div class="cover-field"><label for="cover-file">Imagem de capa</label><input id="cover-file" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG ou WEBP • até 8 MB</small><img id="cover-preview" alt="Prévia da imagem de capa" hidden></div>
+              <div class="cover-field"><label for="cover-file">Imagem de capa</label><input id="cover-file" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG ou WEBP • até 4 MB</small><img id="cover-preview" alt="Prévia da imagem de capa" hidden></div>
             </div>
             <div class="content-label" data-blog-field><label for="content-editor">Conteúdo do artigo</label><small>Use a barra para formatar títulos, listas e links.</small></div>
             <div class="rich-editor" data-blog-field>

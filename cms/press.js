@@ -15,9 +15,9 @@ function articleUrl(value) {
   }
 }
 
-function registerPress(app, { asyncRoute, requireAuth, requireCsrf, cleanText, escapeHtml, uploadedImageExists, siteRoot }) {
+function registerPress(app, { asyncRoute, requireAuth, requireCsrf, cleanText, escapeHtml, uploadedImageExists, siteRoot, baseUrl }) {
   app.get('/api/admin/press', requireAuth, asyncRoute(async (_req, res) => {
-    const [rows] = await pool.query('SELECT * FROM press_articles ORDER BY updated_at DESC, id ASC');
+    const { rows } = await pool.query('SELECT * FROM press_articles ORDER BY updated_at DESC, id ASC');
     res.json(rows);
   }));
 
@@ -39,34 +39,38 @@ function registerPress(app, { asyncRoute, requireAuth, requireCsrf, cleanText, e
     const fields = [title, outlet, excerpt, url, cover, status];
     let articleId = id;
     if (id) {
-      const [result] = await pool.execute(
-        "UPDATE press_articles SET title=?,outlet=?,excerpt=?,url=?,cover_image=?,status=?,published_at=IF(?='published',COALESCE(published_at,?),NULL),updated_at=? WHERE id=?",
+      const result = await pool.query(
+        "UPDATE press_articles SET title=$1,outlet=$2,excerpt=$3,url=$4,cover_image=$5,status=$6,published_at=CASE WHEN $7::text='published' THEN COALESCE(published_at,$8) ELSE NULL END,updated_at=$9 WHERE id=$10",
         [...fields, status, now, now, id]
       );
-      if (!result.affectedRows) return res.status(404).json({ error: 'Matéria não encontrada.' });
+      if (!result.rowCount) return res.status(404).json({ error: 'Matéria não encontrada.' });
     } else {
-      const [result] = await pool.execute(
-        'INSERT INTO press_articles (title,outlet,excerpt,url,cover_image,status,published_at,updated_at) VALUES (?,?,?,?,?,?,?,?)',
+      const result = await pool.query(
+        'INSERT INTO press_articles (title,outlet,excerpt,url,cover_image,status,published_at,updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id',
         [...fields, status === 'published' ? now : null, now]
       );
-      articleId = result.insertId;
+      articleId = result.rows[0].id;
     }
-    const [[post]] = await pool.execute('SELECT * FROM press_articles WHERE id=?', [articleId]);
+    const { rows: [post] } = await pool.query('SELECT * FROM press_articles WHERE id=$1', [articleId]);
     if (!post) return res.status(404).json({ error: 'Matéria não encontrada.' });
-    res.json({ post, url: '/#blog' });
+    res.json({ post, url: `${baseUrl}/#blog` });
   }));
 
   app.delete('/api/admin/press/:id', requireAuth, requireCsrf, asyncRoute(async (req, res) => {
     const id = Number(req.params.id);
     if (!Number.isSafeInteger(id) || id < 1) return res.status(404).json({ error: 'Matéria não encontrada.' });
-    const [result] = await pool.execute('DELETE FROM press_articles WHERE id=?', [id]);
-    if (!result.affectedRows) return res.status(404).json({ error: 'Matéria não encontrada.' });
+    const result = await pool.query('DELETE FROM press_articles WHERE id=$1', [id]);
+    if (!result.rowCount) return res.status(404).json({ error: 'Matéria não encontrada.' });
     res.json({ ok: true });
   }));
 
+  for (const cover of originalCovers) {
+    app.get(cover, (_req, res) => res.sendFile(path.join(siteRoot, cover.slice(1))));
+  }
+
   const home = fs.readFileSync(path.join(siteRoot, 'index.html'), 'utf8');
   app.get(['/', '/index.html'], asyncRoute(async (_req, res) => {
-    const [articles] = await pool.query(
+    const { rows: articles } = await pool.query(
       "SELECT title,outlet,excerpt,url,cover_image FROM press_articles WHERE status='published' ORDER BY published_at DESC, id ASC"
     );
     const cards = articles.map((article) => `<article class="blog-card">

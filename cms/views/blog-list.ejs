@@ -133,7 +133,7 @@
   <div class="blog-grid">
     <% if (posts.length) { %>
       <% posts.forEach((post) => { %>
-        <a href="/blog/<%= encodeURIComponent(post.slug) %>" class="blog-card">
+        <a href="/blog/<%= encodeURIComponent(post.slug) %>/"  class="blog-card">
           <div class="blog-card-image"><img src="<%= post.cover_image %>" alt="<%= post.title %>" loading="lazy"></div>
           <div class="blog-card-content">
             <div class="blog-card-meta">

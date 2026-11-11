@@ -4,3 +4,6 @@ node_modules/
 !.env.example
 cms/data/
 blog-uploads/*
+
+/pages-dist/
+/.vercel/

@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const crypto = require('node:crypto');
 const express = require('express');
 const session = require('express-session');
-const { pool, initializeDatabase, SessionStore } = require('./database');
+const { pool, SessionStore } = require('./database');
 const { registerPress } = require('./press');
 const bcrypt = require('bcryptjs');
 const helmet = require('helmet');
@@ -83,22 +83,24 @@ function requireCsrf(req, res, next) {
 function renderView(file, data) {
   return ejs.renderFile(path.join(VIEW_DIR, file), data, { async: true });
 }
-function postUrl(post) { return `${BASE_URL}/blog/${encodeURIComponent(post.slug)}`; }
+function postUrl(post) { return `${BASE_URL}/blog/${encodeURIComponent(post.slug)}/`; }
 
 const loginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 8, standardHeaders: 'draft-7', legacyHeaders: false, message: { error: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.' } });
 const uploadLimiter = rateLimit({ windowMs: 60 * 60 * 1000, limit: 30, standardHeaders: 'draft-7', legacyHeaders: false, message: { error: 'Limite de envios atingido. Tente novamente mais tarde.' } });
 const imageUpload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 8 * 1024 * 1024, files: 1 },
+  limits: { fileSize: 4 * 1024 * 1024, files: 1 },
   fileFilter: (_req, file, cb) => cb(null, ['image/jpeg','image/png','image/webp'].includes(file.mimetype))
 });
 
 app.get('/admin', (_req, res) => { res.set('Cache-Control','no-store'); res.sendFile(ADMIN_FILE); });
 app.get('/admin/', (_req, res) => res.redirect(302, '/admin'));
-app.use('/admin-assets', express.static(path.join(__dirname, 'public'), { fallthrough: false, maxAge: '1h' }));
+for (const asset of ['admin.css', 'admin.js']) {
+  app.get(`/admin-assets/${asset}`, (_req, res) => res.sendFile(path.join(__dirname, 'public', asset), { maxAge: '1h' }));
+}
 app.get('/blog-uploads/:filename', async (req, res, next) => {
   try {
-    const [rows] = await pool.execute('SELECT mime_type, content FROM cms_images WHERE filename = ?', [req.params.filename]);
+    const { rows } = await pool.query('SELECT mime_type, content FROM cms_images WHERE filename = $1', [req.params.filename]);
     const image = rows[0];
     if (!image) return res.sendStatus(404);
     res.set('Cache-Control', 'public, max-age=604800, immutable').type(image.mime_type).send(image.content);
@@ -139,12 +141,12 @@ function asyncRoute(handler) {
 }
 
 app.get('/api/admin/posts', requireAuth, asyncRoute(async (_req, res) => {
-  const [rows] = await pool.query('SELECT * FROM posts ORDER BY updated_at DESC');
+  const { rows } = await pool.query('SELECT * FROM posts ORDER BY updated_at DESC');
   res.json(rows.map(asAdminPost));
 }));
 app.post('/api/admin/upload', requireAuth, requireCsrf, uploadLimiter, (req, res, next) => {
   imageUpload.single('cover')(req, res, async (error) => {
-    if (error) return res.status(400).json({ error: error.code === 'LIMIT_FILE_SIZE' ? 'A imagem deve ter até 8 MB.' : 'Envie uma imagem JPG, PNG ou WEBP.' });
+    if (error) return res.status(400).json({ error: error.code === 'LIMIT_FILE_SIZE' ? 'A imagem deve ter até 4 MB.' : 'Envie uma imagem JPG, PNG ou WEBP.' });
     if (!req.file) return res.status(400).json({ error: 'Selecione uma imagem JPG, PNG ou WEBP.' });
     const bytes = req.file.buffer;
     const isJpeg = bytes.length > 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
@@ -155,7 +157,7 @@ app.post('/api/admin/upload', requireAuth, requireCsrf, uploadLimiter, (req, res
     const mime = isJpeg ? 'image/jpeg' : `image/${ext}`;
     const filename = `${crypto.randomBytes(18).toString('hex')}.${ext}`;
     try {
-      await pool.execute('INSERT INTO cms_images (filename, mime_type, content) VALUES (?, ?, ?)', [filename, mime, bytes]);
+      await pool.query('INSERT INTO cms_images (filename, mime_type, content) VALUES ($1, $2, $3)', [filename, mime, bytes]);
       res.json({ url: `/blog-uploads/${filename}` });
     } catch (error) { next(error); }
   });
@@ -164,7 +166,7 @@ app.post('/api/admin/upload', requireAuth, requireCsrf, uploadLimiter, (req, res
 async function uploadedImageExists(cover) {
   const match = /^\/blog-uploads\/([a-f0-9]{36}\.(?:jpg|png|webp))$/.exec(cover);
   if (!match) return false;
-  const [rows] = await pool.execute('SELECT 1 FROM cms_images WHERE filename = ?', [match[1]]);
+  const { rows } = await pool.query('SELECT 1 FROM cms_images WHERE filename = $1', [match[1]]);
   return rows.length > 0;
 }
 
@@ -188,45 +190,68 @@ app.post('/api/admin/posts', requireAuth, requireCsrf, asyncRoute(async (req, re
   try {
     let postId = id;
     if (id) {
-      const [result] = await pool.execute(`UPDATE posts SET slug=?,title=?,excerpt=?,content_html=?,cover_image=?,author=?,category=?,seo_title=?,seo_description=?,status=?,published_at=IF(?='published',COALESCE(published_at,?),NULL),updated_at=? WHERE id=?`,
+      const result = await pool.query(`UPDATE posts SET slug=$1,title=$2,excerpt=$3,content_html=$4,cover_image=$5,author=$6,category=$7,seo_title=$8,seo_description=$9,status=$10,published_at=CASE WHEN $11::text='published' THEN COALESCE(published_at,$12) ELSE NULL END,updated_at=$13 WHERE id=$14`,
         [...fields, status, now, now, id]);
-      if (!result.affectedRows) return res.status(404).json({ error: 'Artigo não encontrado.' });
+      if (!result.rowCount) return res.status(404).json({ error: 'Artigo não encontrado.' });
     } else {
-      const [result] = await pool.execute(`INSERT INTO posts (slug,title,excerpt,content_html,cover_image,author,category,seo_title,seo_description,status,published_at,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+      const result = await pool.query(`INSERT INTO posts (slug,title,excerpt,content_html,cover_image,author,category,seo_title,seo_description,status,published_at,created_at,updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING id`,
         [...fields, status === 'published' ? now : null, now, now]);
-      postId = result.insertId;
+      postId = result.rows[0].id;
     }
-    const [rows] = await pool.execute('SELECT * FROM posts WHERE id=?', [postId]);
+    const { rows } = await pool.query('SELECT * FROM posts WHERE id=$1', [postId]);
     if (!rows.length) return res.status(404).json({ error: 'Artigo não encontrado.' });
     res.json({ post: asAdminPost(rows[0]), url: postUrl(rows[0]) });
   } catch (error) {
-    if (error.code === 'ER_DUP_ENTRY') return res.status(409).json({ error: 'Esse endereço já está sendo usado por outro artigo.' });
+    if (error.code === '23505') return res.status(409).json({ error: 'Esse endereço já está sendo usado por outro artigo.' });
     throw error;
   }
 }));
 app.delete('/api/admin/posts/:id', requireAuth, requireCsrf, asyncRoute(async (req, res) => {
   const id = Number(req.params.id);
   if (!Number.isSafeInteger(id) || id < 1) return res.status(404).json({ error: 'Artigo não encontrado.' });
-  const [result] = await pool.execute('DELETE FROM posts WHERE id=?', [id]);
-  if (!result.affectedRows) return res.status(404).json({ error: 'Artigo não encontrado.' });
+  const result = await pool.query('DELETE FROM posts WHERE id=$1', [id]);
+  if (!result.rowCount) return res.status(404).json({ error: 'Artigo não encontrado.' });
   res.json({ ok: true });
+}));
+
+app.post('/api/admin/publish-site', requireAuth, requireCsrf, asyncRoute(async (_req, res) => {
+  const token = process.env.PAGES_DEPLOY_TOKEN;
+  if (!token) return res.status(503).json({ error: 'A publicação automática ainda precisa ser configurada.' });
+  const response = await fetch(
+    'https://api.github.com/repos/teodoroputtfarcken/drguidoboabaidmay_site_v.3/actions/workflows/publish-pages.yml/dispatches',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + token,
+        Accept: 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ ref: 'main' }),
+      signal: AbortSignal.timeout(10000)
+    }
+  );
+  if (!response.ok) {
+    console.error('GitHub Pages recusou o workflow:', response.status);
+    return res.status(502).json({ error: 'O GitHub não iniciou a publicação. Confira a configuração e tente novamente.' });
+  }
+  res.status(202).json({ ok: true });
 }));
 
 app.get('/api/posts', asyncRoute(async (req, res) => {
   const query = cleanText(req.query.q, 120);
   const term = `%${query.replace(/[!%_]/g, (char) => `!${char}`)}%`;
-  const fields = "SELECT id,slug,title,excerpt,author,published_at FROM posts WHERE status='published'";
-  const [rows] = query
-    ? await pool.execute(`${fields} AND (title LIKE ? ESCAPE '!' OR excerpt LIKE ? ESCAPE '!' OR content_html LIKE ? ESCAPE '!') ORDER BY published_at DESC`, [term, term, term])
+  const fields = "SELECT id,slug,title,excerpt,author,published_at,content_html FROM posts WHERE status='published'";
+  const { rows } = query
+    ? await pool.query(`${fields} AND (title ILIKE $1 ESCAPE '!' OR excerpt ILIKE $2 ESCAPE '!' OR content_html ILIKE $3 ESCAPE '!') ORDER BY published_at DESC`, [term, term, term])
     : await pool.query(`${fields} ORDER BY published_at DESC`);
-  res.json(rows.map((post) => ({ id:post.id,slug:post.slug,title:post.title,excerpt:post.excerpt,author:post.author,date:formatDate(post.published_at) })));
+  res.json(rows.map((post) => ({ id:post.id,slug:post.slug,title:post.title,excerpt:post.excerpt,author:post.author,date:formatDate(post.published_at),search:sanitizeHtml(post.content_html, { allowedTags: [], allowedAttributes: {} }).slice(0, 8000) })));
 }));
 
-registerPress(app, { asyncRoute, requireAuth, requireCsrf, cleanText, escapeHtml, uploadedImageExists, siteRoot: SITE_ROOT });
+registerPress(app, { asyncRoute, requireAuth, requireCsrf, cleanText, escapeHtml, uploadedImageExists, siteRoot: SITE_ROOT, baseUrl: BASE_URL });
 
 app.get('/blog.html', async (_req, res, next) => {
   try {
-    const [rows] = await pool.query("SELECT * FROM posts WHERE status='published' ORDER BY published_at DESC");
+    const { rows } = await pool.query("SELECT * FROM posts WHERE status='published' ORDER BY published_at DESC");
     const posts = rows.map(asPublicPost);
     const html = await renderView('blog-list.ejs', { posts });
     res.type('html').send(html);
@@ -234,7 +259,7 @@ app.get('/blog.html', async (_req, res, next) => {
 });
 app.get('/blog/:slug', async (req, res, next) => {
   try {
-    const [[row]] = await pool.execute("SELECT * FROM posts WHERE slug=? AND status='published'", [req.params.slug]);
+    const { rows: [row] } = await pool.query("SELECT * FROM posts WHERE slug=$1 AND status='published'", [req.params.slug]);
     if (!row) return res.status(404).send('Artigo não encontrado.');
     const post = asPublicPost(row);
     const html = await renderView('blog-post.ejs', { post, canonicalUrl: postUrl(post), baseUrl: BASE_URL });
@@ -244,30 +269,28 @@ app.get('/blog/:slug', async (req, res, next) => {
 app.get('/blog-post.html', (_req, res) => res.redirect(301, '/blog.html'));
 app.get('/sitemap.xml', async (req, res, next) => {
   try {
-    const [posts] = await pool.query("SELECT slug,updated_at FROM posts WHERE status='published' ORDER BY published_at DESC");
+    const { rows: posts } = await pool.query("SELECT slug,updated_at FROM posts WHERE status='published' ORDER BY published_at DESC");
     const sitemapPath = path.join(SITE_ROOT, 'sitemap.xml');
     const current = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, 'utf8') : '';
     const baseEntries = [...current.matchAll(/<url>[\s\S]*?<\/url>/g)].map((match) => match[0]);
     const known = new Set(baseEntries.map((entry) => (entry.match(/<loc>(.*?)<\/loc>/) || [])[1]));
-    const dynamicEntries = posts.filter((post) => !known.has(`${BASE_URL}/blog/${encodeURIComponent(post.slug)}`)).map((post) => `<url><loc>${escapeHtml(`${BASE_URL}/blog/${encodeURIComponent(post.slug)}`)}</loc><lastmod>${new Date(post.updated_at).toISOString().slice(0,10)}</lastmod></url>`);
+    const dynamicEntries = posts.filter((post) => !known.has(`${BASE_URL}/blog/${encodeURIComponent(post.slug)}/`)).map((post) => `<url><loc>${escapeHtml(`${BASE_URL}/blog/${encodeURIComponent(post.slug)}/`)}</loc><lastmod>${new Date(post.updated_at).toISOString().slice(0,10)}</lastmod></url>`);
     res.type('application/xml').send(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${baseEntries.join('')}${dynamicEntries.join('')}</urlset>`);
   } catch (error) { next(error); }
 });
 
 // Keep CMS implementation files, credentials and database outside the public file namespace.
 app.use(['/cms', '/node_modules', '/package.json', '/package-lock.json', '/README.md'], (_req, res) => res.sendStatus(404));
-app.use(express.static(SITE_ROOT, { index: 'index.html', dotfiles: 'deny', setHeaders: (res) => res.setHeader('X-Content-Type-Options','nosniff') }));
+if (!process.env.VERCEL) app.use(express.static(SITE_ROOT, { index: 'index.html', dotfiles: 'deny', setHeaders: (res) => res.setHeader('X-Content-Type-Options','nosniff') }));
 app.use((error, _req, res, _next) => {
   console.error(error);
   if (res.headersSent) return;
   res.status(500).json({ error: 'Ocorreu um erro no sistema. Tente novamente.' });
 });
 
-const HOST = process.env.HOST || '0.0.0.0';
-initializeDatabase()
-  .then(() => app.listen(PORT, HOST, () => console.log(`CMS listening on ${HOST}:${PORT}`)))
-  .catch(async (error) => {
-    console.error('Não foi possível iniciar o CMS.', error.code || error.message);
-    await pool.end();
-    process.exitCode = 1;
-  });
+if (require.main === module) {
+  const host = process.env.HOST || '0.0.0.0';
+  app.listen(PORT, host, () => console.log(`CMS listening on ${host}:${PORT}`));
+}
+
+module.exports = app;

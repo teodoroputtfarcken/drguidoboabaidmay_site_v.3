@@ -161,6 +161,20 @@
     try { await api('/api/admin/logout', { method: 'POST', body: JSON.stringify({}) }); csrfToken = ''; posts = []; resetEditor(); await boot(); }
     catch (error) { message($('#editor-notice'), error.message); }
   });
+  $('#publish-site').addEventListener('click', async (event) => {
+    const button = event.currentTarget;
+    const notice = $('#site-publish-notice');
+    button.disabled = true;
+    message(notice, 'Solicitando publicação…');
+    try {
+      await api('/api/admin/publish-site', { method: 'POST' });
+      message(notice, 'Publicação solicitada. O site será atualizado quando o deploy terminar.', true);
+    } catch (error) {
+      message(notice, error.message);
+    } finally {
+      button.disabled = false;
+    }
+  });
   $('#new-post-button').addEventListener('click', resetEditor);
   postForm.elements.title.addEventListener('input', () => { if (!slugWasEdited) postForm.elements.slug.value = slugify(postForm.elements.title.value); refreshPreview(); });
   postForm.elements.slug.addEventListener('input', () => { slugWasEdited = true; postForm.elements.slug.value = slugify(postForm.elements.slug.value); });

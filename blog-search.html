@@ -211,9 +211,12 @@
     const resultsDiv = document.getElementById('searchResults');
     resultsDiv.textContent = 'Buscando artigos...';
     try {
-      const response = await fetch(`/api/posts?q=${encodeURIComponent(query)}`);
+      const response = await fetch('blog-search-index.json');
       if (!response.ok) throw new Error('Não foi possível buscar os artigos.');
-      const results = await response.json();
+      const posts = await response.json();
+      const term = query.toLocaleLowerCase('pt-BR');
+      const results = posts.filter((post) => [post.title, post.excerpt, post.search]
+        .some((value) => value.toLocaleLowerCase('pt-BR').includes(term)));
       displayResults(query, results);
     } catch (_error) {
       resultsDiv.textContent = 'A busca está indisponível no momento. Tente novamente.';
@@ -236,7 +239,7 @@
     resultsCount.textContent = `${results.length} resultado${results.length !== 1 ? 's' : ''} encontrado${results.length !== 1 ? 's' : ''}`;
     results.forEach((post) => {
       const result = document.createElement('a');
-      result.href = `/blog/${encodeURIComponent(post.slug)}`;
+      result.href = 'blog/' + encodeURIComponent(post.slug) + '/';
       result.className = 'search-result';
       const date = document.createElement('div'); date.className = 'search-result-date'; date.textContent = post.date;
       const title = document.createElement('h3'); title.className = 'search-result-title'; title.textContent = post.title;
