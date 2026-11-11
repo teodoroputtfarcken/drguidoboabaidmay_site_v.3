@@ -6,7 +6,8 @@
   "main": "cms/app.js",
   "scripts": {
     "start": "node cms/app.js",
-    "hash-password": "node cms/scripts/hash-password.js"
+    "hash-password": "node cms/scripts/hash-password.js",
+    "build": "esbuild sanitize-html --bundle --platform=node --format=cjs --target=node22 --outfile=cms/generated/sanitize-html.cjs"
   },
   "engines": {
     "node": ">=22"
@@ -22,5 +23,8 @@
     "multer": "^2.0.2",
     "pg": "^8.16.0",
     "sanitize-html": "^2.14.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
   }
 }

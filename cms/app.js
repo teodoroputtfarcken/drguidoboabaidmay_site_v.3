@@ -9,7 +9,10 @@ const { registerPress } = require('./press');
 const bcrypt = require('bcryptjs');
 const helmet = require('helmet');
 const multer = require('multer');
-const sanitizeHtml = require('sanitize-html');
+// Vercel may disable synchronous require() of ESM dependencies at runtime.
+const sanitizeHtml = process.env.VERCEL
+  ? require('./generated/sanitize-html.cjs')
+  : require('sanitize-html');
 const { rateLimit } = require('express-rate-limit');
 const ejs = require('ejs');
 

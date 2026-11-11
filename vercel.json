@@ -1,10 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "express",
-  "regions": ["iad1"],
+  "regions": [
+    "iad1"
+  ],
   "functions": {
     "server.js": {
-      "includeFiles": "{index.html,sitemap.xml,imprensa-*.png,cms/public/**,cms/views/**}"
+      "includeFiles": "{index.html,sitemap.xml,imprensa-*.png,cms/public/**,cms/views/**,cms/generated/**}"
     }
-  }
+  },
+  "buildCommand": "npm run build"
 }

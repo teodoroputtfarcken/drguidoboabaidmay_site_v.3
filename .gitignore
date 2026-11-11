@@ -7,3 +7,4 @@ blog-uploads/*
 
 /pages-dist/
 /.vercel/
+/cms/generated/
