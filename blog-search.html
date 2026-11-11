@@ -205,28 +205,19 @@
     document.getElementById('hamburger').classList.remove('open');
   }
 
-  // Posts database
-  const posts = [
-    { id: 1, title: 'Entendendo a Ansiedade Moderna', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt...', date: '15 de Agosto, 2026', author: 'Dr. Guido' },
-    { id: 2, title: 'Farmacogenética: Medicina Personalizada', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt...', date: '12 de Agosto, 2026', author: 'Dr. Guido' },
-    { id: 3, title: 'Depressão: Causas e Tratamentos', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt...', date: '10 de Agosto, 2026', author: 'Dr. Guido' },
-    { id: 4, title: 'Insônia: Estratégias para Dormir Melhor', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt...', date: '08 de Agosto, 2026', author: 'Dr. Guido' },
-    { id: 5, title: 'TDAH em Adultos: Sinais Comuns', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt...', date: '05 de Agosto, 2026', author: 'Dr. Guido' },
-    { id: 6, title: 'Burnout: Reconhecendo o Esgotamento', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt...', date: '02 de Agosto, 2026', author: 'Dr. Guido' },
-    { id: 7, title: 'Transtorno Bipolar: Entenda os Ciclos', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt...', date: '31 de Julho, 2026', author: 'Dr. Guido' },
-    { id: 8, title: 'Autoestima e Saúde Mental', excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt...', date: '28 de Julho, 2026', author: 'Dr. Guido' }
-  ];
-
-  function performSearch() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
-    if (!query.trim()) return;
-
-    const results = posts.filter(p => 
-      p.title.toLowerCase().includes(query) || 
-      p.excerpt.toLowerCase().includes(query)
-    );
-
-    displayResults(query, results);
+  async function performSearch() {
+    const query = document.getElementById('searchInput').value.trim();
+    if (!query) return;
+    const resultsDiv = document.getElementById('searchResults');
+    resultsDiv.textContent = 'Buscando artigos...';
+    try {
+      const response = await fetch(`/api/posts?q=${encodeURIComponent(query)}`);
+      if (!response.ok) throw new Error('Não foi possível buscar os artigos.');
+      const results = await response.json();
+      displayResults(query, results);
+    } catch (_error) {
+      resultsDiv.textContent = 'A busca está indisponível no momento. Tente novamente.';
+    }
   }
 
   function displayResults(query, results) {
@@ -234,32 +225,27 @@
     const resultsDiv = document.getElementById('searchResults');
     const noResults = document.getElementById('noResults');
     const resultsCount = document.getElementById('resultsCount');
-
-    resultsDiv.innerHTML = '';
+    resultsDiv.replaceChildren();
 
     if (results.length === 0) {
       noResults.style.display = 'block';
       resultsCount.textContent = '0 resultados encontrados';
-    } else {
-      noResults.style.display = 'none';
-      resultsCount.textContent = `${results.length} resultado${results.length !== 1 ? 's' : ''} encontrado${results.length !== 1 ? 's' : ''}`;
-      
-      results.forEach(post => {
-        const resultDiv = document.createElement('a');
-        resultDiv.href = `blog-post.html?id=${post.id}`;
-        resultDiv.className = 'search-result';
-        resultDiv.innerHTML = `
-          <div class="search-result-date">${post.date}</div>
-          <h3 class="search-result-title">${post.title}</h3>
-          <p class="search-result-excerpt">${post.excerpt}</p>
-          <div class="search-result-meta">
-            <span>👤 ${post.author}</span>
-            <span>→ Ler mais</span>
-          </div>
-        `;
-        resultsDiv.appendChild(resultDiv);
-      });
+      return;
     }
+    noResults.style.display = 'none';
+    resultsCount.textContent = `${results.length} resultado${results.length !== 1 ? 's' : ''} encontrado${results.length !== 1 ? 's' : ''}`;
+    results.forEach((post) => {
+      const result = document.createElement('a');
+      result.href = `/blog/${encodeURIComponent(post.slug)}`;
+      result.className = 'search-result';
+      const date = document.createElement('div'); date.className = 'search-result-date'; date.textContent = post.date;
+      const title = document.createElement('h3'); title.className = 'search-result-title'; title.textContent = post.title;
+      const excerpt = document.createElement('p'); excerpt.className = 'search-result-excerpt'; excerpt.textContent = post.excerpt;
+      const meta = document.createElement('div'); meta.className = 'search-result-meta';
+      const author = document.createElement('span'); author.textContent = `👤 ${post.author}`;
+      const cta = document.createElement('span'); cta.textContent = '→ Ler mais';
+      meta.append(author, cta); result.append(date, title, excerpt, meta); resultsDiv.append(result);
+    });
   }
 
   // Search on Enter

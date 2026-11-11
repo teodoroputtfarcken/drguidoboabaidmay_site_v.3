@@ -1,0 +1,26 @@
+{
+  "name": "dr-guido-site-cms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site e painel editorial do Dr. Guido Boabaid May",
+  "main": "cms/app.js",
+  "scripts": {
+    "start": "node cms/app.js",
+    "hash-password": "node cms/scripts/hash-password.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "multer": "^2.0.2",
+    "mysql2": "^3.15.0",
+    "sanitize-html": "^2.14.0"
+  }
+}
