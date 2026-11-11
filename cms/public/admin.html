@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Painel editorial | Dr. Guido Boabaid May</title>
+  <link rel="stylesheet" href="/admin-assets/admin.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="login-card" id="login-view" hidden>
+      <a class="back-link" href="/blog.html">← Voltar ao site</a>
+      <div class="eyebrow">ÁREA RESTRITA</div>
+      <h1>Acessar o painel</h1>
+      <p class="muted">Entre para administrar o Blog e a Imprensa.</p>
+      <form id="login-form">
+        <label>E-mail<input type="email" name="email" autocomplete="username" required></label>
+        <label>Senha<input type="password" name="password" autocomplete="current-password" required></label>
+        <button class="button primary full" type="submit">Entrar</button>
+        <div class="notice" id="login-notice" role="alert"></div>
+      </form>
+    </section>
+
+    <section id="admin-view" hidden>
+      <header class="topbar">
+        <div><a class="back-link" id="view-public" href="/blog.html">← Ver blog</a><h1 id="section-heading">Artigos do blog</h1></div>
+        <div class="top-actions"><span id="account-email" class="muted"></span><button class="button ghost" id="logout-button" type="button">Sair</button></div>
+      </header>
+      <nav class="section-nav" aria-label="Conteúdo do painel">
+        <a class="button" id="blog-section-link" href="/admin" aria-current="page">Blog</a>
+        <a class="button" id="press-section-link" href="/admin?secao=imprensa">Imprensa</a>
+      </nav>
+      <div class="top-actions">
+        <button class="button primary" id="publish-site" type="button">Atualizar site público</button>
+        <p class="notice" id="site-publish-notice" role="status"></p>
+      </div>
+      <div class="dashboard">
+        <aside class="posts-panel">
+          <div class="panel-heading"><div><h2>Publicações</h2><p class="muted" id="list-description">Rascunhos e artigos publicados</p></div><button class="button primary" id="new-post-button" type="button">+ Novo artigo</button></div>
+          <div id="posts-list" class="posts-list"></div>
+        </aside>
+        <section class="editor-panel">
+          <div class="editor-heading"><div><div class="eyebrow">EDITOR</div><h2 id="editor-heading-title">Novo artigo</h2></div><span class="draft-indicator" id="draft-indicator">Não salvo</span></div>
+          <form id="post-form">
+            <input type="hidden" name="id">
+            <input type="hidden" name="cover_image">
+            <div class="field-grid">
+              <label class="wide">Título<input name="title" maxlength="180" required placeholder="Título do artigo"></label>
+              <label data-blog-field>Endereço da página<input name="slug" maxlength="150" required placeholder="titulo-do-artigo"><small>Usado no endereço: /blog/endereco-do-artigo</small></label>
+              <label data-blog-field>Autor<input name="author" maxlength="120" value="Dr. Guido Boabaid May"></label>
+              <label data-press-field hidden>Veículo<input name="outlet" maxlength="120" disabled required></label>
+              <label data-press-field hidden>Link original da matéria<input name="url" type="url" maxlength="2000" disabled required placeholder="https://"></label>
+              <label class="wide">Resumo<p class="hint" id="excerpt-hint">Aparece no cartão do blog e nos resultados de busca.</p><textarea name="excerpt" rows="3" maxlength="500" required placeholder="Uma apresentação curta do artigo"></textarea></label>
+              <label data-blog-field>Categoria<input name="category" maxlength="80" placeholder="Saúde mental"></label>
+              <div class="cover-field"><label for="cover-file">Imagem de capa</label><input id="cover-file" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG ou WEBP • até 4 MB</small><img id="cover-preview" alt="Prévia da imagem de capa" hidden></div>
+            </div>
+            <div class="content-label" data-blog-field><label for="content-editor">Conteúdo do artigo</label><small>Use a barra para formatar títulos, listas e links.</small></div>
+            <div class="rich-editor" data-blog-field>
+              <div class="toolbar" role="toolbar" aria-label="Formatação do texto">
+                <button type="button" data-command="formatBlock" data-value="p">Parágrafo</button><button type="button" data-command="formatBlock" data-value="h2">Título</button><button type="button" data-command="bold"><strong>B</strong></button><button type="button" data-command="italic"><em>I</em></button><button type="button" data-command="insertUnorderedList">• Lista</button><button type="button" data-command="createLink">Link</button>
+              </div>
+              <div id="content-editor" class="content-editor" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Escreva ou cole o conteúdo do artigo aqui..."></div>
+            </div>
+            <details class="seo-fields" data-blog-field><summary>Campos de SEO</summary><div class="field-grid"><label>Título para o Google<input name="seo_title" maxlength="180" placeholder="Se vazio, será usado o título do artigo"></label><label>Descrição para o Google<textarea name="seo_description" rows="2" maxlength="300" placeholder="Se vazia, será usado o resumo"></textarea></label></div></details>
+            <div class="form-actions"><button class="button ghost" id="preview-button" type="button">Atualizar prévia</button><span class="spacer"></span><button class="button secondary" type="submit" data-status="draft">Salvar rascunho</button><button class="button primary" type="submit" data-status="published">Publicar artigo</button></div>
+            <div class="notice" id="editor-notice" role="status"></div>
+          </form>
+        </section>
+        <aside class="preview-panel"><div class="eyebrow">PRÉVIA DO CARTÃO</div><div class="preview-card"><img id="preview-image" alt=""><div class="preview-card-body"><div class="preview-meta" id="preview-meta">📅 Data de publicação · Dr. Guido</div><h3 id="preview-title">Título do artigo</h3><p id="preview-excerpt">O resumo aparecerá aqui.</p><span id="preview-cta">Ler mais →</span></div></div><div class="article-preview" data-blog-field><h3>Prévia do conteúdo</h3><div id="preview-content" class="preview-content"></div></div></aside>
+      </div>
+    </section>
+  </main>
+  <script src="/admin-assets/admin.js" defer></script>
+</body>
+</html>

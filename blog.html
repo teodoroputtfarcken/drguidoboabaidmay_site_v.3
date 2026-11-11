@@ -46,6 +46,7 @@
     .hero-subtitle { font-size: 1.1rem; line-height: 1.8; color: var(--text-light); max-width: 700px; margin: 0 auto; }
     section { padding: 90px 5%; }
     .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--navy); margin-bottom: 48px; text-align: center; }
+    .blog-empty { grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 36px 0; }
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; max-width: 1280px; margin: 0 auto; }
     .blog-card { background: var(--white); border: 1px solid rgba(24,56,95,.12); border-radius: 16px; overflow: hidden; transition: all .3s; cursor: pointer; text-decoration: none; color: var(--navy); display: flex; flex-direction: column; }
     .blog-card:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(24,56,95,.12); border-color: var(--teal); }
@@ -129,111 +130,7 @@
 
 <section>
   <h2 class="section-title">Artigos Recentes</h2>
-  <div class="blog-grid">
-    <a href="blog-post.html?id=1" class="blog-card">
-      <div class="blog-card-image" style="background: linear-gradient(135deg, #e8f1f8, #d4e9f2);">Imagem do post</div>
-      <div class="blog-card-content">
-        <div class="blog-card-meta">
-          <span class="blog-card-date">📅 15 de Agosto, 2026</span>
-          <span class="blog-card-author">👤 Dr. Guido</span>
-        </div>
-        <h3 class="blog-card-title">Entendendo a Ansiedade Moderna</h3>
-        <p class="blog-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        <span class="blog-card-cta">Ler mais →</span>
-      </div>
-    </a>
-
-    <a href="blog-post.html?id=2" class="blog-card">
-      <div class="blog-card-image" style="background: linear-gradient(135deg, #f0e8f8, #e9d4f2);">Imagem do post</div>
-      <div class="blog-card-content">
-        <div class="blog-card-meta">
-          <span class="blog-card-date">📅 12 de Agosto, 2026</span>
-          <span class="blog-card-author">👤 Dr. Guido</span>
-        </div>
-        <h3 class="blog-card-title">Farmacogenética: Medicina Personalizada</h3>
-        <p class="blog-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        <span class="blog-card-cta">Ler mais →</span>
-      </div>
-    </a>
-
-    <a href="blog-post.html?id=3" class="blog-card">
-      <div class="blog-card-image" style="background: linear-gradient(135deg, #e8f8f1, #d4f2e9);">Imagem do post</div>
-      <div class="blog-card-content">
-        <div class="blog-card-meta">
-          <span class="blog-card-date">📅 10 de Agosto, 2026</span>
-          <span class="blog-card-author">👤 Dr. Guido</span>
-        </div>
-        <h3 class="blog-card-title">Depressão: Causas e Tratamentos</h3>
-        <p class="blog-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        <span class="blog-card-cta">Ler mais →</span>
-      </div>
-    </a>
-
-    <a href="blog-post.html?id=4" class="blog-card">
-      <div class="blog-card-image" style="background: linear-gradient(135deg, #f8f0e8, #f2e9d4);">Imagem do post</div>
-      <div class="blog-card-content">
-        <div class="blog-card-meta">
-          <span class="blog-card-date">📅 08 de Agosto, 2026</span>
-          <span class="blog-card-author">👤 Dr. Guido</span>
-        </div>
-        <h3 class="blog-card-title">Insônia: Estratégias para Dormir Melhor</h3>
-        <p class="blog-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        <span class="blog-card-cta">Ler mais →</span>
-      </div>
-    </a>
-
-    <a href="blog-post.html?id=5" class="blog-card">
-      <div class="blog-card-image" style="background: linear-gradient(135deg, #e8f8e8, #d4f2d4);">Imagem do post</div>
-      <div class="blog-card-content">
-        <div class="blog-card-meta">
-          <span class="blog-card-date">📅 05 de Agosto, 2026</span>
-          <span class="blog-card-author">👤 Dr. Guido</span>
-        </div>
-        <h3 class="blog-card-title">TDAH em Adultos: Sinais Comuns</h3>
-        <p class="blog-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        <span class="blog-card-cta">Ler mais →</span>
-      </div>
-    </a>
-
-    <a href="blog-post.html?id=6" class="blog-card">
-      <div class="blog-card-image" style="background: linear-gradient(135deg, #f8e8f8, #f2d4f2);">Imagem do post</div>
-      <div class="blog-card-content">
-        <div class="blog-card-meta">
-          <span class="blog-card-date">📅 02 de Agosto, 2026</span>
-          <span class="blog-card-author">👤 Dr. Guido</span>
-        </div>
-        <h3 class="blog-card-title">Burnout: Reconhecendo o Esgotamento</h3>
-        <p class="blog-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        <span class="blog-card-cta">Ler mais →</span>
-      </div>
-    </a>
-
-    <a href="blog-post.html?id=7" class="blog-card">
-      <div class="blog-card-image" style="background: linear-gradient(135deg, #f0e8f8, #e9d4f2);">Imagem do post</div>
-      <div class="blog-card-content">
-        <div class="blog-card-meta">
-          <span class="blog-card-date">📅 31 de Julho, 2026</span>
-          <span class="blog-card-author">👤 Dr. Guido</span>
-        </div>
-        <h3 class="blog-card-title">Transtorno Bipolar: Entenda os Ciclos</h3>
-        <p class="blog-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        <span class="blog-card-cta">Ler mais →</span>
-      </div>
-    </a>
-
-    <a href="blog-post.html?id=8" class="blog-card">
-      <div class="blog-card-image" style="background: linear-gradient(135deg, #e8f1f8, #d4e9f2);">Imagem do post</div>
-      <div class="blog-card-content">
-        <div class="blog-card-meta">
-          <span class="blog-card-date">📅 28 de Julho, 2026</span>
-          <span class="blog-card-author">👤 Dr. Guido</span>
-        </div>
-        <h3 class="blog-card-title">Autoestima e Saúde Mental</h3>
-        <p class="blog-card-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        <span class="blog-card-cta">Ler mais →</span>
-      </div>
-    </a>
-  </div>
+  <div class="blog-grid"><p class="blog-empty">Em breve, novos artigos.</p></div>
 </section>
 
 <footer>

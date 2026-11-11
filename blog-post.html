@@ -120,34 +120,11 @@
 
 <div class="post-header">
   <div class="post-header-inner">
-    <h1 class="post-title" id="postTitle">Entendendo a Ansiedade Moderna</h1>
-    <div class="post-meta">
-      <span class="post-meta-item">📅 <span id="postDate">15 de Agosto, 2026</span></span>
-      <span class="post-meta-item">👤 <span id="postAuthor">Dr. Guido</span></span>
-    </div>
+    <h1 class="post-title">Artigo não disponível</h1>
+    <div class="post-meta"><span class="post-meta-item">Acesse o blog para ver os artigos publicados.</span></div>
   </div>
 </div>
-
-<div class="post-featured-image" id="postImage" style="background: linear-gradient(135deg, #e8f1f8, #d4e9f2);">Imagem do artigo</div>
-
-<div class="post-content">
-  <p id="postContent1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  
-  <h2>A Realidade da Ansiedade</h2>
-  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  
-  <h3>Sintomas Comuns</h3>
-  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-  
-  <h2>Buscando Ajuda Profissional</h2>
-  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
-  
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-</div>
-
-<div class="post-footer">
-  <a href="blog.html" class="back-to-blog">← Voltar para o Blog</a>
-</div>
+<div class="post-content"><p>Este link antigo não corresponde a um artigo publicado.</p><p><a href="/blog.html" class="back-to-blog">← Voltar para o Blog</a></p></div>
 
 <footer>
   <div class="footer-inner">
@@ -205,27 +182,6 @@
     document.getElementById('hamburger').classList.remove('open');
   }
 
-  // Simular carregamento de post baseado no query parameter
-  const params = new URLSearchParams(window.location.search);
-  const postId = params.get('id') || '1';
-  
-  const posts = {
-    '1': { title: 'Entendendo a Ansiedade Moderna', date: '15 de Agosto, 2026', author: 'Dr. Guido', image: 'linear-gradient(135deg, #e8f1f8, #d4e9f2)' },
-    '2': { title: 'Farmacogenética: Medicina Personalizada', date: '12 de Agosto, 2026', author: 'Dr. Guido', image: 'linear-gradient(135deg, #f0e8f8, #e9d4f2)' },
-    '3': { title: 'Depressão: Causas e Tratamentos', date: '10 de Agosto, 2026', author: 'Dr. Guido', image: 'linear-gradient(135deg, #e8f8f1, #d4f2e9)' },
-    '4': { title: 'Insônia: Estratégias para Dormir Melhor', date: '08 de Agosto, 2026', author: 'Dr. Guido', image: 'linear-gradient(135deg, #f8f0e8, #f2e9d4)' },
-    '5': { title: 'TDAH em Adultos: Sinais Comuns', date: '05 de Agosto, 2026', author: 'Dr. Guido', image: 'linear-gradient(135deg, #e8f8e8, #d4f2d4)' },
-    '6': { title: 'Burnout: Reconhecendo o Esgotamento', date: '02 de Agosto, 2026', author: 'Dr. Guido', image: 'linear-gradient(135deg, #f8e8f8, #f2d4f2)' },
-    '7': { title: 'Transtorno Bipolar: Entenda os Ciclos', date: '31 de Julho, 2026', author: 'Dr. Guido', image: 'linear-gradient(135deg, #f0e8f8, #e9d4f2)' },
-    '8': { title: 'Autoestima e Saúde Mental', date: '28 de Julho, 2026', author: 'Dr. Guido', image: 'linear-gradient(135deg, #e8f1f8, #d4e9f2)' }
-  };
-
-  const post = posts[postId] || posts['1'];
-  document.getElementById('postTitle').textContent = post.title;
-  document.getElementById('postDate').textContent = post.date;
-  document.getElementById('postAuthor').textContent = post.author;
-  document.getElementById('postImage').style.background = post.image;
-  document.title = `${post.title} | Blog | Dr. Guido Boabaid May`;
 </script>
 
 <script src="site-nav.js"></script>
