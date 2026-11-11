@@ -1,0 +1,44 @@
+[
+  {
+    "cover_image": "imprensa-forbes.png",
+    "outlet": "Forbes",
+    "title": "GnTech amplia testes farmacogenéticos para oncologia",
+    "excerpt": "Reportagem sobre o avanço da GnTech no uso da farmacogenética para orientar tratamentos com mais precisão, incluindo aplicações para pacientes oncológicos.",
+    "url": "https://forbes.com.br/colunas/2020/03/exclusivo-gntech-lanca-testes-farmacogeneticos-para-pacientes-oncologicos/"
+  },
+  {
+    "cover_image": "imprensa-claudia.png",
+    "outlet": "Claudia",
+    "title": "Testes genéticos ajudam a prever a resposta a medicamentos",
+    "excerpt": "A matéria explica como a análise genética pode indicar quais medicamentos tendem a funcionar melhor para cada pessoa, reduzindo tentativas e efeitos indesejados.",
+    "url": "https://claudia.abril.com.br/saude/testes-geneticos-preveem-a-reacao-de-cada-pessoa-a-medicamentos/"
+  },
+  {
+    "cover_image": "imprensa-folha.png",
+    "outlet": "Folha de S.Paulo",
+    "title": "Teste genético auxilia na escolha do antidepressivo",
+    "excerpt": "Conteúdo sobre como exames genéticos podem apoiar médicos na escolha de antidepressivos, considerando diferenças individuais na metabolização dos remédios.",
+    "url": "https://www1.folha.uol.com.br/paywall/login.shtml?https://www1.folha.uol.com.br/equilibrioesaude/2017/06/1896005-teste-genetico-ajuda-medico-a-indicar-o-melhor-antidepressivo.shtml"
+  },
+  {
+    "cover_image": "imprensa-nsctotal.png",
+    "outlet": "NSC Total",
+    "title": "Startup de SC usa genética para tratar doenças da mente",
+    "excerpt": "Reportagem sobre a empresa catarinense que desenvolveu um teste genético voltado a tratamentos em saúde mental, aproximando tecnologia e cuidado clínico.",
+    "url": "https://www.nsctotal.com.br/colunistas/estela-benetti/startup-de-sc-faz-teste-genetico-que-ajuda-tratar-doencas-da-mente"
+  },
+  {
+    "cover_image": "imprensa-superinteressante.png",
+    "outlet": "Superinteressante",
+    "title": "Mapeamento do DNA como aliado contra a depressão",
+    "excerpt": "A publicação aborda como o DNA pode ajudar a personalizar tratamentos para depressão, tornando a escolha terapêutica mais informada e individualizada.",
+    "url": "https://super.abril.com.br/saude/mapeamento-do-dna-a-nova-arma-contra-a-depressao/"
+  },
+  {
+    "cover_image": "imprensa-estadao.png",
+    "outlet": "Estadão",
+    "title": "Testes genéticos orientam remédios para ansiedade e depressão",
+    "excerpt": "Matéria sobre o funcionamento dos testes genéticos na escolha de medicamentos para ansiedade e depressão, com foco em segurança e personalização do cuidado.",
+    "url": "https://www.estadao.com.br/saude/teste-genetico-remedio-ansiedade-depressao/"
+  }
+]
