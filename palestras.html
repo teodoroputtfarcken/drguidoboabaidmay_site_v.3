@@ -8,9 +8,9 @@
   <meta name="og:title" content="Palestras & Eventos — Dr. Guido Boabaid May">
   <meta name="og:description" content="Conheça as palestras do Dr. Guido sobre saúde mental, medicina personalizada e transformação de vidas.">
   <title>Palestras & Eventos — Dr. Guido Boabaid May</title>
-<meta property="og:title" content="Palestras &amp; Eventos — Dr. Guido Boabaid May">
-<meta property="og:description" content="Palestras e Eventos com Dr. Guido Boabaid May - Saúde Mental, Medicina Personalizada e Felicidade">
-<meta property="og:type" content="website">
+  <meta property="og:title" content="Palestras &amp; Eventos — Dr. Guido Boabaid May">
+  <meta property="og:description" content="Palestras e Eventos com Dr. Guido Boabaid May - Saúde Mental, Medicina Personalizada e Felicidade">
+  <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="favicon-guido-rounded.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -66,13 +66,13 @@
     nav { display: flex; align-items: center; gap: 40px; }
     nav a { color: var(--navy); text-decoration: none; font-size: 15px; font-weight: 500; transition: color .2s; }
     nav a:hover { color: var(--teal); }
-  .nav-dropdown { position: relative; }
-  .dropdown-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--navy); font-size: 15px; font-weight: 500; }
-  .dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(12px); border: 1px solid rgba(24,56,95,.12); border-radius: 12px; min-width: 280px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all .3s; z-index: 1000; box-shadow: 0 4px 22px rgba(24,56,95,.12); }
-  .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-  .dropdown-menu a { display: block; padding: 12px 20px; color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; border-bottom: 1px solid rgba(24,56,95,.08); transition: background .2s; }
-  .dropdown-menu a:last-child { border-bottom: none; }
-  .dropdown-menu a:hover { background: rgba(24,56,95,.05); color: var(--teal); }
+    .nav-dropdown { position: relative; }
+    .dropdown-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--navy); font-size: 15px; font-weight: 500; }
+    .dropdown-menu { position: absolute; top: 100%; left: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(12px); border: 1px solid rgba(24,56,95,.12); border-radius: 12px; min-width: 280px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all .3s; z-index: 1000; box-shadow: 0 4px 22px rgba(24,56,95,.12); }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-menu a { display: block; padding: 12px 20px; color: var(--navy); text-decoration: none; font-size: 14px; font-weight: 500; white-space: nowrap; border-bottom: 1px solid rgba(24,56,95,.08); transition: background .2s; }
+    .dropdown-menu a:last-child { border-bottom: none; }
+    .dropdown-menu a:hover { background: rgba(24,56,95,.05); color: var(--teal); }
     .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: var(--white); padding: 9px 20px; border-radius: 30px; font-size: 13.5px; font-weight: 600; text-decoration: none; transition: background .2s, transform .15s; white-space: nowrap; }
     .btn-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
     #hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
@@ -118,6 +118,35 @@
       box-shadow: 0 6px 24px rgba(37,211,102,.35); transition: all .2s; border: none; cursor: pointer;
     }
     .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+    /* DESTAQUE DO TALK DO LIVRO */
+    #talk-cba { background: var(--white); }
+    .talk-layout {
+      width: 100%; max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+      gap: clamp(28px, 5vw, 64px); align-items: center;
+    }
+    .talk-video-frame {
+      width: 100%; aspect-ratio: 16 / 9; overflow: hidden;
+      border-radius: 16px; background: #000; box-shadow: var(--shadow-sm);
+    }
+    .talk-video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .talk-video-link {
+      display: inline-block; margin-top: 12px; color: var(--teal);
+      font-size: .875rem; font-weight: 600; text-underline-offset: 3px;
+    }
+    .talk-copy {
+      padding: clamp(24px, 3.2vw, 42px); border-radius: 18px;
+      background: var(--off-white); box-shadow: var(--shadow-sm);
+    }
+    .talk-copy .section-title { margin: 10px 0 18px; }
+    .talk-copy p { color: var(--text-light); font-size: 1rem; line-height: 1.75; margin-bottom: 16px; }
+    .talk-copy .talk-summary {
+      padding: 17px 20px; margin: 20px 0; border-left: 4px solid var(--teal);
+      border-radius: 0 var(--radius) var(--radius) 0; background: var(--white);
+      color: var(--navy); font-family: 'Lora', serif; font-style: italic;
+    }
+    .talk-copy .btn-primary { margin-top: 6px; }
 
     /* SECTIONS */
     section { padding: 90px 5%; }
@@ -239,6 +268,7 @@
       header .btn-cta { display: none; }
       #hero { padding: calc(42px + 60px + 50px) 5% 50px; }
       .hero-layout { grid-template-columns: 1fr; gap: 28px; }
+      .talk-layout { grid-template-columns: 1fr; gap: 28px; }
       .hero-content { padding: 28px; }
       .hero-ctas { flex-direction: column; align-items: stretch; }
       .btn-primary { width: 100%; justify-content: center; }
@@ -267,7 +297,7 @@
       section { padding: 50px 5%; }
     }
   </style>
-<link rel="stylesheet" href="site-nav.css">
+  <link rel="stylesheet" href="site-nav.css">
 </head>
 <body>
 
@@ -347,6 +377,31 @@
       <div class="hero-ctas">
         <a class="btn-primary" href="https://wa.me/5548996321262" target="_blank" rel="noopener noreferrer">Solicite uma Palestra</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="talk-cba" aria-labelledby="talk-cba-title">
+  <div class="talk-layout">
+    <div class="talk-video">
+      <div class="talk-video-frame">
+        <iframe src="https://www.youtube.com/embed/oOB4jvc3bs4?rel=0"
+                title="Onde foi parar a minha alegria? — talk apresentado pela CBA"
+                referrerpolicy="strict-origin-when-cross-origin"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+      <a class="talk-video-link" href="https://www.youtube.com/watch?v=oOB4jvc3bs4" target="_blank" rel="noopener noreferrer">Assistir ao talk no YouTube</a>
+    </div>
+
+    <div class="talk-copy">
+      <span class="section-tag">Livro, saúde mental e música</span>
+      <h2 class="section-title" id="talk-cba-title">Onde foi parar a minha alegria? Um talk com trilha sonora</h2>
+      <p>O livro também ganha vida no palco. Neste encontro apresentado pela CBA, o Dr. Guido percorre temas como ansiedade, depressão e psicoterapia, refletindo sobre o equilíbrio, a felicidade e o “belo desafio de seguirmos vivos”.</p>
+      <p class="talk-summary">A música ambienta cada momento — como acompanha o leitor ao longo dos capítulos.</p>
+      <p>Leve este talk para sua empresa ou evento. O formato pode incluir música ao vivo e é adaptado ao público e à duração do encontro, para empresas, eventos corporativos, congressos, escolas e outras ocasiões.</p>
+      <a class="btn-primary" href="https://wa.me/5548996321262" target="_blank" rel="noopener noreferrer">Leve este talk ao seu evento</a>
     </div>
   </div>
 </section>
@@ -560,6 +615,7 @@
     document.getElementById('main-nav').classList.toggle('open');
     document.getElementById('hamburger').classList.toggle('open');
   }
+
   function closeMenu() {
     document.getElementById('main-nav').classList.remove('open');
     document.getElementById('hamburger').classList.remove('open');
@@ -573,12 +629,15 @@
   <img id="photo-lightbox-image" src="" alt="">
   <p id="photo-lightbox-caption"></p>
 </dialog>
+
 <script>
 (() => {
   const dialog = document.getElementById('photo-lightbox');
   const image = document.getElementById('photo-lightbox-image');
   const caption = document.getElementById('photo-lightbox-caption');
+
   if (!dialog || !image || typeof dialog.showModal !== 'function') return;
+
   document.querySelectorAll('.speaker-photo-link').forEach(link => {
     link.addEventListener('click', event => {
       event.preventDefault();
@@ -588,9 +647,13 @@
       dialog.showModal();
     });
   });
+
   dialog.querySelector('.photo-lightbox-close').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
 })();
 </script>
+
 </body>
 </html>
