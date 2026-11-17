@@ -129,6 +129,8 @@
       border: 1px solid rgba(24,56,95,.08);
     }
     .book-cover-hero img { width: 100%; height: auto; display: block; }
+    .hero-doctor-mobile { display: none; }
+    #award-mobile { display: none; }
 
     .hero-right { position: relative; z-index: 2; max-width: 680px; }
     .hero-tag {
@@ -437,6 +439,27 @@
     }
 
     @media (max-width: 768px) {
+      body { display: flex; flex-direction: column; }
+      body > section, body > footer { order: 10; }
+      #hero { order: 1; }
+      #sinopse { order: 2; }
+      #trilha { order: 3; }
+      #award-mobile { display: block; order: 4; }
+      #bienal { order: 5; }
+      #evento { order: 6; }
+      #depoimentos { order: 7; }
+      #autor { order: 8; }
+      #cta-final { order: 9; }
+      .hero-left { order: 1; }
+      .hero-right { order: 2; }
+      .hero-left .book-cover-hero { display: none; }
+      .hero-doctor-mobile {
+        display: block; width: min(100%, 18rem); margin: 0 auto;
+        border-radius: 20px; box-shadow: 0 18px 42px rgba(24,56,95,.2);
+      }
+      #hero .hero-award, #hero .hero-ctas .spotify-outline { display: none; }
+      #award-mobile .hero-award { margin: 0 auto; }
+
       header { padding: 0 4%; height: 60px; }
       #hamburger { display: flex; }
       #main-nav { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(12px); flex-direction: column; align-items: stretch; padding: 20px 5%; gap: 0; z-index: 999; border-bottom: 1px solid rgba(24,56,95,.12); }
@@ -604,6 +627,7 @@
 <section id="hero">
   <div class="hero-left">
     <img src="livro-capa.png" alt="Onde foi parar minha alegria?" class="book-cover-hero" loading="lazy">
+    <img src="dr-guido-livro.webp" alt="Dr. Guido Boabaid May" class="hero-doctor-mobile" loading="lazy">
   </div>
   <div class="hero-right">
     <span class="hero-tag">Lançado em Nov/2025</span>
@@ -689,6 +713,19 @@
         <a class="btn-secondary spotify-outline trilha-button" href="https://open.spotify.com/album/79QP2BeaYEWouQ3Ah0Ly95" target="_blank" rel="noopener noreferrer">
           <img src="icon-spotify.png" alt="" aria-hidden="true" style="height:18px;width:auto;object-fit:contain;" loading="lazy"> Ouça agora!
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="award-mobile" aria-label="Reconhecimento editorial">
+  <div class="bienal-inner">
+    <div class="hero-award">
+      <img src="premio-autor-destaque.png" alt="Placa Autor Destaque da BUZZ Editora" loading="lazy">
+      <div class="hero-award-copy">
+        <span class="eyebrow">Reconhecimento editorial</span>
+        <h3>Autor Destaque</h3>
+        <p>A BUZZ Editora homenageou o Dr. Guido por sua dedicação e talento, destacando como sua história inspira e fortalece a missão da editora.</p>
       </div>
     </div>
   </div>
