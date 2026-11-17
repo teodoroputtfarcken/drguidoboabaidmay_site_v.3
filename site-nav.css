@@ -8,7 +8,7 @@ header .logo-wrap img { display: block; width: auto; height: 42px; max-width: mi
 #hamburger { width: 44px; height: 44px; flex: 0 0 44px; justify-content: center; align-items: center; }
 #hamburger:focus-visible, #main-nav a:focus-visible, #main-nav button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
 @media (max-width: 1100px) {
-  header { height: 68px !important; padding: 0 5% !important; gap: 12px; }
+  header { height: 68px !important; padding: 0 5% !important; gap: 12px; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
   header .logo-wrap img { max-width: min(48vw, 265px); height: auto !important; max-height: 46px; }
   header .btn-cta { display: none !important; }
   #hamburger { display: flex !important; z-index: 2; }
