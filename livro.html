@@ -143,6 +143,26 @@
       font-size: 1.15rem; color: var(--teal); font-weight: 600; line-height: 1.4;
       margin-bottom: 24px; letter-spacing: .3px;
     }
+    .hero-synopsis-desktop { display: none; }
+    .hero-synopsis-desktop h2 {
+      color: var(--navy); font-size: clamp(1.35rem, 2vw, 1.8rem);
+      line-height: 1.2; margin: 0 0 14px;
+    }
+    .hero-synopsis-desktop .section-tag { display: block; margin-bottom: 8px; }
+    .hero-synopsis-body {
+      font-family: 'Lora', serif; color: var(--text-light);
+      font-size: .94rem; line-height: 1.65;
+    }
+    .hero-synopsis-body p { margin: 0 0 12px; }
+    .hero-synopsis-body p strong { color: var(--navy); font-weight: 600; }
+    .hero-synopsis-desktop blockquote {
+      margin: 16px 0 6px; color: var(--navy); font-family: 'Lora', serif;
+      font-size: 1.02rem; line-height: 1.5; font-style: italic;
+    }
+    .hero-synopsis-credit {
+      margin: 0 0 26px; color: var(--text-muted); font-size: .78rem;
+      line-height: 1.5; text-align: right;
+    }
     .hero-excerpt {
       font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 400; line-height: 1.8;
       color: var(--text-light); margin-bottom: 32px; font-style: italic;
@@ -437,7 +457,16 @@
       section { padding: 70px 5%; }
     }
 
+    @media (min-width: 769px) {
+      .hero-synopsis-desktop { display: block; }
+      .hero-excerpt { display: none; }
+      #sinopse { display: none; }
+    }
+
     @media (max-width: 768px) {
+      .hero-synopsis-desktop { display: none; }
+      .hero-excerpt { display: block; }
+      #sinopse { display: block; }
       body { display: flex; flex-direction: column; }
       body > section, body > footer { order: 10; }
       #hero { order: 1; }
@@ -626,6 +655,19 @@
     <span class="hero-tag">Lançado em Nov/2025</span>
     <h1 class="hero-title">Onde foi parar minha alegria?</h1>
     <p class="hero-subtitle">Uma história sobre reencontrar a si mesmo</p>
+    <div class="hero-synopsis-desktop">
+      <span class="section-tag">A História</span>
+      <h2>Conheça Ana Maria</h2>
+      <div class="hero-synopsis-body">
+        <p><strong>Existe algo mais poderoso e inspirador do que reencontrar a sua própria essência?</strong></p>
+        <p>Conheça a história de <strong>Ana Maria</strong>, uma linda jovem de Florianópolis que inicia uma intensa jornada para reencontrar a si mesma — trajetória impulsionada pelo tratamento contra a depressão que realizou no auge da sua juventude.</p>
+        <p>Entre medos e descobertas, ela aprende que não precisa negar a si própria, às suas emoções ou à sua realidade para ser feliz.</p>
+        <p>Esta é uma história realista e mágica ao mesmo tempo, em que <strong>a felicidade é construída gradativamente, de dentro para fora, de forma legítima e sustentável.</strong></p>
+        <p>Onde Foi Parar Minha Alegria? é uma história fascinante sobre a maravilha de estarmos vivos. Esta edição inclui QR Codes que levam direto à trilha sonora do livro — ouça a história ganhar vida!</p>
+      </div>
+      <blockquote>A verdadeira felicidade é construída de dentro para fora.</blockquote>
+      <p class="hero-synopsis-credit">— Dr. Guido Boabaid May, em declaração à Revista Projeto Autoestima</p>
+    </div>
     <div class="hero-excerpt">
       Existe algo mais poderoso e inspirador do que reencontrar a sua própria essência?
     </div>
