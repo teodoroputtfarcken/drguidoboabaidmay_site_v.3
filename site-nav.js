@@ -4,6 +4,22 @@
   const group = nav?.querySelector('.nav-dropdown');
   const toggle = group?.querySelector('.dropdown-toggle');
   if (!nav || !hamburger || !toggle) return;
+
+  // Keep the Clínica page available from the shared menu across the site.
+  const clinicLinkExists = [...nav.querySelectorAll('a')].some(link => {
+    const href = link.getAttribute('href') || '';
+    return href === 'clinica.html' || href.endsWith('/clinica.html');
+  });
+  if (!clinicLinkExists) {
+    const clinicLink = document.createElement('a');
+    clinicLink.href = 'clinica.html';
+    clinicLink.textContent = 'Clínica';
+    clinicLink.addEventListener('click', () => window.closeMenu?.());
+    const bookLink = [...nav.querySelectorAll(':scope > a')].find(link => /livro\.html(?:$|#)/.test(link.getAttribute('href') || ''));
+    if (bookLink) bookLink.before(clinicLink);
+    else nav.append(clinicLink);
+  }
+
   const mobile = () => window.matchMedia('(max-width: 1100px)').matches;
   const positionNav = () => {
     const header = nav.closest('header');
