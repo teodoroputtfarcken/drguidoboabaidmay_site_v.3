@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Dr. Guido Boabaid | Psiquiatria de Precisão</title>
+  <meta name="description" content="Conheça a Clínica Dr. Guido Boabaid: cuidado em saúde mental com psiquiatria de precisão, equipe de psiquiatras supervisionada pelo Dr. Guido e planos terapêuticos personalizados.">
+  <meta property="og:title" content="Clínica Dr. Guido Boabaid | Psiquiatria de Precisão">
+  <meta property="og:description" content="Ciência, escuta qualificada e cuidado personalizado em saúde mental, com uma equipe de psiquiatras supervisionada pelo Dr. Guido Boabaid.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="favicon-guido-rounded.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-nav.css">
+  <style>
+    :root {
+      --navy: #18385f;
+      --navy-mid: #24486f;
+      --teal: #1a7f8a;
+      --green: #25d366;
+      --off-white: #f4f8fa;
+      --muted: #5a6f93;
+      --audio-bar-height: 0px;
+      --header-height: 68px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--navy); background: var(--off-white); font-family: Inter, Arial, sans-serif; }
+    img, video { max-width: 100%; }
+    a { color: inherit; }
+    header { top: 0 !important; }
+    .header-action { display: flex; align-items: center; gap: 12px; }
+    .clinic-header-space { height: var(--header-height); }
+    .clinic-hero {
+      min-height: 620px; display: grid; align-items: center; overflow: hidden;
+      padding: clamp(70px, 10vw, 130px) 7%; position: relative;
+      background: radial-gradient(ellipse at 78% 45%, rgba(26,127,138,.12), transparent 42%), linear-gradient(125deg, #f7fafb 5%, #e9f1f4 100%);
+    }
+    .clinic-hero::after { content: ''; position: absolute; width: 450px; height: 450px; border: 1px solid rgba(26,127,138,.12); border-radius: 50%; right: -160px; bottom: -260px; box-shadow: 0 0 0 36px rgba(26,127,138,.035), 0 0 0 72px rgba(26,127,138,.025); }
+    .hero-content { max-width: 1140px; width: 100%; margin: auto; position: relative; z-index: 1; }
+    .eyebrow, .section-tag { color: var(--teal); font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .eyebrow { display: inline-flex; padding: 9px 15px; border-radius: 999px; background: rgba(26,127,138,.09); border: 1px solid rgba(26,127,138,.2); margin-bottom: 24px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 850px; margin-bottom: 20px; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 800; }
+    .hero-lead { max-width: 730px; color: #405b79; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.7; margin-bottom: 30px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--green); color: #fff; text-decoration: none; font-weight: 700; box-shadow: 0 8px 22px rgba(37,211,102,.22); transition: transform .2s, background .2s; }
+    .cta:hover { background: #1aab52; transform: translateY(-2px); }
+    .section { padding: clamp(64px, 8vw, 104px) 7%; }
+    .container { width: min(1120px, 100%); margin-inline: auto; }
+    .video-section { background: #18385f; color: #fff; }
+    .video-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 76px); align-items: center; }
+    .video-section .section-tag { color: #9bd9dc; }
+    .video-section h2 { color: #fff; }
+    .video-section p { color: rgba(255,255,255,.82); line-height: 1.75; }
+    .video-frame { overflow: hidden; border-radius: 22px; background: #0d2745; box-shadow: 0 22px 55px rgba(0,0,0,.24); }
+    .video-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #0d2745; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3.1rem); line-height: 1.15; letter-spacing: -.03em; margin-bottom: 18px; }
+    .section-intro { max-width: 760px; color: var(--muted); font-size: 1.06rem; line-height: 1.8; }
+    .care-section { background: #fff; }
+    .care-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 7vw, 90px); align-items: center; }
+    .care-copy p, .team-card p, .pharma-card p { color: #4c6380; line-height: 1.85; font-size: 1.02rem; }
+    .care-note { padding: 28px 30px; border-left: 4px solid var(--teal); background: var(--off-white); border-radius: 0 18px 18px 0; box-shadow: 0 12px 35px rgba(24,56,95,.08); font-size: 1.15rem; line-height: 1.7; font-weight: 600; }
+    .team-section { background: #edf3f6; }
+    .team-card { padding: clamp(28px, 5vw, 54px); border: 1px solid rgba(24,56,95,.1); border-radius: 24px; background: #fff; box-shadow: 0 16px 45px rgba(24,56,95,.08); }
+    .team-card h2 { max-width: 780px; }
+    .team-highlight { color: var(--teal); font-weight: 700; }
+    .pharma-section { background: #fff; }
+    .pharma-card { display: grid; grid-template-columns: 76px 1fr; gap: 26px; align-items: start; padding: clamp(28px, 5vw, 54px); border-radius: 24px; background: linear-gradient(135deg, #f4f8fa, #eaf3f5); border: 1px solid rgba(26,127,138,.16); }
+    .pharma-icon { width: 68px; height: 68px; display: grid; place-items: center; color: var(--teal); border-radius: 20px; background: #fff; font-size: 2rem; font-weight: 700; box-shadow: 0 8px 20px rgba(24,56,95,.08); }
+    .pharma-card h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .pharma-note { margin: 0; font-size: .93rem !important; }
+    .final-cta { text-align: center; color: #fff; background: linear-gradient(135deg, #18385f, #24486f); }
+    .final-cta h2 { color: #fff; max-width: 760px; margin-inline: auto; }
+    .final-cta p { color: rgba(255,255,255,.82); max-width: 660px; margin: 0 auto 28px; line-height: 1.75; }
+    footer { padding: 28px 7%; color: #dbe7ef; background: #102b49; text-align: center; font-size: .9rem; }
+    footer a { text-decoration: none; }
+    @media (max-width: 1100px) { .clinic-header-space { height: 68px; } }
+    @media (max-width: 760px) {
+      .clinic-hero { min-height: auto; padding: 74px 6% 82px; }
+      h1 { font-size: clamp(2.35rem, 11vw, 3.7rem); }
+      .hero-lead { font-size: 1.05rem; }
+      .section { padding: 64px 6%; }
+      .video-layout, .care-grid { grid-template-columns: 1fr; gap: 30px; }
+      .video-layout { text-align: left; }
+      .video-frame { border-radius: 16px; }
+      .care-note { padding: 22px; font-size: 1.03rem; }
+      .pharma-card { grid-template-columns: 1fr; gap: 18px; padding: 28px 22px; }
+      .pharma-icon { width: 56px; height: 56px; border-radius: 16px; font-size: 1.65rem; }
+      .team-card { padding: 30px 23px; border-radius: 18px; }
+      .cta { width: 100%; max-width: 360px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo-wrap" href="index.html#hero" aria-label="Dr. Guido Boabaid — página inicial">
+      <img src="logo.png" alt="Dr. Guido Boabaid — Psiquiatria de Precisão">
+    </a>
+    <nav id="main-nav" aria-label="Navegação principal">
+      <a href="index.html#hero">Home</a>
+      <div class="nav-dropdown">
+        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="treatment-menu">Tratamentos</button>
+        <div class="dropdown-menu" id="treatment-menu">
+          <a href="tratamentos-ansiedade.html">Ansiedade</a>
+          <a href="tratamentos-depressao.html">Depressão</a>
+          <a href="tratamentos-insonia.html">Distúrbios do Sono e Insônia</a>
+          <a href="tratamentos-bipolar.html">Transtorno Bipolar</a>
+          <a href="tratamentos-esquizofrenia.html">Esquizofrenia</a>
+          <a href="tratamentos-burnout.html">Burnout</a>
+          <a href="tratamentos-alimentares.html">Transtornos Alimentares</a>
+        </div>
+      </div>
+      <a href="farmacogenetica.html">Farmacogenética</a>
+      <a href="palestras.html">Palestras</a>
+      <a href="livro.html">Livro</a>
+      <a href="clinica.html" aria-current="page">Clínica</a>
+      <a href="blog.html">Blog</a>
+      <a class="mobile-consult" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
+    </nav>
+    <div class="header-action">
+      <a class="btn-cta" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
+      <button id="hamburger" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="clinic-header-space" aria-hidden="true"></div>
+
+  <main>
+    <section class="clinic-hero">
+      <div class="hero-content">
+        <span class="eyebrow">Clínica Dr. Guido Boabaid</span>
+        <h1>Psiquiatria de precisão com cuidado personalizado</h1>
+        <p class="hero-lead">Um cuidado em saúde mental que combina conhecimento científico, escuta qualificada e atenção à história de cada pessoa.</p>
+        <a class="cta" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
+      </div>
+    </section>
+
+    <section class="section video-section" aria-labelledby="video-title">
+      <div class="container video-layout">
+        <div>
+          <span class="section-tag">Conheça a clínica</span>
+          <h2 id="video-title">Ciência e cuidado em cada encontro</h2>
+          <p>Assista ao vídeo e conheça a Clínica Dr. Guido Boabaid, sua proposta de cuidado e a atenção dedicada a cada paciente.</p>
+        </div>
+        <div class="video-frame">
+          <video controls playsinline preload="metadata" aria-label="Vídeo de apresentação da Clínica Dr. Guido Boabaid">
+            <source src="a_clinica.mp4" type="video/mp4">
+            Seu navegador não oferece suporte à reprodução de vídeo. Atualize o navegador para assistir.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section care-section" aria-labelledby="care-title">
+      <div class="container care-grid">
+        <div class="care-copy">
+          <span class="section-tag">A nossa abordagem</span>
+          <h2 id="care-title">Cada pessoa tem uma história. O cuidado considera essa história.</h2>
+          <p>A Clínica Dr. Guido Boabaid é dedicada à Psiquiatria de Precisão, reunindo conhecimento científico e atenção personalizada em saúde mental.</p>
+          <p>Os planos terapêuticos são construídos de acordo com as necessidades de cada paciente, considerando aspectos biológicos, emocionais e contextuais. A escuta e a avaliação clínica orientam as decisões ao longo do acompanhamento.</p>
+        </div>
+        <div class="care-note">Tecnologia aliada à escuta qualificada. Precisão aliada ao acolhimento. Porque saúde mental exige rigor científico e cuidado.</div>
+      </div>
+    </section>
+
+    <section class="section team-section" aria-labelledby="team-title">
+      <div class="container">
+        <article class="team-card">
+          <span class="section-tag">Equipe médica</span>
+          <h2 id="team-title">Uma equipe de psiquiatras acompanhada de perto pelo Dr. Guido</h2>
+          <p>A clínica conta com uma equipe de médicos psiquiatras formados em instituições de referência e alinhados à abordagem clínica da Clínica Dr. Guido Boabaid.</p>
+          <p>Com mais de 30 anos de prática clínica, o Dr. Guido supervisiona o desenvolvimento técnico e científico da equipe. Esse acompanhamento contribui para manter uma atuação consistente, ética e atualizada, com planos de cuidado personalizados para cada paciente.</p>
+          <p class="team-highlight">O cuidado é realizado por médicos psiquiatras, com supervisão técnica e científica do Dr. Guido.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section pharma-section" aria-labelledby="pharma-title">
+      <div class="container">
+        <article class="pharma-card">
+          <div class="pharma-icon" aria-hidden="true">DNA</div>
+          <div>
+            <span class="section-tag">Recurso complementar</span>
+            <h2 id="pharma-title">Farmacogenética, quando indicada para o paciente</h2>
+            <p>Se, após avaliar o caso, o médico considerar que essa informação pode ser importante para o paciente, poderá solicitar um teste farmacogenético. A análise pode ajudar a compreender como o organismo tende a metabolizar determinados medicamentos e servir de apoio à decisão clínica.</p>
+            <p class="pharma-note">A indicação é feita pelo médico conforme a avaliação de cada caso. O teste é complementar e não substitui a consulta, o diagnóstico ou o acompanhamento profissional.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="container">
+        <span class="section-tag" style="color:#9bd9dc">Clínica Dr. Guido Boabaid</span>
+        <h2>Um cuidado em saúde mental construído com ciência e atenção a cada pessoa.</h2>
+        <p>Conheça a equipe e converse com a clínica sobre o acompanhamento mais adequado para você.</p>
+        <a class="cta" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>Clínica Dr. Guido Boabaid · Florianópolis, SC · <a href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Fale conosco</a></footer>
+  <script src="site-nav.js"></script>
+</body>
+</html>
