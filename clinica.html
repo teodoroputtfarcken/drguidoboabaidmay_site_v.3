@@ -73,20 +73,24 @@
     .header-action { display: flex; align-items: center; gap: 12px; }
     .clinic-header-space { height: calc(var(--audio-bar-height) + var(--header-height)); }
     .clinic-hero {
-      min-height: 650px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(270px, 350px);
-      align-items: center; gap: clamp(36px, 7vw, 96px); overflow: hidden;
-      padding: clamp(56px, 7vw, 92px) 7%; position: relative;
+      min-height: 650px; display: flex; align-items: center; overflow: hidden;
+      padding: clamp(56px, 7vw, 92px) 6%; position: relative;
       background: radial-gradient(ellipse at 78% 45%, rgba(26,127,138,.12), transparent 42%), linear-gradient(125deg, #f7fafb 5%, #e9f1f4 100%);
     }
+    .hero-grid {
+      width: min(1180px, 100%); margin: 0 auto; display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(270px, 350px);
+      align-items: center; gap: clamp(40px, 5vw, 76px); position: relative; z-index: 1;
+    }
     .clinic-hero::after { content: ''; position: absolute; width: 450px; height: 450px; border: 1px solid rgba(26,127,138,.12); border-radius: 50%; right: -160px; bottom: -260px; box-shadow: 0 0 0 36px rgba(26,127,138,.035), 0 0 0 72px rgba(26,127,138,.025); }
-    .hero-content { max-width: 680px; width: 100%; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-content { max-width: 700px; width: 100%; margin: 0; position: relative; z-index: 1; }
     .hero-video { position: relative; z-index: 1; width: 100%; }
     .hero-video .section-tag { display: block; margin-bottom: 14px; }
     .hero-video-caption { margin: 16px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.6; }
     .eyebrow, .section-tag { color: var(--teal); font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
     .eyebrow { display: inline-flex; padding: 9px 15px; border-radius: 999px; background: rgba(26,127,138,.09); border: 1px solid rgba(26,127,138,.2); margin-bottom: 24px; }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 850px; margin-bottom: 20px; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 800; }
+    h1 { max-width: 700px; margin-bottom: 20px; font-size: clamp(2.6rem, 5vw, 4.5rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 800; }
     .hero-lead { max-width: 730px; color: #405b79; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.7; margin-bottom: 30px; }
     .cta { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--green); color: #fff; text-decoration: none; font-weight: 700; box-shadow: 0 8px 22px rgba(37,211,102,.22); transition: transform .2s, background .2s; }
     .cta:hover { background: #1aab52; transform: translateY(-2px); }
@@ -146,12 +150,15 @@
     }
     @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 34px; } .footer-action { grid-column: 1 / -1; align-items: flex-start; } }
     @media (max-width: 760px) {
-      .clinic-hero { min-height: auto; grid-template-columns: 1fr; gap: 40px; padding: 58px 6% 68px; }
+      .clinic-hero { min-height: auto; padding: 58px 6% 68px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 38px; }
+      .hero-content { max-width: 620px; margin-inline: auto; }
       h1 { font-size: clamp(2.35rem, 11vw, 3.7rem); }
       .hero-lead { font-size: 1.05rem; }
       .section { padding: 64px 6%; }
       .care-grid { grid-template-columns: 1fr; gap: 30px; }
       .video-frame { width: min(100%, 350px); border-radius: 16px; }
+      .hero-video { width: min(100%, 430px); margin-inline: auto; }
       .hero-video-caption { max-width: 350px; margin-inline: auto; }
       .care-note { padding: 22px; font-size: 1.03rem; }
       .pharma-card { grid-template-columns: 1fr; gap: 18px; padding: 28px 22px; }
@@ -219,21 +226,23 @@
 
   <main>
     <section class="clinic-hero" aria-label="Apresentação da Clínica Dr. Guido Boabaid">
-      <div class="hero-content">
-        <span class="eyebrow">Clínica Dr. Guido Boabaid</span>
-        <h1>Psiquiatria de precisão com cuidado personalizado</h1>
-        <p class="hero-lead">Um cuidado em saúde mental que combina conhecimento científico, escuta qualificada e atenção à história de cada pessoa.</p>
-        <a class="cta" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
-      </div>
-      <div class="hero-video">
-        <span class="section-tag">Conheça a clínica</span>
-        <div class="video-frame">
-          <video controls playsinline preload="metadata" aria-label="Vídeo de apresentação da Clínica Dr. Guido Boabaid">
-            <source src="a_clinica.mp4" type="video/mp4">
-            Seu navegador não oferece suporte à reprodução de vídeo. Atualize o navegador para assistir.
-          </video>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">Clínica Dr. Guido Boabaid</span>
+          <h1>Psiquiatria de precisão com cuidado personalizado</h1>
+          <p class="hero-lead">Um cuidado em saúde mental que combina conhecimento científico, escuta qualificada e atenção à história de cada pessoa.</p>
+          <a class="cta" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
         </div>
-        <p class="hero-video-caption">Assista ao vídeo e conheça a proposta de cuidado da clínica.</p>
+        <div class="hero-video">
+          <span class="section-tag">Conheça a clínica</span>
+          <div class="video-frame">
+            <video controls playsinline preload="metadata" aria-label="Vídeo de apresentação da Clínica Dr. Guido Boabaid">
+              <source src="a_clinica.mp4" type="video/mp4">
+              Seu navegador não oferece suporte à reprodução de vídeo. Atualize o navegador para assistir.
+            </video>
+          </div>
+          <p class="hero-video-caption">Assista ao vídeo e conheça a proposta de cuidado da clínica.</p>
+        </div>
       </div>
     </section>
 
