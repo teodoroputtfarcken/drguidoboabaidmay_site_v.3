@@ -21,7 +21,7 @@
       --green: #25d366;
       --off-white: #f4f8fa;
       --muted: #5a6f93;
-      --audio-bar-height: 0px;
+      --audio-bar-height: 42px;
       --header-height: 68px;
     }
     *, *::before, *::after { box-sizing: border-box; }
@@ -29,8 +29,24 @@
     body { margin: 0; color: var(--navy); background: var(--off-white); font-family: Inter, Arial, sans-serif; }
     img, video { max-width: 100%; }
     a { color: inherit; }
+    .audio-player-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 4000; height: var(--audio-bar-height);
+      display: flex; align-items: center; justify-content: center; padding: 5px 5%;
+      background: #f6f8fa; border-bottom: 1px solid rgba(24,56,95,.1);
+      box-shadow: 0 3px 14px rgba(24,56,95,.08);
+    }
+    .audio-player-inner { width: min(100%, 720px); display: flex; align-items: center; gap: 12px; color: var(--navy); }
+    .audio-toggle { width: 30px; height: 30px; flex: 0 0 30px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--navy); color: #fff; cursor: pointer; box-shadow: 0 5px 16px rgba(24,56,95,.18); }
+    .audio-toggle svg { width: 14px; height: 14px; fill: currentColor; }
+    .audio-meta { min-width: 120px; }
+    .audio-player-title { display: block; color: var(--navy); font-size: 12px; font-weight: 700; line-height: 1.15; }
+    .audio-status { display: block; margin-top: 1px; color: rgba(24,56,95,.72); font-size: 10px; }
+    .audio-progress { position: relative; flex: 1; height: 6px; overflow: hidden; border-radius: 999px; background: rgba(24,56,95,.18); }
+    .audio-progress span { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: inherit; background: var(--navy); }
+    .audio-time { min-width: 78px; color: rgba(24,56,95,.82); font-size: 11px; font-variant-numeric: tabular-nums; text-align: right; }
+    .audio-player-bar audio { display: none; }
     header {
-      position: fixed; top: 0 !important; left: 0; right: 0; z-index: 3000;
+      position: fixed; top: var(--audio-bar-height) !important; left: 0; right: 0; z-index: 3000;
       height: 68px; padding: 0 5%; display: flex; align-items: center; justify-content: space-between;
       gap: 24px; background: rgba(255,255,255,.97); border-bottom: 1px solid rgba(24,56,95,.12);
       box-shadow: 0 4px 22px rgba(24,56,95,.08);
@@ -55,7 +71,7 @@
     #hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     #main-nav a:focus-visible, #main-nav button:focus-visible, #hamburger:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
     .header-action { display: flex; align-items: center; gap: 12px; }
-    .clinic-header-space { height: var(--header-height); }
+    .clinic-header-space { height: calc(var(--audio-bar-height) + var(--header-height)); }
     .clinic-hero {
       min-height: 620px; display: grid; align-items: center; overflow: hidden;
       padding: clamp(70px, 10vw, 130px) 7%; position: relative;
@@ -116,7 +132,19 @@
     .footer-btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 0 20px; border-radius: 999px; background: var(--green); color: #fff; font-weight: 700; }
     .footer-btn svg { width: 18px; height: 18px; fill: currentColor; }
     .footer-bottom { padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); color: rgba(219,231,239,.68); text-align: center; font-size: .8rem; }
-    @media (max-width: 1100px) { .clinic-header-space { height: 68px; } }
+    @media (max-width: 1100px) { .clinic-header-space { height: calc(var(--audio-bar-height) + 68px); } }
+    @media (max-width: 600px) {
+      .audio-player-inner { min-width: 0; gap: 8px; }
+      .audio-meta { min-width: 0; flex: 0 1 105px; }
+      .audio-progress { min-width: 32px; }
+      .audio-time { display: none; }
+    }
+    @media (max-width: 480px) {
+      :root { --audio-bar-height: 48px; --header-height: 60px; }
+      header { height: var(--header-height); }
+      .clinic-header-space { height: calc(var(--audio-bar-height) + var(--header-height)); }
+      header .logo-wrap img { height: 38px; }
+    }
     @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 34px; } .footer-action { grid-column: 1 / -1; align-items: flex-start; } }
     @media (max-width: 760px) {
       .clinic-hero { min-height: auto; padding: 74px 6% 82px; }
@@ -141,6 +169,23 @@
   </style>
 </head>
 <body>
+  <div class="audio-player-bar" role="region" aria-label="Música de fundo">
+    <div class="audio-player-inner">
+      <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Reproduzir música de fundo" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="audio-meta">
+        <span class="audio-player-title">Tímida</span>
+        <span class="audio-status" id="audio-status">Música de fundo</span>
+      </div>
+      <div class="audio-progress" role="progressbar" aria-label="Progresso da música" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="audio-progress-fill"></span></div>
+      <span class="audio-time" id="audio-time" aria-live="off">0:00 / 0:00</span>
+      <audio id="timida-audio" preload="auto" autoplay loop playsinline>
+        <source src="timida.mp3" type="audio/mpeg">
+        Seu navegador não oferece suporte à reprodução de áudio.
+      </audio>
+    </div>
+  </div>
   <header>
     <a class="logo-wrap" href="index.html#hero" aria-label="Dr. Guido Boabaid — página inicial">
       <img src="logo.png" alt="Dr. Guido Boabaid — Psiquiatria de Precisão">
@@ -276,5 +321,46 @@
     <div class="footer-bottom">Guido Boabaid May © 2026</div>
   </footer>
   <script src="site-nav.js"></script>
+  <script>
+    (() => {
+      const audio = document.getElementById('timida-audio');
+      const button = document.getElementById('audio-toggle');
+      const status = document.getElementById('audio-status');
+      const progress = document.getElementById('audio-progress-fill');
+      const progressBar = document.querySelector('.audio-progress');
+      const time = document.getElementById('audio-time');
+      if (!audio || !button) return;
+      audio.volume = 0.16;
+      const format = value => {
+        if (!Number.isFinite(value)) return '0:00';
+        return `${Math.floor(value / 60)}:${String(Math.floor(value % 60)).padStart(2, '0')}`;
+      };
+      const update = () => {
+        const duration = audio.duration || 0;
+        const current = audio.currentTime || 0;
+        const percent = duration ? (current / duration) * 100 : 0;
+        progress.style.width = `${percent}%`;
+        progressBar.setAttribute('aria-valuenow', String(Math.round(percent)));
+        time.textContent = `${format(current)} / ${format(duration)}`;
+        button.setAttribute('aria-pressed', String(!audio.paused));
+        button.setAttribute('aria-label', audio.paused ? 'Reproduzir música de fundo' : 'Pausar música de fundo');
+        button.innerHTML = audio.paused
+          ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'
+          : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>';
+        if (status) status.textContent = audio.paused ? 'Música de fundo' : 'Tocando agora';
+      };
+      ['loadedmetadata', 'timeupdate', 'play', 'pause', 'ended'].forEach(event => audio.addEventListener(event, update));
+      button.addEventListener('click', async () => {
+        if (audio.paused) {
+          try { await audio.play(); } catch { if (status) status.textContent = 'Não foi possível carregar a música'; }
+        } else audio.pause();
+        update();
+      });
+      audio.play().catch(() => {
+        if (status) status.textContent = 'Clique para ativar a música';
+        update();
+      });
+    })();
+  </script>
 </body>
 </html>
