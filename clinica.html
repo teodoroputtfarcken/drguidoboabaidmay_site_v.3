@@ -73,12 +73,16 @@
     .header-action { display: flex; align-items: center; gap: 12px; }
     .clinic-header-space { height: calc(var(--audio-bar-height) + var(--header-height)); }
     .clinic-hero {
-      min-height: 620px; display: grid; align-items: center; overflow: hidden;
-      padding: clamp(70px, 10vw, 130px) 7%; position: relative;
+      min-height: 650px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(270px, 350px);
+      align-items: center; gap: clamp(36px, 7vw, 96px); overflow: hidden;
+      padding: clamp(56px, 7vw, 92px) 7%; position: relative;
       background: radial-gradient(ellipse at 78% 45%, rgba(26,127,138,.12), transparent 42%), linear-gradient(125deg, #f7fafb 5%, #e9f1f4 100%);
     }
     .clinic-hero::after { content: ''; position: absolute; width: 450px; height: 450px; border: 1px solid rgba(26,127,138,.12); border-radius: 50%; right: -160px; bottom: -260px; box-shadow: 0 0 0 36px rgba(26,127,138,.035), 0 0 0 72px rgba(26,127,138,.025); }
-    .hero-content { max-width: 1140px; width: 100%; margin: auto; position: relative; z-index: 1; }
+    .hero-content { max-width: 680px; width: 100%; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-video { position: relative; z-index: 1; width: 100%; }
+    .hero-video .section-tag { display: block; margin-bottom: 14px; }
+    .hero-video-caption { margin: 16px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.6; }
     .eyebrow, .section-tag { color: var(--teal); font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
     .eyebrow { display: inline-flex; padding: 9px 15px; border-radius: 999px; background: rgba(26,127,138,.09); border: 1px solid rgba(26,127,138,.2); margin-bottom: 24px; }
     h1, h2, h3, p { margin-top: 0; }
@@ -88,12 +92,7 @@
     .cta:hover { background: #1aab52; transform: translateY(-2px); }
     .section { padding: clamp(64px, 8vw, 104px) 7%; }
     .container { width: min(1120px, 100%); margin-inline: auto; }
-    .video-section { background: #18385f; color: #fff; }
-    .video-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 76px); align-items: center; }
-    .video-section .section-tag { color: #9bd9dc; }
-    .video-section h2 { color: #fff; }
-    .video-section p { color: rgba(255,255,255,.82); line-height: 1.75; }
-    .video-frame { width: min(100%, 390px); aspect-ratio: 9 / 16; margin-inline: auto; overflow: hidden; border-radius: 22px; background: #0d2745; box-shadow: 0 22px 55px rgba(0,0,0,.24); }
+    .video-frame { width: min(100%, 350px); aspect-ratio: 9 / 16; margin-inline: auto; overflow: hidden; border-radius: 22px; background: #0d2745; box-shadow: 0 22px 55px rgba(0,0,0,.18); }
     .video-frame video { display: block; width: 100%; height: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #0d2745; }
     h2 { font-size: clamp(1.9rem, 4vw, 3.1rem); line-height: 1.15; letter-spacing: -.03em; margin-bottom: 18px; }
     .section-intro { max-width: 760px; color: var(--muted); font-size: 1.06rem; line-height: 1.8; }
@@ -147,13 +146,13 @@
     }
     @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 34px; } .footer-action { grid-column: 1 / -1; align-items: flex-start; } }
     @media (max-width: 760px) {
-      .clinic-hero { min-height: auto; padding: 74px 6% 82px; }
+      .clinic-hero { min-height: auto; grid-template-columns: 1fr; gap: 40px; padding: 58px 6% 68px; }
       h1 { font-size: clamp(2.35rem, 11vw, 3.7rem); }
       .hero-lead { font-size: 1.05rem; }
       .section { padding: 64px 6%; }
-      .video-layout, .care-grid { grid-template-columns: 1fr; gap: 30px; }
-      .video-layout { text-align: left; }
-      .video-frame { width: min(100%, 390px); border-radius: 16px; }
+      .care-grid { grid-template-columns: 1fr; gap: 30px; }
+      .video-frame { width: min(100%, 350px); border-radius: 16px; }
+      .hero-video-caption { max-width: 350px; margin-inline: auto; }
       .care-note { padding: 22px; font-size: 1.03rem; }
       .pharma-card { grid-template-columns: 1fr; gap: 18px; padding: 28px 22px; }
       .pharma-icon { width: 56px; height: 56px; border-radius: 16px; font-size: 1.65rem; }
@@ -219,28 +218,22 @@
   <div class="clinic-header-space" aria-hidden="true"></div>
 
   <main>
-    <section class="clinic-hero">
+    <section class="clinic-hero" aria-label="Apresentação da Clínica Dr. Guido Boabaid">
       <div class="hero-content">
         <span class="eyebrow">Clínica Dr. Guido Boabaid</span>
         <h1>Psiquiatria de precisão com cuidado personalizado</h1>
         <p class="hero-lead">Um cuidado em saúde mental que combina conhecimento científico, escuta qualificada e atenção à história de cada pessoa.</p>
         <a class="cta" href="https://wa.me/5548998510053" target="_blank" rel="noopener noreferrer">Agende sua consulta</a>
       </div>
-    </section>
-
-    <section class="section video-section" aria-labelledby="video-title">
-      <div class="container video-layout">
-        <div>
-          <span class="section-tag">Conheça a clínica</span>
-          <h2 id="video-title">Ciência e cuidado em cada encontro</h2>
-          <p>Assista ao vídeo e conheça a Clínica Dr. Guido Boabaid, sua proposta de cuidado e a atenção dedicada a cada paciente.</p>
-        </div>
+      <div class="hero-video">
+        <span class="section-tag">Conheça a clínica</span>
         <div class="video-frame">
           <video controls playsinline preload="metadata" aria-label="Vídeo de apresentação da Clínica Dr. Guido Boabaid">
             <source src="a_clinica.mp4" type="video/mp4">
             Seu navegador não oferece suporte à reprodução de vídeo. Atualize o navegador para assistir.
           </video>
         </div>
+        <p class="hero-video-caption">Assista ao vídeo e conheça a proposta de cuidado da clínica.</p>
       </div>
     </section>
 
