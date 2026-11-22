@@ -641,22 +641,47 @@
   .clinic-home-inner {
     width: min(1180px, 100%); margin: 0 auto;
     display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
-    align-items: center; gap: clamp(40px, 7vw, 88px);
+    align-items: center; gap: clamp(40px, 6vw, 76px);
   }
-  .clinic-home-copy { max-width: 700px; }
+  .clinic-home-copy { max-width: 740px; }
   .clinic-home-copy .section-tag { display: block; margin-bottom: 14px; }
   .clinic-home-title {
-    max-width: 680px; margin: 0 0 18px; color: var(--navy);
+    max-width: 720px; margin: 0 0 18px; color: var(--navy);
     font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.15; font-weight: 800;
   }
-  .clinic-home-copy p { max-width: 650px; margin: 0 0 26px; color: var(--text-muted); font-size: 1rem; line-height: 1.75; }
+  .clinic-home-copy p { max-width: 700px; margin: 0 0 18px; color: var(--text-muted); font-size: 1rem; line-height: 1.75; }
+  .clinic-home-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 22px 0 26px; }
+  .clinic-home-point { min-width: 0; padding: 15px; border: 1px solid rgba(24,56,95,.1); border-radius: 14px; background: #fff; box-shadow: 0 8px 24px rgba(24,56,95,.06); }
+  .clinic-home-point strong { display: block; margin-bottom: 6px; color: var(--navy); font-size: .88rem; line-height: 1.35; }
+  .clinic-home-point span { display: block; color: var(--text-muted); font-size: .78rem; line-height: 1.5; }
   .clinic-home-video { width: min(100%, 360px); aspect-ratio: 9 / 16; margin: 0 auto; overflow: hidden; border-radius: 22px; background: #0d2745; box-shadow: 0 16px 42px rgba(24,56,95,.18); }
   .clinic-home-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  #home-highlights { padding: 62px 5%; background: #edf3f6; }
+  .home-highlights-inner { width: min(1120px, 100%); margin: 0 auto; }
+  .home-highlights-heading { margin-bottom: 24px; }
+  .home-highlights-heading .section-tag { display: block; margin-bottom: 9px; }
+  .home-highlights-heading h2 { margin: 0; color: var(--navy); font-size: clamp(1.5rem, 2.8vw, 2.15rem); line-height: 1.2; }
+  .home-highlights-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .home-highlight-card { min-width: 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: center; gap: 20px; padding: 18px; border: 1px solid rgba(24,56,95,.1); border-radius: 18px; background: #fff; box-shadow: 0 8px 26px rgba(24,56,95,.07); }
+  .home-highlight-media { width: 112px; height: 132px; overflow: hidden; display: grid; place-items: center; border-radius: 12px; background: #f3f6f8; }
+  .home-highlight-media img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .home-highlight-card:first-child .home-highlight-media img { object-fit: contain; padding: 8px; }
+  .home-highlight-card .section-tag { display: block; margin-bottom: 7px; font-size: .65rem; }
+  .home-highlight-card h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.05rem; line-height: 1.3; }
+  .home-highlight-card p { margin: 0 0 12px; color: var(--text-muted); font-size: .85rem; line-height: 1.55; }
+  .home-highlight-link { color: var(--teal); font-size: .86rem; font-weight: 700; text-decoration: none; }
+  .home-highlight-link:hover { text-decoration: underline; }
   @media (max-width: 768px) {
-    #clinic-home .clinic-home-inner { grid-template-columns: 1fr; gap: 32px; }
+    #clinic-home .clinic-home-inner { grid-template-columns: 1fr; gap: 30px; }
     .clinic-home-copy { max-width: 620px; margin: 0 auto; }
+    .clinic-home-points { grid-template-columns: 1fr; gap: 9px; margin: 18px 0 24px; }
+    .clinic-home-point { padding: 12px 14px; }
     .clinic-home-video { width: min(100%, 350px); }
     .clinic-home-copy .btn-primary { display: flex; width: min(100%, 330px); margin: 0 auto; justify-content: center; }
+    #home-highlights { padding: 50px 5%; }
+    .home-highlights-grid { grid-template-columns: 1fr; gap: 14px; }
+    .home-highlight-card { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; padding: 14px; }
+    .home-highlight-media { width: 88px; height: 108px; }
   }
 
 </style>
@@ -783,8 +808,14 @@
   <div class="clinic-home-inner">
     <div class="clinic-home-copy">
       <span class="section-tag">Clínica Dr. Guido Boabaid</span>
-      <h2 class="clinic-home-title" id="clinic-home-title">Um cuidado em saúde mental construído com ciência e atenção a cada pessoa.</h2>
-      <p>A Clínica Dr. Guido Boabaid reúne uma equipe de médicos psiquiatras supervisionada pelo Dr. Guido. Conheça nossa abordagem, baseada em conhecimento científico, escuta qualificada e cuidado personalizado.</p>
+      <h2 class="clinic-home-title" id="clinic-home-title">Psiquiatria de precisão com cuidado personalizado, da equipe do Dr. Guido.</h2>
+      <p>As médicas psiquiatras da clínica são escolhidas pelo Dr. Guido, que compartilha com elas a metodologia aplicada em suas consultas.</p>
+      <p>Além da farmacogenética, essa abordagem inclui escuta ativa e atenção à história e ao contexto de cada paciente. Os casos clínicos são supervisionados semanalmente pelo Dr. Guido.</p>
+      <div class="clinic-home-points" aria-label="Diferenciais da equipe">
+        <div class="clinic-home-point"><strong>Seleção cuidadosa</strong><span>Jovens talentos selecionadas pelo Dr. Guido.</span></div>
+        <div class="clinic-home-point"><strong>Metodologia compartilhada</strong><span>Escuta ativa e atenção à história clínica.</span></div>
+        <div class="clinic-home-point"><strong>Supervisão semanal</strong><span>Discussão dos casos clínicos com o Dr. Guido.</span></div>
+      </div>
       <a class="btn-primary" href="clinica.html">
         Conheça a Clínica <span aria-hidden="true">→</span>
       </a>
@@ -842,59 +873,6 @@
         </a>
         <div class="farmaco-video-caption">Jorge Pontual e sua experiência com farmacogenética.</div>
       </article>
-    </div>
-  </div>
-</section>
-
-<section id="livro">
-  <div class="livro-inner">
-    <div style="display:grid;place-items:center;">
-      <img src="livro-capa.png" alt="Onde foi parar minha alegria?" style="width:100%;max-width:700px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.2);" loading="lazy">
-    </div>
-    <div class="livro-right">
-      <span class="book-tag">Guido Boabaid May</span>
-      <h2>Onde foi parar minha alegria?</h2>
-      <p><strong>Existe algo mais poderoso e inspirador do que reencontrar a sua própria essência?</strong></p>
-      <p>Conheça a história de Ana Maria, uma linda jovem de Florianópolis que inicia uma jornada para reencontrar a si mesma — uma trajetória impulsionada pelo tratamento contra a depressão que realizou no auge da sua juventude.</p>
-      <p>Esta é uma história realista e mágica ao mesmo tempo, em que a felicidade é construída gradativamente, "de dentro para fora", de forma legítima e sustentável, que nos ajuda a refletir sobre quem somos, onde estamos e para onde queremos ir.</p>
-      <div class="livro-quote">
-        <p>"A verdadeira felicidade é construída de dentro pra fora."</p>
-        <cite>— Dr. Guido Boabaid May</cite>
-      </div>
-      <p class="livro-links-note">Conheça mais sobre o livro nos links abaixo:</p>
-      <div class="book-ctas">
-        <a class="btn-amazon" href="https://www.amazon.com.br/Onde-foi-parar-minha-alegria/dp/6553935114/ref=sr_1_1?crid=39QBH0MXT0S8C&dib=eyJ2IjoiMSJ9.kyhceeZCBppsxhCy0bl3356r3KpcM3zX_mIFSRkj5nrZNIliD1Lkb9es8Rh8Tsgj8ikbf81ggLnxvj_biGe0qJEz6lquVH8krmjKm9OsN08y4BXe3QEe-xmqi8GtfpFAPyD4b1DxU-r2-6OTb4brew.GIuE4lepvWt6Lln_pkjw9rQ9v_U-Pprm7GbG_NIuMJE&dib_tag=se&keywords=onde+foi+parar+minha+alegria&qid=1784063245&sprefix=onde+foi+para%2Caps%2C247&sr=8-1" target="_blank" rel="noopener noreferrer"><img src="icon-amazon.png" alt="Amazon" style="height:20px;width:20px;object-fit:contain;" loading="lazy"> Disponível na Amazon</a>
-        <a class="btn-spotify" href="https://open.spotify.com/artist/1b42keVGhVavc6F1vJxrD7?si=8WQuMzDlSZuxoNXCOEVBJg" target="_blank" rel="noopener noreferrer"><img src="icon-spotify.png" alt="Spotify" style="height:20px;width:20px;object-fit:contain;" loading="lazy"> Ouça agora!</a>
-        <a class="btn-buzz" href="https://buzzeditora.com/product/onde-foi-parar-minha-alegria/" target="_blank" rel="noopener noreferrer"><img src="icon-buzz.png" alt="BUZZ Editora" style="height:20px;width:20px;object-fit:contain;" loading="lazy"> BUZZ Editora</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="palestras">
-  <div class="palestras-header">
-    <h2 class="palestras-title">Palestras &amp; Eventos</h2>
-  </div>
-  <div class="palestras-inner">
-    <article class="palestra-video-card">
-      <a class="palestra-video-thumb" href="https://youtu.be/IuO3v5uGrgQ?si=xPBWyyQy_YHG4rof" data-youtube-id="IuO3v5uGrgQ" aria-label="Assistir palestra TEDx sobre saúde mental">
-        <img src="https://img.youtube.com/vi/IuO3v5uGrgQ/maxresdefault.jpg" alt="Saúde mental: o que é, afinal, estar bem?" loading="lazy">
-        <span class="palestra-video-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
-      </a>
-      <div class="palestra-video-caption">TEDx Speaker — Vila Mariana, jul/2025</div>
-    </article>
-
-    <div class="palestras-copy">
-      <h3>"Não é apenas sobre falar, é sobre acolher e oferecer esperança.<br>É sobre felicidade."</h3>
-      <p>O Dr. Guido leva para empresas, universidades e eventos o mais recente conhecimento em saúde mental, neurociência e medicina personalizada, com uma abordagem que transforma vidas.</p>
-      <div class="palestras-topics">
-        <div class="palestra-topic"><span class="palestra-topic-icon">♟</span><strong>Saúde Mental nas Organizações</strong></div>
-        <div class="palestra-topic"><span class="palestra-topic-icon">♡</span><strong>Bem-estar e Qualidade de Vida</strong></div>
-      </div>
-      <a class="btn-palestras" href="https://wa.me/5548998510053" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Convide o Dr. Guido
-      </a>
     </div>
   </div>
 </section>
@@ -978,6 +956,39 @@
       <!-- press-cards:end -->
     </div>
     <button class="blog-nav blog-next" type="button" aria-label="Próxima matéria">›</button>
+  </div>
+</section>
+
+<section id="home-highlights" aria-labelledby="home-highlights-title">
+  <div class="home-highlights-inner">
+    <div class="home-highlights-heading">
+      <span class="section-tag">Outras iniciativas</span>
+      <h2 id="home-highlights-title">Também fora do consultório</h2>
+    </div>
+    <div class="home-highlights-grid">
+      <article class="home-highlight-card">
+        <div class="home-highlight-media">
+          <img src="livro-capa.png" alt="Capa do livro Onde foi parar minha alegria?" loading="lazy">
+        </div>
+        <div>
+          <span class="section-tag">Livro</span>
+          <h3>Onde foi parar minha alegria?</h3>
+          <p>Uma história sobre reencontrar a própria essência.</p>
+          <a class="home-highlight-link" href="livro.html">Conheça o livro <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="home-highlight-card">
+        <div class="home-highlight-media">
+          <img src="https://img.youtube.com/vi/IuO3v5uGrgQ/hqdefault.jpg" alt="Dr. Guido em palestra sobre saúde mental" loading="lazy">
+        </div>
+        <div>
+          <span class="section-tag">Palestras e eventos</span>
+          <h3>Conhecimento em saúde mental para diferentes públicos</h3>
+          <p>Palestras sobre saúde mental, neurociência e medicina personalizada.</p>
+          <a class="home-highlight-link" href="palestras.html">Conheça as palestras <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
