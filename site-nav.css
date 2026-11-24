@@ -3,7 +3,9 @@ header { z-index: 3000 !important; }
 header .logo-wrap { min-width: 0; flex: 0 1 auto; }
 header .logo-wrap img { display: block; width: auto; height: 42px; max-width: min(100%, 285px); object-fit: contain; }
 #main-nav { gap: clamp(12px, 1.5vw, 26px); }
-#main-nav .dropdown-toggle { font: inherit; font-size: 15px; font-weight: 500; letter-spacing: .3px; background: none; border: 0; padding: 0; cursor: pointer; color: var(--navy); }
+#main-nav .dropdown-toggle { font: inherit; font-size: 15px; font-weight: 500; letter-spacing: .3px; background: transparent !important; border: 0 !important; border-radius: 0; box-shadow: none !important; padding: 0; cursor: pointer; color: var(--navy); appearance: none; -webkit-appearance: none; }
+#main-nav .dropdown-toggle:focus:not(:focus-visible) { outline: none; }
+#main-nav .dropdown-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; border-radius: 4px; }
 #main-nav .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: none; }
 #hamburger { width: 44px; height: 44px; flex: 0 0 44px; justify-content: center; align-items: center; }
 #hamburger:focus-visible, #main-nav a:focus-visible, #main-nav button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
