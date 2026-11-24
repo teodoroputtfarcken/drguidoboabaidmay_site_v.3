@@ -1,4 +1,5 @@
 const fs = require('node:fs/promises');
+const fsSync = require('node:fs');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
@@ -16,13 +17,21 @@ async function get(route) {
 }
 
 function sitePaths(html) {
-  return html.replace(/\b(href|src|action)=(["'])(\/(?!\/)[^"']*)\2/g,
+  const normalizedAssets = html.replace(/\b(href|src|poster)=(['"])(assets\/(?:images|videos|audio|css|js)\/[^'"]+)\2/g,
+    (full, attribute, quote, url) => {
+      const rootFile = path.join(root, path.posix.basename(url));
+      return fsSync.existsSync(rootFile) ? `${attribute}=${quote}${path.posix.basename(url)}${quote}` : full;
+    });
+  return normalizedAssets.replace(/\b(href|src|action)=(['"])(\/(?!\/)[^'"]*)\2/g,
     (_full, attribute, quote, url) => attribute + '=' + quote + prefix + url + quote);
 }
-
 async function build() {
   await fs.rm(output, { recursive: true, force: true });
   await fs.mkdir(output, { recursive: true });
+  const assetsDirectory = path.join(root, 'assets');
+  if (fsSync.existsSync(assetsDirectory)) {
+    await fs.cp(assetsDirectory, path.join(output, 'assets'), { recursive: true });
+  }
   const entries = await fs.readdir(root, { withFileTypes: true });
   const backendFiles = new Set(['package.json', 'package-lock.json', 'vercel.json', 'server.js']);
   for (const entry of entries) {
