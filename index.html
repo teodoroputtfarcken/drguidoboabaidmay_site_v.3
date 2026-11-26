@@ -205,7 +205,11 @@
   .section-sub.light { color: var(--text-muted); }
 
   /* CREDENTIALS */
-  #credentials { background: var(--navy-mid); color: var(--white); }
+  #credentials {
+    background: linear-gradient(120deg, var(--navy) 0%, var(--navy-mid) 72%);
+    color: var(--white);
+    padding-block: clamp(48px, 6vw, 84px);
+  }
   .credentials-inner { max-width: 1180px; margin: 0 auto; }
   #credentials .section-tag { color: rgba(255,255,255,.82); }
   #credentials .tele-left h2 { color: var(--white); }
@@ -300,10 +304,38 @@
 
   /* TELEMEDICINA */
   #telemedicina { background: var(--white); color: var(--navy); }
-  .tele-inner { max-width: 760px; margin: 0 auto; }
-  .tele-left h2 { font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 700; margin-bottom: 16px; }
-  .tele-left p { font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-bottom: 20px; }
-  .tele-bullets { list-style: none; margin-bottom: 36px; display: flex; flex-direction: column; gap: 16px; }
+  .tele-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(32px, 6vw, 80px);
+  }
+  .tele-left h2 {
+    font-size: clamp(1.95rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.12;
+    text-wrap: balance;
+    margin-bottom: 24px;
+  }
+  .tele-left p { font-size: 1rem; line-height: 1.7; margin-bottom: 16px; }
+  .tele-left p:last-child { margin-bottom: 0; }
+  .tele-panel {
+    padding: clamp(22px, 3vw, 38px);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 22px;
+    background: rgba(255,255,255,.08);
+    box-shadow: 0 14px 32px rgba(8,23,44,.15);
+  }
+  .tele-panel h3 {
+    color: var(--white);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .tele-bullets { list-style: none; display: grid; gap: 0; margin: 0 0 24px; padding: 0; }
+  .tele-bullets li { padding-block: 12px; border-top: 1px solid rgba(255,255,255,.16); }
+  .tele-bullets li:last-child { border-bottom: 1px solid rgba(255,255,255,.16); }
+  .tele-panel .btn-primary { display: flex; width: 100%; justify-content: center; }
   .tele-bullets li { display: flex; align-items: center; gap: 14px; font-size: 14.5px; color: var(--text-muted); min-height: 44px; }
   .tele-bullets li strong { color: var(--navy); display: block; margin-bottom: 0; font-size: 15px; line-height: 1.25; }
   .bullet-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(24,56,95,.08); border: 1px solid rgba(24,56,95,.18); display: grid; place-items: center; flex: 0 0 44px; font-size: 16px; line-height: 1; }
@@ -483,7 +515,6 @@
     .stat-card .num { font-size: 1.3rem; }
     section { padding: 60px 5%; }
     .section-sub { white-space: normal; font-size: 14px; }
-    .credentials-inner { padding: 30px 24px; }
     .cred-grid { grid-template-columns: 1fr; gap: 12px; }
     .logos-row { gap: 16px; }
     .logos-row img { height: 50px; }
@@ -501,10 +532,7 @@
     .btn-farmaco { display: flex; width: 100%; max-width: 330px; margin-left: auto; margin-right: auto; }
     .farmaco-videos { grid-template-columns: 1fr; gap: 28px; margin-top: 36px; }
     .farmaco-video-caption { font-size: 1rem; white-space: normal; }
-    .tele-left { text-align: left; }
-    .tele-left h2 { font-size: 1.6rem; text-align: center; }
-    .tele-left .btn-primary { display: flex; width: 100%; max-width: 330px; margin-left: auto; margin-right: auto; justify-content: center; }
-    .tele-bullets { align-items: stretch; text-align: left; }
+    .tele-inner { grid-template-columns: minmax(0, 1fr); gap: 28px; }
     .livro-inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
     .livro-right { text-align: left; }
     .book-cover { max-width: 200px; margin: 0 auto; }
@@ -579,7 +607,6 @@
     .contact-card .cval { font-size: .95rem; }
     .wa-float { width: 50px; height: 50px; bottom: 18px; right: 18px; }
     .wa-float svg { width: 24px; height: 24px; }
-    .tele-bullets li { font-size: 13.5px; }
     .depo-text { font-size: 13px; }
     .areas-grid { grid-template-columns: 1fr; }
     .blog-track { gap: 16px; padding-bottom: 12px; }
@@ -737,15 +764,17 @@
   </div>
 </section>
 
-<section id="credentials">
+<section id="credentials" aria-labelledby="telemedicina-titulo">
   <div class="credentials-inner">
     <div class="tele-inner">
       <div class="tele-left">
-        <h2>Psiquiatria de Precisão via Telemedicina</h2>
-        <p>Atendimento através do seu celular ou computador!</p>
-        <p>A teleconsulta permite buscar acompanhamento para a saúde mental e geral de forma prática, segura e acessível, sem necessidade de deslocamento.</p>
+        <h2 id="telemedicina-titulo">Psiquiatria de Precisão via Telemedicina</h2>
+        <p>Faça sua teleconsulta pelo celular ou computador, de onde estiver e sem precisar se deslocar.</p>
         <p>O atendimento é realizado pelo Dr. Guido ou pelos psiquiatras da sua equipe, com orientação clínica personalizada e baseada nas necessidades específicas de cada paciente.</p>
-        <p>Com a telemedicina, é plenamente possível iniciar e manter um tratamento personalizado com o mesmo rigor técnico e eficiência de um atendimento presencial do conforto do seu lar, do seu ambiente de trabalho ou de onde você estiver.</p>
+        <p>Você pode iniciar o tratamento ou dar continuidade ao acompanhamento por teleconsulta.</p>
+      </div>
+      <div class="tele-panel">
+        <h3>Como funciona a teleconsulta</h3>
         <ul class="tele-bullets">
           <li><div class="bullet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H3z"/><path d="m16 10 5-3v10l-5-3z"/></svg></div><div><strong>Consultas por vídeo</strong></div></li>
           <li><div class="bullet-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2z"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div><div><strong>Flexibilidade de horários</strong></div></li>
